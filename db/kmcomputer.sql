@@ -15,66 +15,27 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`kmcomputer` /*!40100 DEFAULT CHARACTER 
 
 USE `kmcomputer`;
 
-/*Table structure for table `articulo` */
-
-DROP TABLE IF EXISTS `articulo`;
-
-CREATE TABLE `articulo` (
-  `idarticulo` int(11) NOT NULL AUTO_INCREMENT,
-  `idcategoria` int(11) NOT NULL,
-  `idcombo` int(11) DEFAULT NULL,
-  `idunidad` int(11) NOT NULL,
-  `codigo` char(15) NOT NULL,
-  `nombre` char(100) NOT NULL,
-  `descripcion` varchar(150) DEFAULT NULL,
-  `precioventa` decimal(10,2) DEFAULT NULL,
-  `preciocompra` decimal(10,2) DEFAULT NULL,
-  `cantidad` smallint(6) NOT NULL,
-  `stock_min` smallint(6) DEFAULT NULL,
-  `peso` decimal(10,2) DEFAULT NULL,
-  `ubicacion` char(4) DEFAULT NULL,
-  `fla` int(11) DEFAULT NULL,
-  `imagen` char(200) DEFAULT NULL,
-  `slug` char(200) DEFAULT NULL,
-  `slugbusqueda` text,
-  `idsubcategoria` int(11) DEFAULT NULL,
-  `flagportada` int(1) DEFAULT '0',
-  `flagoferta` int(11) DEFAULT NULL,
-  `preciooferta` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idarticulo`),
-  KEY `fk_art_sub_fam` (`idcategoria`),
-  KEY `fk_art_combo1` (`idcombo`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
-/*Data for the table `articulo` */
-
-LOCK TABLES `articulo` WRITE;
-
-insert  into `articulo`(`idarticulo`,`idcategoria`,`idcombo`,`idunidad`,`codigo`,`nombre`,`descripcion`,`precioventa`,`preciocompra`,`cantidad`,`stock_min`,`peso`,`ubicacion`,`fla`,`imagen`,`slug`,`slugbusqueda`,`idsubcategoria`,`flagportada`,`flagoferta`,`preciooferta`) values (1,32,NULL,0,'','coca cola descartable medio litro','nuevo','123.00','1233.00',115,NULL,NULL,NULL,1,'coca-cola-descartable-medio-litro-1.jpg','coca-cola-descartable-medio-litro-1','bebida soda gaseosa helada',42,1,1,0),(2,32,NULL,0,'','pepsi medio litroo','pepsi medio litro','123.00','123.00',-8,NULL,NULL,NULL,1,'pepsi-medio-litroo-2.jpg','pepsi-medio-litroo-2','pepsi medio litro soda helada gaseosa',42,0,0,0),(3,33,NULL,0,'','Cristal 355 mL 12pack','Cristal 355 mL 12pack','3.45','1.34',-5,NULL,NULL,NULL,1,'cristal-355-ml-12pack-3.jpg','cristal-355-ml-12pack-3','cristal 355 ml 12pack cerveza chela',34,1,1,23),(4,33,NULL,0,'','Cusqueña 355 mL12pack','Cusqueña 355 mL12pack','2.45','1.34',-17,NULL,NULL,NULL,1,'cusquena-355-ml12pack-4.jpg','cusquena-355-ml12pack-4','cusquena 355 ml12pack',34,1,NULL,NULL),(5,33,NULL,0,'','Barena 330 mL 6pack','Barena 330 mL 6pack','2.45','0.00',0,NULL,NULL,NULL,1,'barena-330-ml-6pack-5.jpg','barena-330-ml-6pack-5','barena 330 ml 6pack chela six pack sixpack',34,1,NULL,NULL),(6,33,NULL,0,'','Pilsen Callao 355 mL 12pack','Pilsen Callao 355 mL 12pack','23.00','21.00',0,NULL,NULL,NULL,1,'pilsen-callao-355-ml-12pack-6.jpg','pilsen-callao-355-ml-12pack-6','pilsen callao 355 ml 12pack cerveza chela licor',34,1,NULL,NULL),(7,33,NULL,0,'','Whisky Johnnie Walker Red Label','Whisky Johnnie Walker Red Label','150.00','100.00',0,NULL,NULL,NULL,1,'whisky-johnnie-walker-red-label-7.jpg','whisky-johnnie-walker-red-label-7','whisky johnnie walker red label',38,1,NULL,NULL);
-
-UNLOCK TABLES;
-
 /*Table structure for table `banner` */
 
 DROP TABLE IF EXISTS `banner`;
 
 CREATE TABLE `banner` (
-  `idbanner` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `descripcion` text COLLATE utf8_unicode_ci,
-  `imagen` varchar(600) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `url` varchar(600) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `precio` double DEFAULT NULL,
-  `orden` tinyint(4) DEFAULT NULL,
-  `estado` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`idbanner`)
+  `Idbaner` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Descripcion` text COLLATE utf8_unicode_ci,
+  `Imagen` varchar(600) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Url` varchar(600) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Precio` double DEFAULT NULL,
+  `Orden` tinyint(4) DEFAULT NULL,
+  `Estado` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`Idbaner`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `banner` */
 
 LOCK TABLES `banner` WRITE;
 
-insert  into `banner`(`idbanner`,`nombre`,`descripcion`,`imagen`,`url`,`precio`,`orden`,`estado`) values (1,'foto 1',NULL,'pame.jpg',NULL,NULL,1,1),(4,'Banner4','esto es un banner','banner4-4.jpg','www.google.com',150,NULL,1),(5,'chelo','gae','chelo-5.jpg','asdasdas',25,2,1);
+insert  into `banner`(`Idbaner`,`Nombre`,`Descripcion`,`Imagen`,`Url`,`Precio`,`Orden`,`Estado`) values (1,'foto 1',NULL,'pame.jpg',NULL,NULL,1,1),(4,'Banner4','esto es un banner','banner4-4.jpg','www.google.com',150,NULL,1),(5,'chelo','gae','chelo-5.jpg','asdasdas',25,2,1);
 
 UNLOCK TABLES;
 
@@ -83,22 +44,22 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `categoria`;
 
 CREATE TABLE `categoria` (
-  `idcategoria` int(11) NOT NULL AUTO_INCREMENT,
-  `codigo` varchar(50) NOT NULL,
-  `descripcion` varchar(50) DEFAULT NULL,
-  `nombre` char(50) DEFAULT NULL,
-  `estado` int(1) DEFAULT '1',
-  `idpadre` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idcategoria`),
-  FULLTEXT KEY `cod` (`codigo`),
-  FULLTEXT KEY `des` (`descripcion`)
+  `IdCategoria` int(11) NOT NULL AUTO_INCREMENT,
+  `Codigo` varchar(50) NOT NULL,
+  `Descripcion` varchar(50) DEFAULT NULL,
+  `Nombre` char(50) DEFAULT NULL,
+  `Estado` int(1) DEFAULT '1',
+  `IdPadre` int(11) DEFAULT NULL,
+  PRIMARY KEY (`IdCategoria`),
+  FULLTEXT KEY `cod` (`Codigo`),
+  FULLTEXT KEY `des` (`Descripcion`)
 ) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 /*Data for the table `categoria` */
 
 LOCK TABLES `categoria` WRITE;
 
-insert  into `categoria`(`idcategoria`,`codigo`,`descripcion`,`nombre`,`estado`,`idpadre`) values (38,'','Whisky','Whisky',1,33),(42,'','Gaseosas','Gaseosas',1,32),(41,'','Pisco','Pisco',1,33),(40,'','Ron','Ron',1,33),(39,'','Vodka','Vodka',1,33),(37,'','Hielo y Otros','Hielo y Otros',1,NULL),(43,'CG','CIgarrillos de diferentes marcas','Cigarros',1,NULL),(35,'','Snacks y Piqueos','Snacks y Piqueos',1,NULL),(34,'','Cerveza','Cerveza',1,33),(33,'','Licores','Licores',1,NULL),(32,'','bebidas','Bebidas',1,NULL),(44,'','energizantess','Energizantes',1,32);
+insert  into `categoria`(`IdCategoria`,`Codigo`,`Descripcion`,`Nombre`,`Estado`,`IdPadre`) values (38,'','Whisky','Whisky',1,33),(42,'','Gaseosas','Gaseosas',1,32),(41,'','Pisco','Pisco',1,33),(40,'','Ron','Ron',1,33),(39,'','Vodka','Vodka',1,33),(37,'','Hielo y Otros','Hielo y Otros',1,NULL),(43,'CG','CIgarrillos de diferentes marcas','Cigarros',1,NULL),(35,'','Snacks y Piqueos','Snacks y Piqueos',1,NULL),(34,'','Cerveza','Cerveza',1,33),(33,'','Licores','Licores',1,NULL),(32,'','bebidas','Bebidas',1,NULL),(44,'','energizantess','Energizantes',1,32);
 
 UNLOCK TABLES;
 
@@ -163,17 +124,17 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `detalleslug`;
 
 CREATE TABLE `detalleslug` (
-  `iddetalleslug` int(11) NOT NULL AUTO_INCREMENT,
-  `idarticulo` int(11) DEFAULT NULL,
-  `idslug` int(11) DEFAULT NULL,
-  PRIMARY KEY (`iddetalleslug`)
+  `IdDetalleSlug` int(11) NOT NULL AUTO_INCREMENT,
+  `IdProducto` int(11) DEFAULT NULL,
+  `IdSlug` int(11) DEFAULT NULL,
+  PRIMARY KEY (`IdDetalleSlug`)
 ) ENGINE=InnoDB AUTO_INCREMENT=411 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `detalleslug` */
 
 LOCK TABLES `detalleslug` WRITE;
 
-insert  into `detalleslug`(`iddetalleslug`,`idarticulo`,`idslug`) values (8,6282,5),(9,6282,1),(10,6282,2),(11,6282,8),(12,6282,9),(13,6283,10),(14,6283,1),(15,6283,2),(16,6283,8),(17,6283,9),(18,6283,11),(291,5,25),(292,5,26),(293,5,27),(294,5,28),(295,5,22),(296,5,23),(297,5,24),(298,5,29),(304,4,30),(305,4,31),(306,4,32),(313,0,34),(314,0,35),(315,0,31),(316,0,27),(317,0,33),(318,0,19),(319,0,36),(320,6,34),(321,6,35),(322,6,31),(323,6,27),(324,6,33),(325,6,19),(326,6,22),(327,6,37),(338,7,38),(339,7,39),(340,7,40),(341,7,41),(342,7,42),(376,3,20),(377,3,31),(378,3,27),(379,3,33),(380,3,19),(381,3,22),(395,2,11),(396,2,8),(397,2,43),(398,2,9),(399,2,15),(400,2,18),(401,2,7),(402,1,1),(403,1,2),(404,1,16),(405,1,8),(406,1,9),(407,1,10),(408,1,15),(409,1,7),(410,1,18);
+insert  into `detalleslug`(`IdDetalleSlug`,`IdProducto`,`IdSlug`) values (8,6282,5),(9,6282,1),(10,6282,2),(11,6282,8),(12,6282,9),(13,6283,10),(14,6283,1),(15,6283,2),(16,6283,8),(17,6283,9),(18,6283,11),(291,5,25),(292,5,26),(293,5,27),(294,5,28),(295,5,22),(296,5,23),(297,5,24),(298,5,29),(304,4,30),(305,4,31),(306,4,32),(313,0,34),(314,0,35),(315,0,31),(316,0,27),(317,0,33),(318,0,19),(319,0,36),(320,6,34),(321,6,35),(322,6,31),(323,6,27),(324,6,33),(325,6,19),(326,6,22),(327,6,37),(338,7,38),(339,7,39),(340,7,40),(341,7,41),(342,7,42),(376,3,20),(377,3,31),(378,3,27),(379,3,33),(380,3,19),(381,3,22),(395,2,11),(396,2,8),(397,2,43),(398,2,9),(399,2,15),(400,2,18),(401,2,7),(402,1,1),(403,1,2),(404,1,16),(405,1,8),(406,1,9),(407,1,10),(408,1,15),(409,1,7),(410,1,18);
 
 UNLOCK TABLES;
 
@@ -215,6 +176,45 @@ LOCK TABLES `ofertareciente` WRITE;
 
 UNLOCK TABLES;
 
+/*Table structure for table `producto` */
+
+DROP TABLE IF EXISTS `producto`;
+
+CREATE TABLE `producto` (
+  `IdProducto` int(11) NOT NULL AUTO_INCREMENT,
+  `IdCategoria` int(11) NOT NULL,
+  `IdCombo` int(11) DEFAULT NULL,
+  `IdUnidad` int(11) NOT NULL,
+  `Codigo` char(15) NOT NULL,
+  `Nombre` char(100) NOT NULL,
+  `Descripcion` varchar(150) DEFAULT NULL,
+  `PrecioVenta` decimal(10,2) DEFAULT NULL,
+  `PrecioCompra` decimal(10,2) DEFAULT NULL,
+  `Cantidad` smallint(6) NOT NULL,
+  `StockMin` smallint(6) DEFAULT NULL,
+  `Peso` decimal(10,2) DEFAULT NULL,
+  `Ubicacion` char(4) DEFAULT NULL,
+  `Fla` int(11) DEFAULT NULL,
+  `Imagen` char(200) DEFAULT NULL,
+  `Slug` char(200) DEFAULT NULL,
+  `SlugBusqeuda` text,
+  `IdSubcategoria` int(11) DEFAULT NULL,
+  `FlagPortada` int(1) DEFAULT '0',
+  `FlagOferta` int(11) DEFAULT NULL,
+  `PrecioOferta` int(11) DEFAULT NULL,
+  PRIMARY KEY (`IdProducto`),
+  KEY `fk_art_sub_fam` (`IdCategoria`),
+  KEY `fk_art_combo1` (`IdCombo`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+/*Data for the table `producto` */
+
+LOCK TABLES `producto` WRITE;
+
+insert  into `producto`(`IdProducto`,`IdCategoria`,`IdCombo`,`IdUnidad`,`Codigo`,`Nombre`,`Descripcion`,`PrecioVenta`,`PrecioCompra`,`Cantidad`,`StockMin`,`Peso`,`Ubicacion`,`Fla`,`Imagen`,`Slug`,`SlugBusqeuda`,`IdSubcategoria`,`FlagPortada`,`FlagOferta`,`PrecioOferta`) values (1,32,NULL,0,'','coca cola descartable medio litro','nuevo','123.00','1233.00',115,NULL,NULL,NULL,1,'coca-cola-descartable-medio-litro-1.jpg','coca-cola-descartable-medio-litro-1','bebida soda gaseosa helada',42,1,1,0),(2,32,NULL,0,'','pepsi medio litroo','pepsi medio litro','123.00','123.00',-8,NULL,NULL,NULL,1,'pepsi-medio-litroo-2.jpg','pepsi-medio-litroo-2','pepsi medio litro soda helada gaseosa',42,0,0,0),(3,33,NULL,0,'','Cristal 355 mL 12pack','Cristal 355 mL 12pack','3.45','1.34',-5,NULL,NULL,NULL,1,'cristal-355-ml-12pack-3.jpg','cristal-355-ml-12pack-3','cristal 355 ml 12pack cerveza chela',34,1,1,23),(4,33,NULL,0,'','Cusqueña 355 mL12pack','Cusqueña 355 mL12pack','2.45','1.34',-17,NULL,NULL,NULL,1,'cusquena-355-ml12pack-4.jpg','cusquena-355-ml12pack-4','cusquena 355 ml12pack',34,1,NULL,NULL),(5,33,NULL,0,'','Barena 330 mL 6pack','Barena 330 mL 6pack','2.45','0.00',0,NULL,NULL,NULL,1,'barena-330-ml-6pack-5.jpg','barena-330-ml-6pack-5','barena 330 ml 6pack chela six pack sixpack',34,1,NULL,NULL),(6,33,NULL,0,'','Pilsen Callao 355 mL 12pack','Pilsen Callao 355 mL 12pack','23.00','21.00',0,NULL,NULL,NULL,1,'pilsen-callao-355-ml-12pack-6.jpg','pilsen-callao-355-ml-12pack-6','pilsen callao 355 ml 12pack cerveza chela licor',34,1,NULL,NULL),(7,33,NULL,0,'','Whisky Johnnie Walker Red Label','Whisky Johnnie Walker Red Label','150.00','100.00',0,NULL,NULL,NULL,1,'whisky-johnnie-walker-red-label-7.jpg','whisky-johnnie-walker-red-label-7','whisky johnnie walker red label',38,1,NULL,NULL);
+
+UNLOCK TABLES;
+
 /*Table structure for table `productodestacado` */
 
 DROP TABLE IF EXISTS `productodestacado`;
@@ -238,17 +238,17 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `relacionararticulo`;
 
 CREATE TABLE `relacionararticulo` (
-  `idrelacionarticulo` int(11) NOT NULL AUTO_INCREMENT,
-  `idarticulo` int(11) DEFAULT NULL,
-  `idarticulorelacionado` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idrelacionarticulo`)
+  `IdRelacionarticulo` int(11) NOT NULL AUTO_INCREMENT,
+  `IdProducto` int(11) DEFAULT NULL,
+  `IdProductoRelacionado` int(11) DEFAULT NULL,
+  PRIMARY KEY (`IdRelacionarticulo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `relacionararticulo` */
 
 LOCK TABLES `relacionararticulo` WRITE;
 
-insert  into `relacionararticulo`(`idrelacionarticulo`,`idarticulo`,`idarticulorelacionado`) values (7,3,4),(8,3,5),(9,3,6),(10,3,7),(11,7,3),(12,7,4),(13,7,5),(14,7,6);
+insert  into `relacionararticulo`(`IdRelacionarticulo`,`IdProducto`,`IdProductoRelacionado`) values (7,3,4),(8,3,5),(9,3,6),(10,3,7),(11,7,3),(12,7,4),(13,7,5),(14,7,6);
 
 UNLOCK TABLES;
 
@@ -257,16 +257,16 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `slug`;
 
 CREATE TABLE `slug` (
-  `idslug` int(11) NOT NULL AUTO_INCREMENT,
-  `nombreslug` char(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`idslug`)
+  `IdSlug` int(11) NOT NULL AUTO_INCREMENT,
+  `NombreSlug` char(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`IdSlug`)
 ) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `slug` */
 
 LOCK TABLES `slug` WRITE;
 
-insert  into `slug`(`idslug`,`nombreslug`) values (1,'coca'),(2,'cola'),(3,'wisky'),(4,'ron'),(5,'bebidas'),(6,'pisco'),(7,'gaseosa'),(8,'medio'),(9,'litro'),(10,'bebida'),(11,'pepsi'),(12,'1'),(13,'2'),(14,'cocagaseosabebidasoda'),(15,'soda'),(16,'descartable'),(17,'bebidasodagaseosahelada'),(18,'helada'),(19,'cerveza'),(20,'cristal'),(21,'litros'),(22,'chela'),(23,'six'),(24,'pack'),(25,'barena'),(26,'330'),(27,'ml'),(28,'6pack'),(29,'sixpack'),(30,'cusquena'),(31,'355'),(32,'ml12pack'),(33,'12pack'),(34,'pilsen'),(35,'callao'),(36,'licores'),(37,'licor'),(38,'whisky'),(39,'johnnie'),(40,'walker'),(41,'red'),(42,'label'),(43,'litroo');
+insert  into `slug`(`IdSlug`,`NombreSlug`) values (1,'coca'),(2,'cola'),(3,'wisky'),(4,'ron'),(5,'bebidas'),(6,'pisco'),(7,'gaseosa'),(8,'medio'),(9,'litro'),(10,'bebida'),(11,'pepsi'),(12,'1'),(13,'2'),(14,'cocagaseosabebidasoda'),(15,'soda'),(16,'descartable'),(17,'bebidasodagaseosahelada'),(18,'helada'),(19,'cerveza'),(20,'cristal'),(21,'litros'),(22,'chela'),(23,'six'),(24,'pack'),(25,'barena'),(26,'330'),(27,'ml'),(28,'6pack'),(29,'sixpack'),(30,'cusquena'),(31,'355'),(32,'ml12pack'),(33,'12pack'),(34,'pilsen'),(35,'callao'),(36,'licores'),(37,'licor'),(38,'whisky'),(39,'johnnie'),(40,'walker'),(41,'red'),(42,'label'),(43,'litroo');
 
 UNLOCK TABLES;
 
@@ -275,16 +275,16 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `tipousuario`;
 
 CREATE TABLE `tipousuario` (
-  `idtipousuario` int(11) NOT NULL,
-  `nombretipousuario` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`idtipousuario`)
+  `IdTipoUsuario` int(11) NOT NULL,
+  `NombreTipoUsuario` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`IdTipoUsuario`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `tipousuario` */
 
 LOCK TABLES `tipousuario` WRITE;
 
-insert  into `tipousuario`(`idtipousuario`,`nombretipousuario`) values (1,'Usuarios del sistema'),(2,'Clientes');
+insert  into `tipousuario`(`IdTipoUsuario`,`NombreTipoUsuario`) values (1,'Usuarios del sistema'),(2,'Clientes');
 
 UNLOCK TABLES;
 
@@ -317,28 +317,28 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `usuario`;
 
 CREATE TABLE `usuario` (
-  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` char(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `apellidopaterno` char(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `apellidomaterno` char(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `idtipousuario` int(11) DEFAULT '1',
-  `estado` int(11) DEFAULT '1',
-  `login` char(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password` char(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `telefono` char(15) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `correo` char(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `IdUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  `NombreUsuario` char(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ApellidoPaternoUsuario` char(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ApellidoMaternoUsuario` char(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `IdTipousuario` int(11) DEFAULT '1',
+  `Estado` int(11) DEFAULT '1',
+  `Login` char(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Password` char(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Telefono` char(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Correo` char(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `FlagSuperUsuario` int(1) DEFAULT '0',
-  `idcliente` int(11) DEFAULT NULL,
-  `dni` int(8) DEFAULT NULL,
-  `direccion` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`idusuario`)
+  `IdCliente` int(11) DEFAULT NULL,
+  `Dni` int(8) DEFAULT NULL,
+  `Direccion` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`IdUsuario`)
 ) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `usuario` */
 
 LOCK TABLES `usuario` WRITE;
 
-insert  into `usuario`(`idusuario`,`nombre`,`apellidopaterno`,`apellidomaterno`,`idtipousuario`,`estado`,`login`,`password`,`telefono`,`correo`,`FlagSuperUsuario`,`idcliente`,`dni`,`direccion`) values (1,'nazart','huaman','jara',1,1,'nazarjb@hotmail.com','123123','22312223','nazarjb@hotmail.com',1,NULL,44513555,NULL);
+insert  into `usuario`(`IdUsuario`,`NombreUsuario`,`ApellidoPaternoUsuario`,`ApellidoMaternoUsuario`,`IdTipousuario`,`Estado`,`Login`,`Password`,`Telefono`,`Correo`,`FlagSuperUsuario`,`IdCliente`,`Dni`,`Direccion`) values (1,'nazart','huaman','jara',1,1,'nazarjb@hotmail.com','123123','22312223','nazarjb@hotmail.com',1,NULL,44513555,NULL);
 
 UNLOCK TABLES;
 
