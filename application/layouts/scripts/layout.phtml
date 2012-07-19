@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" xmlns:fb="http://ogp.me/ns/fb#"> 
+    <head>
+        <?php echo $this->headTitle() ?>
+        <?php echo $this->headMeta() ?>
+        <?php echo $this->headStyle() ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/960.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/960_24_col.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/text.css"/>
+        <?php echo $this->headLink() ?>
+        <?php echo $this->headScript() ?>
+    </head>
+    <body id="<?php echo $this->idBody ?>" class="<?php echo $this->classBody ?>" >
+        <div class="container_24" style="background: aqua">
+            <div>
+                <div class="grid_5" style="background: #ffcccc">
+                    <p>logo</p>
+                    <p>logo</p>
+                </div>
+                <div class="grid_19" style="background: #0398CA">Login</div>
+                
+                <div class="grid_10" style="background: #91BE3F">banner</div>
+            </div>
+            <div class="clear"></div>
+            <div class="clearfix" style="background: #ffcccc"> &nbsp;</div>
+            <div class="grid_24" style="background: #0398CA" >Menu</div>
+            <div class="grid_24" style="background: #ffcccc" >Baner2</div>
+            <div class="grid_4" >Columna Izquierda</div>
+            <div class="grid_8" >
+                Columna Derecha
+                <?php echo $this->layout()->content ?>
+            </div>
+            <div class="grid_2">
+                <p>footer</p>
+            </div>
+
+
+        </div>
+    </body>
+</html>
+
+
+
