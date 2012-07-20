@@ -13,12 +13,12 @@
 class Application_Entity_Producto {
 
     //put your code here
-    protected $_modelPorducto;
+    protected $_modelProducto;
     function __construct() {
-        $this->_modelPorducto = new Application_Model_Producto();
+        $this->_modelProducto = new Application_Model_Producto();
     }
     function listarProductosActivos() {
-        return $this->_modelPorducto->listarProductos();
+        return $this->_modelProducto->listarProductos();
     }
 
     function insertarProductos() {
@@ -30,7 +30,7 @@ class Application_Entity_Producto {
     }
 
     function buscarProductos($slugBusqueda = '') {
-        $productos = $this->_modelPorducto->buscarProductos($slugBusqueda);
+        $productos = $this->_modelProducto->buscarProductos($slugBusqueda);
         return $productos;
     }
 

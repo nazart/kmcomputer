@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : portalNavigation.xml
+    Created on : 19 de julio de 2012, 21:41
+    Author     : Laptop
+    Description:
+        Purpose of the document follows.
+-->
+<configdata>
+    <nav>
+        <home>
+            <label>Inicio</label>
+            <uri>/</uri>
+            <order>1</order>
+        </home>
+        <productos>
+            <label>Productos</label>
+            <uri>/productos</uri>
+            <order>2</order>
+        </productos>
+        <registrate>
+            <label>Registrate</label>
+            <uri>/registrate</uri>
+            <order>3</order>
+        </registrate>
+        <contactenos>
+            <label>Contactenos</label>
+            <uri>/contactenos</uri>
+            <order>4</order>
+        </contactenos>
+    </nav>
+</configdata>

@@ -14,6 +14,7 @@ class Default_CarritoComprasController extends CST_Controller_ActionDefault {
 
     //put your code here
     public function init() {
+        parent::init();
         /* Initialize action controller here */
     }
 

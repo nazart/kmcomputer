@@ -13,6 +13,7 @@
 class Default_BuscarController extends CST_Controller_ActionDefault {
 
     public function init() {
+        parent::init();
         /* Initialize action controller here */
     }
 
@@ -30,7 +31,8 @@ class Default_BuscarController extends CST_Controller_ActionDefault {
         $paginator->setCurrentPageNumber($this->_getParam('page'));
         $paginator->setItemCountPerPage(2);
         $this->view->productos = $paginator;
-        $this->view->slug = str_replace('-', " ", $slug);
+        $this->view->slug = $slug;
+        $this->view->slugSearch = str_replace('-', " ", $slug);
     }
 
     public function busquedaAction() {

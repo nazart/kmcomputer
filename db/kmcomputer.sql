@@ -50,6 +50,7 @@ CREATE TABLE `categoria` (
   `Nombre` char(50) DEFAULT NULL,
   `Estado` int(1) DEFAULT '1',
   `IdPadre` int(11) DEFAULT NULL,
+  `Slug` char(200) DEFAULT NULL,
   PRIMARY KEY (`IdCategoria`),
   FULLTEXT KEY `cod` (`Codigo`),
   FULLTEXT KEY `des` (`Descripcion`)
@@ -59,7 +60,7 @@ CREATE TABLE `categoria` (
 
 LOCK TABLES `categoria` WRITE;
 
-insert  into `categoria`(`IdCategoria`,`Codigo`,`Descripcion`,`Nombre`,`Estado`,`IdPadre`) values (38,'','Whisky','Whisky',1,33),(42,'','Gaseosas','Gaseosas',1,32),(41,'','Pisco','Pisco',1,33),(40,'','Ron','Ron',1,33),(39,'','Vodka','Vodka',1,33),(37,'','Hielo y Otros','Hielo y Otros',1,NULL),(43,'CG','CIgarrillos de diferentes marcas','Cigarros',1,NULL),(35,'','Snacks y Piqueos','Snacks y Piqueos',1,NULL),(34,'','Cerveza','Cerveza',1,33),(33,'','Licores','Licores',1,NULL),(32,'','bebidas','Bebidas',1,NULL),(44,'','energizantess','Energizantes',1,32);
+insert  into `categoria`(`IdCategoria`,`Codigo`,`Descripcion`,`Nombre`,`Estado`,`IdPadre`,`Slug`) values (38,'','Whisky','Whisky',1,33,'whisky'),(42,'','Gaseosas','Gaseosas',1,32,'gaseosas'),(41,'','Pisco','Pisco',1,33,'pisco'),(40,'','Ron','Ron',1,33,'ron'),(39,'','Vodka','Vodka',1,33,'vodka'),(37,'','Hielo y Otros','Hielo y Otros',1,NULL,'hielo-y-otros'),(43,'CG','CIgarrillos de diferentes marcas','Cigarros',1,NULL,'cigarros'),(35,'','Snacks y Piqueos','Snacks y Piqueos',1,NULL,'snack-y-piqueos'),(34,'','Cerveza','Cerveza',1,33,'cerveza'),(33,'','Licores','Licores',1,NULL,'licores'),(32,'','bebidas','Bebidas',1,NULL,'bebidas'),(44,'','energizantess','Energizantes',1,32,'energizantes');
 
 UNLOCK TABLES;
 

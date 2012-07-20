@@ -13,6 +13,7 @@
 class Default_RegistrateController extends CST_Controller_ActionDefault {
 
     public function init() {
+        parent::init();
         /* Initialize action controller here */
     }
 
