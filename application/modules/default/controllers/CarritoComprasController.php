@@ -10,7 +10,7 @@
  *
  * @author Laptop
  */
-class Default_CarritoComprasController extends CST_Controller_Action {
+class Default_CarritoComprasController extends CST_Controller_ActionDefault {
 
     //put your code here
     public function init() {

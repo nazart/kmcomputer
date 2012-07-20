@@ -10,7 +10,7 @@
  *
  * @author Laptop
  */
-class Default_ContactenosController extends CST_Controller_Action {
+class Default_ContactenosController extends CST_Controller_ActionDefault {
 
     public function init() {
         /* Initialize action controller here */
