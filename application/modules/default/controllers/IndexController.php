@@ -1,6 +1,6 @@
 <?php
 
-class Default_IndexController extends CST_Controller_Action
+class Default_IndexController extends CST_Controller_ActionDefault
 {
 
     public function init()

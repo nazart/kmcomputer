@@ -19,15 +19,20 @@
                     <p>logo</p>
                 </div>
                 <div class="grid_19" style="background: #0398CA">Login</div>
-                
+
                 <div class="grid_10" style="background: #91BE3F">banner</div>
             </div>
             <div class="clear"></div>
             <div class="clearfix" style="background: #ffcccc"> &nbsp;</div>
-            <div class="grid_24" style="background: #0398CA" >Menu</div>
+            <div class="grid_24" style="background: #0398CA" >
+                <form action="/buscar" method="post">
+                    <input type="text" value="<?php echo $this->slug ?>" name="search" id="search"/>
+                    <input type="submit" value="Ok" name="button_search" id="button_search"/>
+                </form>
+            </div>
             <div class="grid_24" style="background: #ffcccc" >Baner2</div>
-            <div class="grid_4" >Columna Izquierda</div>
-            <div class="grid_8" >
+            <div class="grid_5" >Columna Izquierda</div>
+            <div class="grid_19" >
                 Columna Derecha
                 <?php echo $this->layout()->content ?>
             </div>

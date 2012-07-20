@@ -158,6 +158,23 @@ LOCK TABLES `detalletransaccion` WRITE;
 
 UNLOCK TABLES;
 
+/*Table structure for table `imagenproducto` */
+
+DROP TABLE IF EXISTS `imagenproducto`;
+
+CREATE TABLE `imagenproducto` (
+  `IdImagen` int(11) NOT NULL AUTO_INCREMENT,
+  `IdProducto` int(11) DEFAULT NULL,
+  `NombreImagen` text,
+  PRIMARY KEY (`IdImagen`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `imagenproducto` */
+
+LOCK TABLES `imagenproducto` WRITE;
+
+UNLOCK TABLES;
+
 /*Table structure for table `ofertareciente` */
 
 DROP TABLE IF EXISTS `ofertareciente`;

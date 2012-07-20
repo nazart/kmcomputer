@@ -6,14 +6,15 @@
  */
 
 /**
- * Description of Action
+ * Description of ActionAdmin
  *
  * @author Laptop
  */
-class CST_Controller_Action extends Zend_Controller_Action {
-    
-    public function init()
-    {
+class CST_Controller_ActionAdmin extends CST_Controller_Action {
+
+    public function init() {
         parent::init();
     }
+
+    //put your code here
 }

@@ -1,0 +1,53 @@
+<?php if ($this->pageCount): ?>
+    <div class="paginationControl">
+        <span class="resumPaginator">   <?php echo $this->firstItemNumber; ?> - <?php echo $this->lastItemNumber; ?>
+            de <?php echo $this->totalItemCount; ?> Totales
+        </span>
+
+        <!-- Previous page link -->
+        <?php if (isset($this->previous)): ?>
+            <?php if ($this->slug != '') { ?>
+                <a href="/buscar/<?php echo $this->slug; ?>/page/<?php echo $this->previous ?>">
+                <?php } else { ?>      
+                    <a href="/buscar/page/<?php echo $this->previous; ?>">    
+                    <?php } ?> 
+
+
+                    &lt; Previous
+                </a> 
+            <?php else: ?>
+                <span class="disabled">&lt; Previous</span> 
+            <?php endif; ?>
+
+            <!-- Numbered page links -->
+            <?php foreach ($this->pagesInRange as $page): ?>
+                <?php if ($page != $this->current): ?>
+                    <?php if ($this->slug != '') { ?>
+                        <a class="page"  href="/buscar/<?php echo $this->slug; ?>/page/<?php echo $page ?>">
+                        <?php } else { ?>      
+                            <a href="/buscar/page/<?php echo $page ?>">    
+                            <?php } ?> 
+
+
+                            <?php echo $page; ?>
+                        </a> 
+                    <?php else: ?>
+                        <span class="page select"><?php echo $page; ?> </span>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+
+                <!-- Next page link -->
+                <?php if (isset($this->next)): ?>
+                    <?php if ($this->slug != '') { ?>
+                        <a href="/buscar/<?php echo $this->slug; ?>/page/<?php echo $this->next; ?>">
+                        <?php } else { ?>      
+                            <a href="/buscar/page/<?php echo $this->next; ?>">    
+                            <?php } ?>      
+                            Next &gt;
+                        </a>
+                    <?php else: ?>
+                        <span class="disabled">Next &gt;</span>
+                    <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+
