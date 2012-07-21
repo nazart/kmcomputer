@@ -34,6 +34,8 @@ class Application_Model_Categoria {
                 ->query()->fetchAll()
                                 ;
     }
+    
+    
 }
 
 ?>

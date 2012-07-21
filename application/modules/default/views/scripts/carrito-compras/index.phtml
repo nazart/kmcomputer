@@ -1,5 +1,23 @@
-<div class="grid_5" >Columna Izquierda</div>
-            <div class="grid_19" >
-                Columna Derecha
-               
-            </div>
+<div class="grid_24" >
+    <ul>
+        <?php foreach ($this->listaCarrito as $index=>$valor) {
+            ?>
+            <li id="ItemCarrito_<?php echo $index ?>">
+                <div class="ItemCarritoImagen"><img src="<?php echo CST_Server_ServerDinamic::getUrl() ?>/img/imagen-producto/<?php echo $valor['Imagen'] ?>" /></div>
+                <div class="ItemCarritoNombre">
+                    <div><?php echo $valor['Nombre'] ?></div>
+                    <div><?php echo $valor['Descripcion'] ?></div>
+                </div>
+                <div class="ItemCarritoCantidad"><?php echo $valor['cantidad'] ?></div>
+                <div class="ItemCarritoSumRest">
+                    <a id="AumentarCarrito" href="/carrito-compras/aumentar-producto/indice/<?php echo $index ?>">Aumentar 1</a>
+                    <a id="DisminuirCarrito" href="/carrito-compras/disminuir-producto/indice/<?php echo $index ?>">Disminuir 1</a>
+                </div>
+                <div><?php echo $valor['PrecioVenta'] ?></div>
+                <div><a id="eliminarCarrito_<?php echo $index ?>" href="/carrito-compras/eliminar-producto/indice/<?php echo $index ?>" >Eliminar</a></div>
+            </li>
+            <?php
+        }
+        ?>
+    </ul>
+</div>

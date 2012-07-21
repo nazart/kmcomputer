@@ -37,9 +37,15 @@ class Application_Entity_Producto {
     function listarOfertasRecientes() {
         
     }
-
-    function listarProducto($idProducto, $estado) {
-        
+    function listarProducto($idProducto='', $estado='',$slug='') {
+        $result = $this->_modelProducto->listarDetalleProductoActivoPorSlug($slug);
+        return $result;
+    }
+    function listarProductosDeUnaCategoria($slugCategoria){
+        return $this->_modelProducto->listarProductosDeUnaCategoria($slugCategoria);
+    }
+    function listarProductosRelacionados($idProductos){
+        return $this->_modelProducto->listarProductosRelacionados($idProductos);
     }
 
 }

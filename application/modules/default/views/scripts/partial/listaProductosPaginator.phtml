@@ -1,0 +1,54 @@
+<?php if (count($this->productos) > 0) { ?>
+    <ul>
+        <?php foreach ($this->productos as $index): ?>
+            <li class="">
+                <div id="">
+                    <h5>
+                        <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="<?php echo $index['Nombre'] ?>"><?php echo $index['Nombre'] ?></a>
+                    </h5>
+                    <div>
+                        <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="<?php echo $index['Nombre'] ?>">
+                            <img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/imagen-producto/<?php echo $index['Imagen'] ?>?<?php echo rand(0, 1000); ?>" alt="<?php echo $index['Nombre'] ?>" />
+                        </a>
+                    </div>
+                    <div>
+                        <form id="form_pres_<?php echo $index['IdProducto'] ?>" action="/carrito-compras/registrar-producto" method="Post">
+                            <input type="hidden" id="hidden_idproducto_<?php echo $index['IdProducto'] ?>" name="slugProducto" value="<?php echo $index['Slug'] ?>" />
+                            <div>
+                                <?php if ($index['FlagOferta'] == 1) { ?>
+                                    <div>Antes S/. <?php echo $index['PrecioOferta'] ?></div>
+                                    <div>S/. <?php echo $index['PrecioOferta'] ?></div>
+                                <?php } else { ?>
+                                    <div>S/. <?php echo $index['PrecioVenta'] ?></div>
+                                <?php } ?>
+                            </div>
+                            <p>
+                                <select id="text_cant_<?php echo $index['IdProducto'] ?>" 
+                                        name="cantidad" >
+                                            <?php for ($i = 1; $i <= 20; $i++) { ?>
+                                        <option value="<?php echo $i; ?>">    
+                                            <?php echo $i; ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                                <span>cantidad</span>
+                            </p>
+                            <p>
+                                <a href="" id="ajax_id_product_<?php echo $index['IdProducto'] ?>" rel="ajax_id_product_<?php echo $index['IdProducto'] ?>"  title="Añadir al carrito">
+                                    Añadir al carrito
+                                </a>
+                                <a href="/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="Ver">
+                                    Ver
+                                </a>
+                            </p>
+                        </form>
+                    </div>						
+                </div>
+            </li>
+        <?php endforeach; ?>
+
+    </ul>
+    <?php echo $this->paginator; ?>
+<?php } else { ?>    
+    No se encontro ningun producto
+<?php } ?> 
