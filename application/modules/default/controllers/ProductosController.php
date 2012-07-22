@@ -18,7 +18,7 @@ class Default_ProductosController extends CST_Controller_ActionDefault {
     }
 
     public function indexAction() {
-        
+        $this->view->productos = $this->listarProductos();
     }
 
     public function detalleProductoAction() {
@@ -39,9 +39,13 @@ class Default_ProductosController extends CST_Controller_ActionDefault {
         $this->view->slugCategoria = $this->_getParam('categoria');
     }
 
-    private function listarProductos($slugCategoria) {
+    private function listarProductos($slugCategoria='') {
         $productos = new Application_Entity_Producto();
-        $result = $productos->listarProductosDeUnaCategoria($slugCategoria);
+        if($slugCategoria==''){
+        $result = $productos->listarTodosLosProductos();
+        }else{
+            $result = $productos->listarProductosDeUnaCategoria($slugCategoria);
+        }
         $paginator = Zend_Paginator::factory($result);
         $paginator->setCurrentPageNumber($this->_getParam('page'));
         $paginator->setItemCountPerPage(2);

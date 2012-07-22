@@ -1,8 +1,18 @@
 <div class="grid_5" >
     Columna Izquierda
-    <?php echo $this->navigation($this->resultNavigationCategorias)->menu();?>
+    <?php echo $this->navigation($this->resultNavigationCategorias)->menu(); ?>
 </div>
-            <div class="grid_19" >
-                Columna Derecha
-               
-            </div>
+<div class="grid_19" >
+    Columna Derecha
+    <div class="block_content">
+        <?php
+        echo $paginator = $this->paginationControl($this->productos, 'Sliding', '/paginator/Product.phtml');
+        $params = array('productos' => $this->productos, 'paginator' => $paginator);
+        echo $this->partial('/partial/listaProductosPaginator.phtml', $params)
+        ?>
+
+
+
+    </div>               
+
+</div>

@@ -57,6 +57,9 @@ class Application_Model_Producto {
         return $result;
     }
 
+    /* lista los productos activos que pertenecen a una categoria 
+     * en caso no tenga una categoria lista todos los productos
+     */
     public function listarProductosDeUnaCategoria($slugCategoria='') {
         $arrayCampos = array(
             'pr.IdProducto',
@@ -80,11 +83,12 @@ class Application_Model_Producto {
                     ->where('pr.fla = ? ', '1');
         } else {
             $return = $this->_modelProducto->getAdapter()
-                    ->select()->from(array('pr' => $this->_modelProducto->getAdapter()), $arrayCampos)
+                    ->select()->from(array('pr' => $this->_modelProducto->getName()), $arrayCampos)
                     ->where('pr.fla = ? ', '1');
         }
         return $return;
     }
+    
 
     function listarDetalleProductoActivoPorSlug($SlugProducto) {
          $arrayCampos = array(

@@ -46,7 +46,11 @@ class Default_CarritoComprasController extends CST_Controller_ActionDefault {
                 $this->_session->carritoCompras[$indice] = $producto->listarProducto('', '', $this->_getParam('slugProducto'));
                 $this->_session->carritoCompras[$indice]['cantidad'] = $this->_getParam('cantidad');
             } else {
-                $this->_session->carritoCompras[$indiceEncontrado]['cantidad'] = $this->_getParam('cantidad') + $this->_session->carritoCompras[$indiceEncontrado]['cantidad'];
+                if ($this->_getParam('cantidadTotal') > 0) {
+                    $this->_session->carritoCompras[$indiceEncontrado]['cantidad'] = $this->_getParam('cantidadTotal');
+                } else {
+                    $this->_session->carritoCompras[$indiceEncontrado]['cantidad'] = $this->_getParam('cantidad') + $this->_session->carritoCompras[$indiceEncontrado]['cantidad'];
+                }
             }
         }
 
@@ -57,17 +61,18 @@ class Default_CarritoComprasController extends CST_Controller_ActionDefault {
         unset($this->_session->carritoCompras[$this->_getParam('indice')]);
         $this->_redirect('carrito-compras');
     }
-    function aumentarProductoAction(){
+
+    function aumentarProductoAction() {
         $indice = $this->_getParam('indice');
         $this->_session->carritoCompras[$indice]['cantidad'] = 1 + $this->_session->carritoCompras[$indice]['cantidad'];
         $this->_redirect('carrito-compras');
-        
     }
-    function disminuirProductoAction(){
+
+    function disminuirProductoAction() {
         $indice = $this->_getParam('indice');
         $this->_session->carritoCompras[$indice]['cantidad'] = $this->_session->carritoCompras[$indice]['cantidad'] - 1;
-        if($this->_session->carritoCompras[$indice]['cantidad']==0){
-                $this->_redirect('carrito-compras/eliminar-producto/indice/'.$indice);
+        if ($this->_session->carritoCompras[$indice]['cantidad'] == 0) {
+            $this->_redirect('carrito-compras/eliminar-producto/indice/' . $indice);
         }
         $this->_redirect('carrito-compras');
     }

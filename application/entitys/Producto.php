@@ -44,6 +44,9 @@ class Application_Entity_Producto {
     function listarProductosDeUnaCategoria($slugCategoria){
         return $this->_modelProducto->listarProductosDeUnaCategoria($slugCategoria);
     }
+    function listarTodosLosProductos(){
+        return $this->_modelProducto->listarProductosDeUnaCategoria();
+    }
     function listarProductosRelacionados($idProductos){
         return $this->_modelProducto->listarProductosRelacionados($idProductos);
     }

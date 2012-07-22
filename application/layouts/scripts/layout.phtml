@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/960.css"/>
         <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/960_24_col.css"/>
         <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/kmcomputer.general.css"/>
         <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/text.css"/>
         <?php echo $this->headLink() ?>
         <script src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/jquery-v1.7.2.js"></script>
@@ -27,7 +28,10 @@
             <div class="clear"></div>
             <div class="clearfix" style="background: #ffcccc"> &nbsp;</div>
             <div class="grid_24" style="background: #0398CA" >
-                <?php echo $this->navigation()->menu(); ?>
+                <div class="grid_18" id="navbar">
+                    <?php echo $this->navigation()->menu(); ?>
+                </div>
+                
                 <form action="/buscar" method="post">
                     <input type="text" value="<?php echo $this->slugSearch  ?>" name="search" id="search"/>
                     <input type="submit" value="Ok" name="button_search" id="button_search"/>

@@ -1,0 +1,31 @@
+/* 
+    Document   : kmcomputer.general
+    Created on : 21-jul-2012, 11:48:14
+    Author     : Laptop
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+div#navbar {  
+    background-color: #8FC73E;  
+    padding: 10px 0;  
+} 
+div#navbar ul {  
+    list-style: none;  
+    display: block;  
+    margin: 0 10px;  
+}  
+  
+div#navbar ul li {  
+    float: left;  
+    margin: 0 1.5em;  
+    font: bold 1em Arial;  
+} 
+div#navbar ul li ul {  
+    display: none;  
+} 
+

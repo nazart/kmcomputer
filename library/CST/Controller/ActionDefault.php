@@ -26,7 +26,6 @@ class CST_Controller_ActionDefault  extends CST_Controller_Action {
             'productos'=>array('label'=>'Productos','uri'=>'/productos','orden'=>'2'),
             'registrate'=>array('label'=>'Registrate','uri'=>'/registrate','orden'=>'3'),
             'contactenos'=>array('label'=>'Contactenos','uri'=>'/contactenos','orden'=>'4'),
-            
             );
         $configNavigationArray['productos']['pages']=$listaCategorias;
         $this->view->listaCategoriasNavigator = $listaCategorias;

@@ -13,7 +13,6 @@
     <div class="block_content">
         <?php
         $params = array('slugCategoria' => $this->slugCategoria);
-        
         echo $paginator = $this->paginationControl($this->productos, 'Sliding', '/paginator/ProductForCategorias.phtml', $params);
         $params = array('productos'=>$this->productos,'paginator'=>$paginator);
         echo $this->partial('/partial/listaProductosPaginator.phtml', $params)
