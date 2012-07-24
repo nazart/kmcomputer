@@ -27,7 +27,6 @@ class CST_Controller_ActionDefault extends CST_Controller_Action {
         );
         if (!$listaCategorias)
             $listaCategorias = array();
-
         $configNavigationArray['productos']['pages'] = $listaCategorias;
         $this->view->listaCategoriasNavigator = $listaCategorias;
         $navigation = new Zend_Navigation($configNavigationArray);
