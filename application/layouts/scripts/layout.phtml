@@ -31,21 +31,23 @@
                 <div class="grid_18" id="navbar">
                     <?php echo $this->navigation()->menu(); ?>
                 </div>
-                
+
                 <form action="/buscar" method="post">
-                    <input type="text" value="<?php echo $this->slugSearch  ?>" name="search" id="search"/>
+                    <input type="text" value="<?php echo $this->slugSearch ?>" name="search" id="search"/>
                     <input type="submit" value="Ok" name="button_search" id="button_search"/>
                 </form>
             </div>
             <div class="grid_24" style="background: #ffcccc" >Baner2</div>
-            <div>Estas en: <?php echo $this->navigation()
-                    ->breadcrumbs()
-                    ->setMinDepth(0)
-                    ->setLinkLast(true)
-                    ->setSeparator(" : ");
-            ?></div>
-           <?php echo $this->layout()->content ?>
-           
+            <div>Estas en: <?php
+                    echo $this->navigation()
+                            ->breadcrumbs()
+                            ->setMinDepth(0)
+                            ->setLinkLast(true)
+                            ->setSeparator(" &raquo; ");
+                    ?></div>
+
+<?php echo $this->layout()->content ?>
+
             <div class="grid_2">
                 <p>footer</p>
             </div>
@@ -54,6 +56,3 @@
         </div>
     </body>
 </html>
-
-
-

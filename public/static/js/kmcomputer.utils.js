@@ -18,7 +18,11 @@ $(document).ready(function(){
                 $('.result').html(data);
             }
         });
+        
         $('#'+cadena).hide("slow");
+        
+        //alert($('#ListProduct').length);
+        
     });
     
     

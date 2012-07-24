@@ -1,6 +1,6 @@
 <div class="grid_24" >
     <?php $precioTotal = 0;?>
-    <div>
+    <div id="titleItemProduct">
         
         <?php 
         $countTotal = count($this->listaCarrito);
@@ -10,7 +10,7 @@
         Tienes <?php echo $countTotal; ?> producto en tu carrito
         <?php }  ?>
     </div>
-    <ul>
+    <ul id="ListProduct">
         <?php foreach ($this->listaCarrito as $index => $valor) {
             ?>
             <li id="ItemCarrito_<?php echo $index ?>">
