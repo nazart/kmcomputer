@@ -20,14 +20,14 @@
                     <div class="ItemCarritoNombre">
                         <div><?php echo $valor['Nombre'] ?></div>
                         <div><?php echo $valor['Descripcion'] ?></div>
-                        <div>Precio Unitario: <?php echo $valor['PrecioVenta'] ?></div>
+                        <div>Precio Unitario: <span class="precioUnitario"><?php echo $valor['PrecioVenta'] ?></span></div>
                     </div>
                     <div class="ItemCarritoCantidad"><input type="text" value="<?php echo $valor['cantidad'] ?>" name="cantidadTotal"/></div>
                     <div class="ItemCarritoSumRest">
-                        <a id="AumentarCarrito" href="/carrito-compras/aumentar-producto/indice/<?php echo $index ?>">Aumentar 1</a>
-                        <a id="DisminuirCarrito" href="/carrito-compras/disminuir-producto/indice/<?php echo $index ?>">Disminuir 1</a>
+                        <a id="AumentarCarrito" href="/carrito-compras/aumentar-producto/indice/<?php echo $index ?>"><span class="ui-icon ui-icon-plus"></span></a>
+                        <a id="DisminuirCarrito" href="/carrito-compras/disminuir-producto/indice/<?php echo $index ?>"><span class="ui-icon ui-icon-minus"></span></a>
                     </div>
-                    <div><?php echo $precioItem = $valor['PrecioVenta']*$valor['cantidad'] ?></div>
+                    <div class="precioTotal"><?php echo $precioItem = $valor['PrecioVenta']*$valor['cantidad'] ?></div>
                     <div><a id="eliminarCarrito_<?php echo $index ?>" href="/carrito-compras/eliminar-producto/indice/<?php echo $index ?>" >Eliminar</a></div>
                 </form>
             </li>

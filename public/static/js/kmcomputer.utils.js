@@ -24,8 +24,6 @@ $(document).ready(function(){
         );
     /*----------------------------------*/
 
-
-
     /*agregar productos al carrito de compras*/
     /*----------------------------------*/
 
@@ -36,8 +34,6 @@ $(document).ready(function(){
         $('#'+cadena).submit();
     });
     /*----------------------------------*/
-
-
     
     /*eliminar productos del carrito de compras*/
     $('a[id^="eliminarCarrito_"]').click(function(event){
@@ -51,12 +47,11 @@ $(document).ready(function(){
         param[0] = new Array(2);
         param[0][0] = this;
         param[0][1] = cadena;
-        confirmDialog('mensaje',eliminarCarritoAjax,'',param)
+        confirmDialog('mensaje',eliminarCarritoAjax,'',param);
+        
     });
     
     function eliminarCarritoAjax(obj,divContent){
- 
-  
         $.ajax({
             url: ($('#'+obj.id).attr("href")),
             success: function(data) {
@@ -64,24 +59,32 @@ $(document).ready(function(){
             }
         });
         if(divContent!=''){
-            $('#'+divContent).hide("slow");
+            $('#'+divContent).hide("slow",function(){
+                $('#'+divContent).remove();
+                var cantidadProductos = ($('#ListProduct li').size() - 1);
+                if (cantidadProductos <= 1) {
+                    $('#titleItemProduct').html('Tienes '+ cantidadProductos +' producto en tu carrito');
+                } else {
+                    $('#titleItemProduct').html('Tienes '+ cantidadProductos +' productos en tu carrito');
+                }
+                $('#ListProduct').find('.precioUnitario',function(){
+                    alert('asdsd');
+                });
+            });
         }
-        
-        
     }
-    
     function confirmDialog(mensaje,functionTrue, functionFalse, param){
         var callbacks = $.Callbacks();
-        $("#dialog-confirm").dialog({
+        return $("#dialog-confirm").dialog({
             resizable: false,
-            height:140,
+            height:180,
             modal: true,
             buttons: {
                 "Eliminar": function() {
                     if(functionTrue!=''){
                         callbacks.add(functionTrue);
                         paramsTrue = param[0];
-                        console.debug(param[0]);
+                        //console.debug(param[0]);
                         callbacks.fireWith(window,paramsTrue);
                     }
                     $( this ).dialog( "close" );
