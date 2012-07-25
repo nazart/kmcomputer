@@ -9,8 +9,10 @@
         <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/reset.css"/>
         <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/kmcomputer.general.css"/>
         <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/text.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/jquery-ui-1.8.22.custom.css"/>
         <?php echo $this->headLink() ?>
         <script src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/jquery-v1.7.2.js"></script>
+        <script src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/jquery-ui-1.8.22.custom.min.js"></script>
         <script src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/kmcomputer.utils.js"></script>
         <?php echo $this->headScript() ?>
     </head>
@@ -37,6 +39,7 @@
                     <input type="submit" value="Ok" name="button_search" id="button_search"/>
                 </form>
             </div>
+
             <div class="grid_24" style="background: #ffcccc" >Baner2</div>
             <div>Estas en: <?php
                     echo $this->navigation()
@@ -46,7 +49,7 @@
                             ->setSeparator(" &raquo; ");
                     ?></div>
 
-<?php echo $this->layout()->content ?>
+            <?php echo $this->layout()->content ?>
 
             <div class="grid_2">
                 <p>footer</p>
@@ -54,5 +57,14 @@
 
 
         </div>
+
+        <div id="dialog-confirm" title="">
+            <p>
+                <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;">
+                    
+                </span>
+                Deseas Eliminar EL registro?</p>
+        </div>
+
     </body>
 </html>

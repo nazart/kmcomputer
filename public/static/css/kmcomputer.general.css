@@ -13,19 +13,53 @@
 div#navbar {  
     background-color: #8FC73E;  
     padding: 10px 0;  
+    height: 16px;
 } 
+
 div#navbar ul {  
     list-style: none;  
     display: block;  
-    margin: 0 10px;  
 }  
-  
+
 div#navbar ul li {  
     float: left;  
-    margin: 0 1.5em;  
     font: bold 1em Arial;  
+    width: auto;
 } 
+div#navbar .active{
+    background: #0398CA;
+}
+
+div#navbar li ul {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    background: #8FC73E;
+}
+div#navbar ul li a{  
+    display: block;
+    padding: 5px 12px;
+    text-decoration: none;
+    white-space: nowrap;
+} 
+div#navbar ul li a:hover{  
+    background: #ccc;
+} 
+
+div#navbar ul li ul li a:hover{  
+    background: #fff;
+} 
+
 div#navbar ul li ul {  
-    display: none;  
+    float:none;
+    display: none;
 } 
+div#navbar ul li ul li{  
+    float:none;
+
+} 
+#dialog-confirm{
+    display: none;
+}
+
 

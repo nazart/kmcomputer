@@ -1,28 +1,30 @@
-<ul>
-    <?php
-    $string = '';
-    foreach ($this->listaCategoriasNavigator as $index) {
-        if ($this->getPathInfo == $index['uri']) {
-                    $string.= '<li class="active">';
-                } else {
-                    $string.= '<li>';
-                }
-        $string.= '<a href="' . $index['uri'] . '" >' . $index['label'] . '</a>';
-        if (isset($index['pages']) && !empty($index['pages'])) {
-            $string.= '<ul>';
-            foreach ($index['pages'] as $index2) {
-                if ($this->getPathInfo == $index2['uri']) {
-                    $string.= '<li class="active">';
-                } else {
-                    $string.= '<li>';
-                }
-                $string.= '<a href="' . $index2['uri'] . '" >' . $index2['label'] . '</a>';
-                $string.= '</li>';
+<div class="navbar2">
+    <ul>
+        <?php
+        $string = '';
+        foreach ($this->listaCategoriasNavigator as $index) {
+            if ($this->getPathInfo == $index['uri']) {
+                $string.= '<li class="active">';
+            } else {
+                $string.= '<li>';
             }
-            $string.= '</ul>';
+            $string.= '<a href="' . $index['uri'] . '" >' . $index['label'] . '</a>';
+            if (isset($index['pages']) && !empty($index['pages'])) {
+                $string.= '<ul>';
+                foreach ($index['pages'] as $index2) {
+                    if ($this->getPathInfo == $index2['uri']) {
+                        $string.= '<li class="active">';
+                    } else {
+                        $string.= '<li>';
+                    }
+                    $string.= '<a href="' . $index2['uri'] . '" >' . $index2['label'] . '</a>';
+                    $string.= '</li>';
+                }
+                $string.= '</ul>';
+            }
+            $string.= '</li>';
         }
-        $string.= '</li>';
-    }
-    echo $string;
-    ?>
-</ul>
+        echo $string;
+        ?>
+    </ul>
+</div>
