@@ -61,7 +61,7 @@ $(document).ready(function(){
         if(divContent!=''){
             $('#'+divContent).hide("slow",function(){
                 $('#'+divContent).remove();
-                var cantidadProductos = ($('#ListProduct li').size() - 1);
+                var cantidadProductos = ($('#ListProduct li').size() - 2);
                 if (cantidadProductos <= 1) {
                     $('#titleItemProduct').html('Tienes '+ cantidadProductos +' producto en tu carrito');
                 } else {

@@ -32,7 +32,8 @@ class Default_CarritoComprasController extends CST_Controller_ActionDefault {
             if (!isset($this->_session->carritoCompras)) {
                 $this->_session->carritoCompras = array();
             }
-            $indice = count($this->_session->carritoCompras) + 1;
+            $keys = array_keys($this->_session->carritoCompras);
+            $indice = $keys[count($keys)-1]+1;
             $indiceEncontrado = '';
             if (!empty($this->_session->carritoCompras)) {
                 foreach ($this->_session->carritoCompras as $index => $value) {

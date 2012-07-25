@@ -11,41 +11,66 @@
         <?php }  ?>
     </div>
     <ul id="ListProduct">
+        <li>
+            <div class="ItemCarritoImagen">
+                Imagen
+            </div>
+            <div class="ItemCarritoNombre">
+                Nombre
+            </div>
+            <div class="ItemCarritoCantidad">
+                Cantidad
+            </div>
+            <div class="ItemCarritoSumRest">
+                &nbsp;
+            </div>
+            <div class="precioTotal">
+                Precio
+            </div>
+            <hr></hr>
+            <div class="clear"></div>
+        </li>
+        
         <?php foreach ($this->listaCarrito as $index => $valor) {
             ?>
             <li id="ItemCarrito_<?php echo $index ?>">
                 <form id="form_pres_<?php echo $valor['IdProducto'] ?>" action="/carrito-compras/registrar-producto" method="Post">
                     <input type="hidden" id="hidden_idproducto_<?php echo $valor['IdProducto'] ?>" name="slugProducto" value="<?php echo $valor['Slug'] ?>" />
-                    <div class="ItemCarritoImagen"><img src="<?php echo CST_Server_ServerDinamic::getUrl() ?>/img/imagen-producto/<?php echo $valor['Imagen'] ?>" /></div>
+                    <div class="ItemCarritoImagen">
+                        <img src="<?php echo CST_Server_ServerDinamic::getUrl() ?>/img/imagen-producto/<?php echo $valor['Imagen'] ?>" />
+                    </div>
                     <div class="ItemCarritoNombre">
-                        <div><?php echo $valor['Nombre'] ?></div>
+                        <div><h6><?php echo $valor['Nombre'] ?></h6></div>
                         <div><?php echo $valor['Descripcion'] ?></div>
                         <div>Precio Unitario: <span class="precioUnitario"><?php echo $valor['PrecioVenta'] ?></span></div>
                     </div>
-                    <div class="ItemCarritoCantidad"><input type="text" value="<?php echo $valor['cantidad'] ?>" name="cantidadTotal"/></div>
+                    <div class="ItemCarritoCantidad">
+                        <input type="text"  value="<?php echo $valor['cantidad'] ?>" name="cantidadTotal"/>
+                    </div>
                     <div class="ItemCarritoSumRest">
                         <a id="AumentarCarrito" href="/carrito-compras/aumentar-producto/indice/<?php echo $index ?>"><span class="ui-icon ui-icon-plus"></span></a>
                         <a id="DisminuirCarrito" href="/carrito-compras/disminuir-producto/indice/<?php echo $index ?>"><span class="ui-icon ui-icon-minus"></span></a>
                     </div>
-                    <div class="precioTotal"><?php echo $precioItem = $valor['PrecioVenta']*$valor['cantidad'] ?></div>
-                    <div><a id="eliminarCarrito_<?php echo $index ?>" href="/carrito-compras/eliminar-producto/indice/<?php echo $index ?>" >Eliminar</a></div>
+                    <div class="precioTotalItem"><?php echo $precioItem = $valor['PrecioVenta']*$valor['cantidad'] ?></div>
+                    <div class="optionEliminarItem"><a id="eliminarCarrito_<?php echo $index ?>" href="/carrito-compras/eliminar-producto/indice/<?php echo $index ?>" >Eliminar</a></div>
                 </form>
+                <div class="clear"></div>
+                <hr></hr>
             </li>
             <?php
             $precioTotal= $precioItem + $precioTotal;
         }
         ?>
-            <li>
-                <div>
-                    <a href="/productos">Agregar mas Productos a mi carrito</a>
-                </div>
-                <div>
-                    Total:<?php echo $precioTotal; ?>
-                </div>
-                <div>
+            <li class="footerListCarrito">
+                <div id="foot3">
                     <a href="/carrito-compras/medio-pago">Continuar Compra</a>
                 </div>
-                
+                <div id="foot2">
+                    Total:<?php echo $precioTotal; ?>
+                </div>
+                <div id="foot1">
+                    <a href="/productos">Agregar mas Productos a mi carrito</a>
+                </div>
             </li>
     </ul>
 </div>
