@@ -18,6 +18,15 @@ class Default_RegistrateController extends CST_Controller_ActionDefault {
     }
 
     public function indexAction() {
+        $formularioRegistro = new Application_Form_FormularioRegistro();
+        if($this->_request->isPost()){
+            if($formularioRegistro->isValid($this->_getAllParams())){
+                echo 'registrar';
+            }
+        }
+        
+        
+        $this->view->formularioRegistro = $formularioRegistro;
         
     }
 

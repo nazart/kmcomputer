@@ -19,6 +19,12 @@ class CST_Form extends Zend_Form
     function customDecoratorFile($file){
         $this->setDecorators(array(array('ViewScript',array('viewScript'=>$file))));
     }
+    function removeDecorators(){
+        $elementos = $this->getElements();
+        foreach($elementos as $index){
+            $index->removeDecorator('label');
+        }
+    }
     
 
 
