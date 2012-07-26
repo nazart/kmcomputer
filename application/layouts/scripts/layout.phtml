@@ -23,7 +23,18 @@
                     <p>logo</p>
                     <p>logo</p>
                 </div>
-                <div class="grid_19" style="background: #0398CA">Login</div>
+                <div class="grid_19" style="background: #0398CA">
+                    <div class="MessageHeaderLogin">
+                        <?php if(!isset($this->identity) && empty($this->identity)){?>
+                        <div>Si quieres comprar por favor Ingresa tu Usuario y Clave</div>
+                        <div>Si no cuentas con una usuario registrate <a href="#">Aqui</a></div>
+                        <?php } ?>
+                    </div>
+                    <div class="loginHeader">
+                        <?php echo $this->formLoginHeader ?>
+                        
+                    </div>
+                </div>
 
                 <div class="grid_10" style="background: #91BE3F">banner</div>
             </div>
@@ -42,11 +53,15 @@
 
             <div class="grid_24" style="background: #ffcccc" >Baner2</div>
             <div>Estas en: <?php
-                    echo $this->navigation()
+            if($this->breadCrumbs == ''){
+                    echo '<a href="/">Home</a>  &raquo; '. $this->navigation()
                             ->breadcrumbs()
                             ->setMinDepth(0)
                             ->setLinkLast(true)
-                            ->setSeparator(" &raquo; ");
+                            ->setSeparator(" &raquo; ");}
+                            else{
+                                echo $this->breadCrumbs;
+                            }
                     ?></div>
 
             <?php echo $this->layout()->content ?>

@@ -119,7 +119,8 @@ div#navbar ul li ul li{
     padding-right: 10px;
 }
 .optionEliminarItem{
-    
+    width: 80px;
+    float: left;
 }
 /**/
 

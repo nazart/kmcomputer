@@ -10,6 +10,7 @@
         Tienes <?php echo $countTotal; ?> producto en tu carrito
         <?php }  ?>
     </div>
+    <?php if(isset($this->listaCarrito) && !empty($this->listaCarrito)) { ?>
     <ul id="ListProduct">
         <li>
             <div class="ItemCarritoImagen">
@@ -24,7 +25,7 @@
             <div class="ItemCarritoSumRest">
                 &nbsp;
             </div>
-            <div class="precioTotal">
+            <div class="precioTotalItem">
                 Precio
             </div>
             <hr></hr>
@@ -42,7 +43,7 @@
                     <div class="ItemCarritoNombre">
                         <div><h6><?php echo $valor['Nombre'] ?></h6></div>
                         <div><?php echo $valor['Descripcion'] ?></div>
-                        <div>Precio Unitario: <span class="precioUnitario"><?php echo $valor['PrecioVenta'] ?></span></div>
+                        <div class="descPrecioUnitario">Precio Unitario: <span class="precioUnitario"><?php echo $valor['PrecioVenta'] ?></span></div>
                     </div>
                     <div class="ItemCarritoCantidad">
                         <input type="text"  value="<?php echo $valor['cantidad'] ?>" name="cantidadTotal"/>
@@ -52,7 +53,12 @@
                         <a id="DisminuirCarrito" href="/carrito-compras/disminuir-producto/indice/<?php echo $index ?>"><span class="ui-icon ui-icon-minus"></span></a>
                     </div>
                     <div class="precioTotalItem"><?php echo $precioItem = $valor['PrecioVenta']*$valor['cantidad'] ?></div>
-                    <div class="optionEliminarItem"><a id="eliminarCarrito_<?php echo $index ?>" href="/carrito-compras/eliminar-producto/indice/<?php echo $index ?>" >Eliminar</a></div>
+                    <div class="optionEliminarItem">
+                        <a id="eliminarCarrito_<?php echo $index ?>" href="/carrito-compras/eliminar-producto/indice/<?php echo $index ?>" >
+                            <span class="ui-icon ui-icon-closethick" style="float: left"></span>
+                            <span>Eliminar</span>
+                        </a>
+                    </div>
                 </form>
                 <div class="clear"></div>
                 <hr></hr>
@@ -66,11 +72,12 @@
                     <a href="/carrito-compras/medio-pago">Continuar Compra</a>
                 </div>
                 <div id="foot2">
-                    Total:<?php echo $precioTotal; ?>
+                    Total: <spam class="precioTotal"><?php echo $precioTotal; ?></spam>
                 </div>
                 <div id="foot1">
                     <a href="/productos">Agregar mas Productos a mi carrito</a>
                 </div>
             </li>
     </ul>
+    <?php } ?>
 </div>

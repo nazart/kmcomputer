@@ -9,7 +9,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $db = $this->getPluginResource('multidb')/* obtiene el recurso multidb */
                 ->getDb('db'); /* obtiene los datos del recurso */
         Zend_Db_Table::setDefaultAdapter($db); /* registra el adaptador */
-        //Zend_Registry::set('db', $db); /*registra la clase adaptadora*/ 
+        Zend_Registry::set('db', $db); /*registra la clase adaptadora*/ 
         $this->getResourceLoader()->addResourceType('entity', 'entitys/', 'Entity');
         $this->getResourceLoader()->addResourceType('service', 'services/', 'Service');
         $response = new Zend_Controller_Response_Http();

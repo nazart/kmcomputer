@@ -20,10 +20,11 @@ class Default_CarritoComprasController extends CST_Controller_ActionDefault {
 
     public function indexAction() {
         $this->view->listaCarrito = $this->_session->carritoCompras;
+        $this->view->breadCrumbs = '<a href="/">Home</a>  &raquo; <a href="/carrito-compras">Carrito de compras</a>';
     }
 
     public function medioPagoAction() {
-        
+        $this->view->breadCrumbs = '<a href="/">Home</a>  &raquo; <a href="/carrito-compras">Carrito de compras</a> &raquo; <a href="/carrito-compras/medio-pago">Medio de pago</a>';
     }
 
     public function registrarProductoAction() {
