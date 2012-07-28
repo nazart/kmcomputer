@@ -11,7 +11,6 @@ class Application_Form_FormularioRegistro extends CST_Form {
         $this->addElement(new Zend_Form_Element_Password('Password',
                         array('required' => true, 'label' => 'Contraseña:')));
         $validatorIdentical = new Zend_Validate_Identical();
-        $validatorIdentical->setMessage('asdasd asdasmessageString asdasd', 'notSame');
         $this->addElement(new Zend_Form_Element_Password('PasswordConfirm',
                         array('required' => true, 'label' => 'Repite tu contraseña:',
                             'validators' => array($validatorIdentical)
@@ -44,13 +43,11 @@ class Application_Form_FormularioRegistro extends CST_Form {
     }
 
     public function isValid($data) {
-        
         $passwordConfirm = $this->getElement('PasswordConfirm');
         $validator = $passwordConfirm->getValidator('Identical')
                         ->setToken($data['Password'])
                 ->setMessage('Debe ser igual a la contraseña ingresada', 
                         'notSame');
-
         return parent::isValid($data);
     }
 
