@@ -15,6 +15,8 @@ class CST_Controller_ActionAdmin extends CST_Controller_Action {
     public function init() {
         parent::init();
     }
+    
+    
 
     //put your code here
 }
