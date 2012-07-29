@@ -14,6 +14,7 @@ class CST_Controller_ActionAdmin extends CST_Controller_Action {
 
     public function init() {
         parent::init();
+        Zend_Layout::getMvcInstance()->setLayout('layout-admin');
     }
     
     
