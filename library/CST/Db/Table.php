@@ -15,17 +15,17 @@ class CST_Db_Table extends Zend_Db_Table{
 
     function insert(array $data)
     {
-        parent::insert($data);
+       return parent::insert($data);
     }
     
     function update(array $data, $where)
     {
-        parent::update($data, $where);
+        return parent::update($data, $where);
     }
 
     function delete($where)
     {
-        parent::delete($where);
+        return parent::delete($where);
     }
     
     public function getName() {

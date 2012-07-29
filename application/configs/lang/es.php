@@ -41,6 +41,9 @@ return array(Zend_Validate_NotEmpty::IS_EMPTY => 'Este campo es obligatorio.',
     Zend_Validate_Alpha::INVALID => "Invalido tipo esperado, el valor debe ser una cadena",
     Zend_Validate_Alpha::NOT_ALPHA => "El valor no tiene solo caracteres alfabeticos",
     Zend_Validate_Alpha::STRING_EMPTY => "Este campo es obligatorio.",
+    
+    Zend_Validate_Db_Abstract::ERROR_NO_RECORD_FOUND=>"No se ha encontrado ningun registro que contega '%value%'",
+    Zend_Validate_Db_Abstract::ERROR_RECORD_FOUND=>"Existe un registro con este valor '%value%'",
     /*
       Zend_Validate_Ccnum::LENGTH   => "'%value%' debe contener entre 13 y 19 digitos",
       Zend_Validate_Ccnum::CHECKSUM => "Algoritmo Luhm (mod-10 checksum) fallo en '%value%'",

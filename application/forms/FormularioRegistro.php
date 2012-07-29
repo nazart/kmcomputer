@@ -6,8 +6,14 @@ class Application_Form_FormularioRegistro extends CST_Form {
     public function init() {
         parent::init();
 
+        $validators = array(
+            new Zend_Validate_Db_NoRecordExists(array('table'=>'usuario','field'=>'Correo')),
+            new Zend_Validate_EmailAddress()
+        );
+        
         $this->addElement(new Zend_Form_Element_Text('Correo',
-                        array('required' => true, 'label' => 'Correo Electronico:')));
+                        array('required' => true, 'label' => 'Correo Electronico:',
+                            'validators'=>$validators)));
         $this->addElement(new Zend_Form_Element_Password('Password',
                         array('required' => true, 'label' => 'Contraseña:')));
         $validatorIdentical = new Zend_Validate_Identical();
@@ -20,6 +26,8 @@ class Application_Form_FormularioRegistro extends CST_Form {
         $this->addElement(new Zend_Form_Element_Text('Apellidos',
                         array('required' => true, 'label' => 'Apellidos:')));
         $option = array('' => '-------', 'F' => 'Femenino', 'M' => 'Masculino');
+        $this->addElement(new Zend_Form_Element_Text('Telefono',
+                        array('required' => true, 'label' => 'Telefono:')));
         $this->addElement(new Zend_Form_Element_Select('Genero',
                         array('required' => true, 'multiOptions' => $option,
                             'label' => 'Genero:')));

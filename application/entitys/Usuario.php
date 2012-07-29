@@ -32,18 +32,18 @@ class Application_Entity_Usuario extends CST_Entity{
        $this->_modelUsuario = new Application_Model_Usuario();
     }
     
-    function crearUsuario($dataInput) {
-        $model = $this->_modelUsuario;
+    function crearUsuario() {
         $data['NombreUsuario'] = $this->_nombreUsuario;
         $data['ApellidosUsuario'] = $this->_apellidosUsuario;
         $data['Estado'] = $this->_estado;
-        $data['Login'] = $this->_login;
-        $data['Password'] = $dataInput[''];
-        $data['Telefono'] = $dataInput[''];
-        $data['Correo'] = $dataInput[''];
-        $data['Direccion'] = $dataInput[''];
-        $model->crearUsuario($data);
+        $data['Login'] = $this->_correo;
+        $data['Password'] = $this->encriptaContrasenia($this->_password);
+        $data['Telefono'] = $this->_telefono;
+        $data['Correo'] = $this->_correo;
+        $data['Genero'] = $this->_genero;
+        return $this->_modelUsuario->crearUsuario($data);
     }
+    
     function encriptaContrasenia($value){
         $valueHash = hash('md5', $value);
         $value = rand(1, 1000).'$$'.rand(1, 1000).'$$'.$valueHash;
