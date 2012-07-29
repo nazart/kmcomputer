@@ -4,75 +4,34 @@
         <?php echo $this->headTitle() ?>
         <?php echo $this->headMeta() ?>
         <?php echo $this->headStyle() ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/css/jquery-ui-1.8.22.custom.css"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/css/960.css"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/css/960_24_col.css"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/css/reset.css"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/css/kmcomputer.general.css"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/css/text.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/css/datePicker.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/css/pro_dropline.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/css/pro_dropline_ie.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/css/screen.css"/>
         <?php echo $this->headLink() ?>
-        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/jquery-v1.7.2.js"></script>
-        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/jquery-ui-1.8.22.custom.min.js"></script>
-        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/kmcomputer.utils.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/custom_jquery.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/date.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/jquery-1.4.1.min.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/jquery.bind.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/jquery.dimensions.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/jquery.filestyle.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/jquery.pngFix.pack.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/jquery.selectbox-0.5.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/jquery.selectbox-0.5_style_2.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/jquery.selectbox-0.5_style_3.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/jquery.tooltip.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/jquery.usermode.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/ui.checkbox.js"></script>
+        <script src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/js/ui.core.js"></script>
+        
         <?php echo $this->headScript() ?>
     </head>
     <body id="<?php echo $this->idBody ?>" class="<?php echo $this->classBody ?>" >
-        <div class="container_24" style="background: aqua">
-            <div>
-                <div class="grid_5" style="background: #ffcccc">
-                    <p>logo</p>
-                    <p>logo</p>
-                </div>
-                <div class="grid_19" style="background: #0398CA">
-                    <div class="MessageHeaderLogin">
-                        <?php if(!isset($this->identity) && empty($this->identity)){?>
-                        <div>Si quieres comprar por favor Ingresa tu Usuario y Clave</div>
-                        <div>Si no cuentas con una usuario registrate <a href="/registrate">Aqui</a></div>
-                        <?php } ?>
-                    </div>
-                    <div class="loginHeader">
-                        <?php echo $this->formLoginHeader ?>
-                        
-                    </div>
-                </div>
+        <?php echo $this->layout()->content ?>
 
-                <div class="grid_10" style="background: #91BE3F">banner</div>
-            </div>
-            <div class="clear"></div>
-            <div class="clearfix" style="background: #ffcccc"> &nbsp;</div>
-            <div class="grid_24" style="background: #0398CA" >
-                <div class="grid_18" id="navbar">
-                    <?php echo $this->navigation()->menu(); ?>
-                </div>
-
-                <form action="/buscar" method="post">
-                    <input type="text" value="<?php echo $this->slugSearch ?>" name="search" id="search"/>
-                    <input type="submit" value="Ok" name="button_search" id="button_search"/>
-                </form>
-            </div>
-
-            <div class="grid_24" style="background: #ffcccc" >Baner2</div>
-            <div>Estas en: <?php
-            if($this->breadCrumbs == ''){
-                    echo '<a href="/">Home</a>  &raquo; '. $this->navigation()
-                            ->breadcrumbs()
-                            ->setMinDepth(0)
-                            ->setLinkLast(true)
-                            ->setSeparator(" &raquo; ");}
-                            else{
-                                echo $this->breadCrumbs;
-                            }
-                    ?></div>
-
-            <?php echo $this->layout()->content ?>
-
-            <div class="grid_2">
-                <p>footer</p>
-            </div>
-        </div>
-        <div id="dialog-confirm" title="Eliminar Registro" >
-            <div class="ui-icon ui-icon-alert" ></div>
-            <div>Deseas Eliminar EL registro?</div>
-        </div>
+    <div class="grid_2">
+        <p>footerssssssssssssssssssssssssssss</p>
+    </div>
+        
     </body>
 </html>
