@@ -10,7 +10,7 @@
  *
  * @author Laptop
  */
- class CST_Server_ServerStatic extends CST_Server_Server {
+ class CST_Server_ServerStaticAdmin extends CST_Server_Server {
 
     //put your code here
 
