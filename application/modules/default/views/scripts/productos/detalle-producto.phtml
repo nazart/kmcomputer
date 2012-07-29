@@ -1,5 +1,5 @@
 <div class="grid_5" >Columna Izquierda
-<?php
+    <?php
     $pagerData = array(
         'getPathInfo' => $this->getPathInfo,
         'listaCategoriasNavigator' => $this->listaCategoriasNavigator
@@ -7,33 +7,63 @@
     echo $this->partial('/partial/menucategorias.phtml', $pagerData)
     ?>
 </div>
-            <div class="grid_19" >
-                <div class ="detailImageProduct">
-                    <div id="ImagenPrinc">
-                        
-                    </div>
-                    <div id="listImagen">
-                        <div id="imagen">
-                            
-                        </div>
-                    </div>
-                    
-                    
-                </div>
-                
-                <div>
-                    
-                </div>
-                
-                
-                Columna Derecha
-               <?php 
-               /*detalle del producto*/
-               print_r($this->detalleProducto);?>
-                
-               <?php 
-               /*lista de productos relacionados*/
-               print_r($this->productosRelacionados);
-               
-               ?>
+<div class="grid_19" >
+    <form id="form_pres_<?php echo $this->detalleProducto['IdProducto'] ?>" action="/carrito-compras/registrar-producto" method="Post">
+        <input type="hidden" id="hidden_idproducto_<?php echo $this->detalleProducto['IdProducto'] ?>" name="slugProducto" value="<?php echo $this->detalleProducto['Slug'] ?>" />
+        <div class ="detailImageProduct">
+            <div id="ImagenPrinc">
             </div>
+            <div id="listImagen">
+                <div id="imagen">
+                </div>
+            </div>
+        </div>
+        <div class="detailDescProduct">
+            <div id="titleProduct">
+                <h4><?php echo $this->detalleProducto['Nombre']; ?></h4>
+            </div>
+            <div id="descriptionDetail">
+                <?php echo $this->detalleProducto['Descripcion']; ?>
+            </div>
+            <div  id="precioDetail">
+                Precio Oferta :<span><?php echo $this->detalleProducto['PrecioOferta']; ?></span>
+                Precio:<span><?php echo $this->detalleProducto['PrecioVenta']; ?></span>
+            </div>
+            <div class="cantProduct">
+                <select id="text_cant_<?php echo $this->detalleProducto['IdProducto'] ?>" 
+                        name="cantidad" >
+                            <?php for ($i = 1; $i <= 20; $i++) { ?>
+                        <option value="<?php echo $i; ?>">    
+                            <?php echo $i; ?>
+                        </option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="button" >
+                <a href="/carrito-compras" id="ajax_id_product_<?php echo $this->detalleProducto['IdProducto'] ?>" rel="ajax_id_product_<?php echo $this->detalleProducto['IdProducto'] ?>"  title="Añadir al carrito">
+                    Añadir al carrito
+                </a>
+            </div>
+            <div class="ListSocialMedia">
+                <div>
+                    facebook
+                </div>
+                <div>
+                    twiter
+                </div>
+                <div>
+                    email
+                </div>
+            </div>
+
+        </div>
+        <div>
+        </div>
+        Columna Derecha
+        
+        <?PHP
+        /* lista de productos relacionados */
+        //print_r($this->productosRelacionados);
+        ?>
+    </form>
+</div>
