@@ -3,7 +3,7 @@
 
 	<!-- start logo -->
 	<div id="logo-login">
-		<a href="index.html"><img src="images/shared/logo.png" width="156" height="40" alt="" /></a>
+		<a href="index.html"><img src="<?php echo CST_Server_ServerStaticAdmin::getUrl(); ?>/images/shared/logo.png" width="156" height="40" alt="" /></a>
 	</div>
 	<!-- end logo -->
 	
@@ -14,16 +14,18 @@
 	
 	<!--  start login-inner -->
 	<div id="login-inner">
-            <form id="frm_delete" method="post" action="/admin/panel/">
-              
-		<table border="0" cellpadding="0" cellspacing="0">
+            <form id="formLogin" method="post" action="/admin/">
+              <?php
+                echo $this->formLoginAdmin ;
+                ?>
+		<!--<table border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<th>Username</th>
-			<td><input type="text" id="usuario" name="usuario" onfocus="this.value=''" class="login-inp" /></td>
+			<td><input type="text" id="Usuario" name="Usuario" onfocus="this.value=''" class="login-inp" /></td>
 		</tr>
 		<tr>
 			<th>Password</th>
-			<td><input type="password" id="password" name="password" class="login-inp" /></td>
+			<td><input type="password" id="Password" name="Password" class="login-inp" /></td>
 		</tr>
 		<tr>
 			<th></th>
@@ -32,7 +34,7 @@
 			<th></th>
                         <td><input type="submit"  class="submit-login" /></td>
 		</tr>
-		</table>
+		</table>-->
             </form>
 	</div>
  	<!--  end login-inner -->

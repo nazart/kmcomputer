@@ -18,11 +18,31 @@ class Admin_IndexController extends CST_Controller_ActionAdmin {
     }
 
     public function indexAction() {
-                //$modelBusqueda = new Application_Model_Busqueda();
       $this->view->idBody = 'login-bg';
-        
+      $formulario = new Application_Form_FormularioLoginAdmin();
+      $formulario->removeDecorators();
+      $formulario->customDecoratorFile("/forms/_formLoginAdmin.phtml");
+                  
+      if ($this->getRequest()->isPost()) {
+           if ($formulario->isValid($this->_getAllParams()) && 
+                    $this->autentificateUser($this->_getParam('Login'), 
+                            $this->_getParam('Password'))) {
+                
+                $this->_redirect($this->view->url(array("module" => "admin",
+                            "controller" => "panel",
+                            "action" => "index")));
+            } else {
+            }
+            
+        }
+        $this->view->formLoginAdmin = $formulario;
     }
-    //put your code here
+    
+       
+    public function  logoutAction(){
+        Zend_Auth::getInstance()->clearIdentity();
+        $this->_redirect('/');
+    }
 }
 
 ?>
