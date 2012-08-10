@@ -1,61 +1,51 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" xmlns:fb="http://ogp.me/ns/fb#"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <?php echo $this->headTitle() ?>
-        <?php echo $this->headMeta() ?>
-        <?php echo $this->headStyle() ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/jquery-ui-1.8.22.custom.css"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/960.css"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/960_24_col.css"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/reset.css"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/kmcomputer.general.css"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/text.css"/>
-        <?php echo $this->headLink() ?>
-        <script src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/jquery-v1.7.2.js"></script>
-        <script src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/jquery-ui-1.8.22.custom.min.js"></script>
-        <script src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/kmcomputer.utils.js"></script>
-        <?php echo $this->headScript() ?>
-        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Home page</title>
+        <meta name="description" content="Default Description"/>
+        <meta name="keywords" content="Magento, Varien, E-commerce"/>
+        <meta name="robots" content="INDEX,FOLLOW"/>
         <link rel="icon" href="http://livedemo00.template-help.com/magento_39583/skin/frontend/default/theme354/favicon.ico" type="image/x-icon"/>
         <link rel="shortcut icon" href="http://livedemo00.template-help.com/magento_39583/skin/frontend/default/theme354/favicon.ico" type="image/x-icon"/>
-        <link href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/css_003.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/css_002.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/css.css" rel="stylesheet" type="text/css"/>
+        <link href="static/css/css_003.css" rel="stylesheet" type="text/css"/>
+        <link href="static/css/css_002.css" rel="stylesheet" type="text/css"/>
+        <link href="static/css/css.css" rel="stylesheet" type="text/css"/>
         <!--[if lt IE 7]>
         <script type="text/javascript">
         //<![CDATA[
-            var BLANK_URL = '<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/blank.html';
-            var BLANK_IMG = '<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/spacer.gif';
+            var BLANK_URL = 'static/js/blank.html';
+            var BLANK_IMG = 'static/js/spacer.gif';
         //]]>
         </script>
         <![endif]-->
-        <script src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/ga.js" async="" type="text/javascript"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/jquery-1.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/sidebar_menu.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/jquery_002.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/scripts.js"></script>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/styles.css" media="all"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/widgets.css" media="all"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/print.css" media="print"/>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/prototype.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/ccard.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/validation.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/builder.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/effects.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/dragdrop.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/controls.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/slider.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/js.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/form.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/menu.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/translate.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/cookies.js"></script>
+        <script src="static/js/ga.js" async="" type="text/javascript"></script>
+        <script type="text/javascript" src="static/js/jquery-1.js"></script>
+        <script type="text/javascript" src="static/js/sidebar_menu.js"></script>
+        <script type="text/javascript" src="static/js/jquery_002.js"></script>
+        <script type="text/javascript" src="static/js/scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="static/css/styles.css" media="all"/>
+        <link rel="stylesheet" type="text/css" href="static/css/widgets.css" media="all"/>
+        <link rel="stylesheet" type="text/css" href="static/css/print.css" media="print"/>
+        <script type="text/javascript" src="static/js/prototype.js"></script>
+        <script type="text/javascript" src="static/js/ccard.js"></script>
+        <script type="text/javascript" src="static/js/validation.js"></script>
+        <script type="text/javascript" src="static/js/builder.js"></script>
+        <script type="text/javascript" src="static/js/effects.js"></script>
+        <script type="text/javascript" src="static/js/dragdrop.js"></script>
+        <script type="text/javascript" src="static/js/controls.js"></script>
+        <script type="text/javascript" src="static/js/slider.js"></script>
+        <script type="text/javascript" src="static/js/js.js"></script>
+        <script type="text/javascript" src="static/js/form.js"></script>
+        <script type="text/javascript" src="static/js/menu.js"></script>
+        <script type="text/javascript" src="static/js/translate.js"></script>
+        <script type="text/javascript" src="static/js/cookies.js"></script>
         <!--[if lt IE 8]>
-        <link rel="stylesheet" type="text/css" href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/styles-ie.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="static/css/styles-ie.css" media="all" />
         <![endif]-->
         <!--[if lt IE 7]>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/ds-sleight.js"></script>
-        <script type="text/javascript" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/js/ie6.js"></script>
+        <script type="text/javascript" src="static/js/ds-sleight.js"></script>
+        <script type="text/javascript" src="static/js/ie6.js"></script>
         <![endif]-->
 
         <script type="text/javascript">
@@ -70,12 +60,10 @@
         <!--[if lt IE 8]> 
                 <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;'> 
                     <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-                        <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+                        <img src="static/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
                     </a>
                 </div> 
         <![endif]--> 
-
-        
     </head>
     <body class=" cms-index-index cms-home">
         <div class="header-container">
@@ -85,7 +73,7 @@
                         <h1 class="logo">
                             <strong>Gadget online</strong>
                             <a href="http://livedemo00.template-help.com/magento_39583/" title="Gadget online" class="logo">
-                                <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/logo.gif" alt="Gadget online"/>
+                                <img src="static/logo.gif" alt="Gadget online"/>
                             </a>
                         </h1>
                         <div class="f-right">
@@ -97,12 +85,12 @@
                             </div>
                             <div class="clear"></div>
                             <div class="block-cart-header">
-                                <h3>Mi carrito</h3>
+                                <h3>My Cart</h3>
                                 <div class="block-content">
                                     <p class="empty"><a href="http://livedemo00.template-help.com/magento_39583/checkout/cart/"><strong>0</strong> (items)</a></p>
                                 </div>
                             </div>
-                            <p class="welcome-msg">Bienvenidos a nuestra tienda en línea!</p>			
+                            <p class="welcome-msg">Welcome to our online store! </p>			
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -111,20 +99,18 @@
                             <form id="search_mini_form" action="http://livedemo00.template-help.com/magento_39583/catalogsearch/result/" method="get">
                                 <div class="form-search">
                                     <label for="search">Search:</label>
-                                    <input autocomplete="off" id="search" name="q" value="Buscar en toda la tienda aquí ..." class="input-text" maxlength="128" type="text"/>
+                                    <input autocomplete="off" id="search" name="q" value="Search entire store here..." class="input-text" maxlength="128" type="text"/>
                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span></button>
                                     <div style="display: none;" id="search_autocomplete" class="search-autocomplete"></div>
                                     <script type="text/javascript">
                                         //<![CDATA[
-                                        var searchForm = new Varien.searchForm('search_mini_form', 'search', 'Buscar en toda la tienda aquí ...');
+                                        var searchForm = new Varien.searchForm('search_mini_form', 'search', 'Search entire store here...');
                                         searchForm.initAutocomplete('http://livedemo00.template-help.com/magento_39583/catalogsearch/ajax/suggest/', 'search_autocomplete');
                                         //]]>
                                     </script>
                                 </div>
                             </form>
-                            <?php echo 
-                            $this->navigation()->menu()->render();?>
-<!--                            <ul class="links">
+                            <ul class="links">
                                 <li class="first">
                                     <a href="http://livedemo00.template-help.com/magento_39583/customer/account/" title="My Account">My Account</a>
                                 </li>
@@ -140,7 +126,7 @@
                                 <li class=" last">
                                     <a href="http://livedemo00.template-help.com/magento_39583/customer/account/login/" title="Log In">Log In</a>
                                 </li>
-                            </ul>-->
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -161,10 +147,10 @@
                     <div class="main">
                         <div class="col-wrapper">
                             <div class="col-main">
-                                <?php echo $this->layout()->content ?>
+                                
                             </div>
                             <div class="col-left sidebar"><div class="nav-container">
-                                    <div class="category-box-title">Categorias</div>
+                                    <div class="category-box-title">Categories</div>
                                     <ul id="nav">
                                         <li class="level0 nav-1 level-top first">
                                             <a href="http://livedemo00.template-help.com/magento_39583/servers.html" class="level-top">
@@ -209,7 +195,7 @@
                                 </div>
                                 <div class="block brands">
                                     <div class="block-title">
-                                        <strong><span>Marcas</span></strong>
+                                        <strong><span>Brands</span></strong>
                                     </div>
                                     <div class="block-content">
                                         <ul>
@@ -229,7 +215,7 @@
                                         </ul>
                                     </div>
                                 </div>
-<!--                                <div class="block block-tags">
+                                <div class="block block-tags">
                                     <div class="block-title">
                                         <strong><span>Popular Tags</span></strong>
                                     </div>
@@ -246,18 +232,18 @@
                                             <a href="http://livedemo00.template-help.com/magento_39583/tag/list/">View All Tags</a>
                                         </div>
                                     </div>
-                                </div>-->
-<!--                                <div class="block block-banner">
+                                </div>
+                                <div class="block block-banner">
                                     <div class="block-content">
                                         <a href="http://livedemo00.template-help.com/magento_39583/servers.html/" title="New arrivals">
-                                            <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/col_left_callout.jpg" alt="New arrivals">
+                                            <img src="static/col_left_callout.jpg" alt="New arrivals">
                                         </a>
                                     </div>
-                                </div>-->
+                                </div>
                                 <div class="block block-banner">
                                     <div class="block-content">
                                         <a href="http://facebook.com/" title="Keep your eyes open for our special Back to School items and save A LOT!">
-                                            <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/facebook-banner.jpg" alt="Keep your eyes open for our special Back to School items and save A LOT!">
+                                            <img src="static/facebook-banner.jpg" alt="Keep your eyes open for our special Back to School items and save A LOT!">
                                         </a>
                                     </div>
                                 </div>
@@ -266,7 +252,7 @@
                         <div class="col-right sidebar">
                             <div class="block block-cart">
                                 <div class="block-title">
-                                    <strong><span>Mi Carrito</span></strong>
+                                    <strong><span>My Cart</span></strong>
                                 </div>
                                 <div class="block-content">
                                     <p class="empty">You have no items in your shopping cart.</p>
@@ -274,12 +260,12 @@
                             </div>
                             <div class="block specials">
                                 <div class="block-title">
-                                    <strong><span>Ofertas</span></strong>
+                                    <strong><span>Specials</span></strong>
                                 </div>
                                 <div class="block-content">
                                     <ul>
                                         <li>
-                                            <a href="http://livedemo00.template-help.com/magento_39583/networking/entertainment-networking/d-link-medialounge-high-definition-media-player.html/" class="product-image"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/special_img_1.jpg" alt=""></a>
+                                            <a href="http://livedemo00.template-help.com/magento_39583/networking/entertainment-networking/d-link-medialounge-high-definition-media-player.html/" class="product-image"><img src="static/special_img_1.jpg" alt=""></a>
                                             <div class="product-info">
                                                 <a href="http://livedemo00.template-help.com/magento_39583/networking/entertainment-networking/d-link-medialounge-high-definition-media-player.html/" class="product-name">D-Link MediaLounge High-Definition</a>
                                                 <span class="price">$258.89</span>
@@ -288,7 +274,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a href="http://livedemo00.template-help.com/magento_39583/networking/entertainment-networking/netgear-hd-gaming-5-ghz-wireless-n-networking-kit-wnhdeb111.html/" class="product-image"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/special_img_2.jpg" alt=""></a>
+                                            <a href="http://livedemo00.template-help.com/magento_39583/networking/entertainment-networking/netgear-hd-gaming-5-ghz-wireless-n-networking-kit-wnhdeb111.html/" class="product-image"><img src="static/special_img_2.jpg" alt=""></a>
                                             <div class="product-info">
                                                 <a href="http://livedemo00.template-help.com/magento_39583/networking/entertainment-networking/netgear-hd-gaming-5-ghz-wireless-n-networking-kit-wnhdeb111.html/" class="product-name">NETGEAR HD Gaming 5 GHz Wireless-N</a>
                                                 <span class="price">$258.89</span>
@@ -297,7 +283,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a href="http://livedemo00.template-help.com/magento_39583/networking/entertainment-networking/roku-soundbridge-m1000-network-music-system.html/" class="product-image"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/special_img_3.jpg" alt=""></a>
+                                            <a href="http://livedemo00.template-help.com/magento_39583/networking/entertainment-networking/roku-soundbridge-m1000-network-music-system.html/" class="product-image"><img src="static/special_img_3.jpg" alt=""></a>
                                             <div class="product-info">
                                                 <a href="http://livedemo00.template-help.com/magento_39583/networking/entertainment-networking/roku-soundbridge-m1000-network-music-system.html/" class="product-name">Roku SoundBridge M1000 Network</a>
                                                 <span class="price">$258.89</span>
@@ -306,7 +292,7 @@
                                             </div>
                                         </li>
                                         <li class="last">
-                                            <a href="http://livedemo00.template-help.com/magento_39583/tivo-ag0100-wireless-g-usb-network-adapter.html/" class="product-image"><img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/special_img_5.jpg" alt=""></a>
+                                            <a href="http://livedemo00.template-help.com/magento_39583/tivo-ag0100-wireless-g-usb-network-adapter.html/" class="product-image"><img src="static/special_img_5.jpg" alt=""></a>
                                             <div class="product-info">
                                                 <a href="http://livedemo00.template-help.com/magento_39583/tivo-ag0100-wireless-g-usb-network-adapter.html/" class="product-name">TiVo AG0100 Wireless G USB Network Adapter</a>
                                                 <span class="price">$258.89</span>
@@ -324,12 +310,12 @@
                         <div class="container">
                             <div class="col-1">
                                 <ul class="social-links">
-                                    <li><a href="http://livedemo00.template-help.com/magento_39583/#/"><img alt="" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/icon1.gif"></a></li>
-                                    <li><a href="http://livedemo00.template-help.com/magento_39583/#/"><img alt="" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/icon2.gif"></a></li>
-                                    <li><a href="http://livedemo00.template-help.com/magento_39583/#/"><img alt="" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/icon3.gif"></a></li>
-                                    <li><a href="http://livedemo00.template-help.com/magento_39583/#/"><img alt="" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/icon4.gif"></a></li>
-                                    <li><a href="http://livedemo00.template-help.com/magento_39583/#/"><img alt="" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/icon5.gif"></a></li>
-                                    <li><a href="http://livedemo00.template-help.com/magento_39583/#/"><img alt="" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/icon6.gif"></a></li>
+                                    <li><a href="http://livedemo00.template-help.com/magento_39583/#/"><img alt="" src="static/icon1.gif"></a></li>
+                                    <li><a href="http://livedemo00.template-help.com/magento_39583/#/"><img alt="" src="static/icon2.gif"></a></li>
+                                    <li><a href="http://livedemo00.template-help.com/magento_39583/#/"><img alt="" src="static/icon3.gif"></a></li>
+                                    <li><a href="http://livedemo00.template-help.com/magento_39583/#/"><img alt="" src="static/icon4.gif"></a></li>
+                                    <li><a href="http://livedemo00.template-help.com/magento_39583/#/"><img alt="" src="static/icon5.gif"></a></li>
+                                    <li><a href="http://livedemo00.template-help.com/magento_39583/#/"><img alt="" src="static/icon6.gif"></a></li>
                                 </ul>				</div>
                             <div class="col-2"><div class="container">
                                     <div class="sub-col-1">
