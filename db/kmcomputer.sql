@@ -11,6 +11,10 @@ MySQL - 5.5.15-log : Database - kmcomputer
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`kmcomputer` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `kmcomputer`;
+
 /*Table structure for table `banner` */
 
 DROP TABLE IF EXISTS `banner`;
@@ -112,7 +116,7 @@ CREATE TABLE `core_session` (
 
 LOCK TABLES `core_session` WRITE;
 
-insert  into `core_session`(`Id`,`save_path`,`name`,`Modified`,`LifeTime`,`Data`) values ('06oj4hqh7tq18qcm4omvjkq4f3','','',1343514492,1440,'Zend_Auth|a:1:{s:7:\"storage\";O:8:\"stdClass\":12:{s:9:\"IdUsuario\";s:1:\"1\";s:13:\"NombreUsuario\";s:6:\"nazart\";s:16:\"ApellidosUsuario\";s:6:\"huaman\";s:13:\"IdTipousuario\";s:1:\"1\";s:6:\"Estado\";s:1:\"1\";s:5:\"Login\";s:19:\"nazarjb@hotmail.com\";s:8:\"Telefono\";s:8:\"22312223\";s:6:\"Correo\";s:19:\"nazarjb@hotmail.com\";s:16:\"FlagSuperUsuario\";s:1:\"1\";s:9:\"IdCliente\";N;s:3:\"Dni\";s:8:\"44513555\";s:9:\"Direccion\";N;}}'),('8jbsld29r269r353h1vcdpeh27','','',1343281816,1440,'__ZF|a:3:{s:50:\"Zend_Form_Captcha_d53f8a51843d74fe94e7a6be6329dccb\";a:2:{s:4:\"ENNH\";i:1;s:3:\"ENT\";i:1343281816;}s:50:\"Zend_Form_Captcha_8253175824bb0bd191d9e0130f7f22ff\";a:2:{s:4:\"ENNH\";i:1;s:3:\"ENT\";i:1343281816;}s:50:\"Zend_Form_Captcha_30ae8896833d9b6058ac71820ff5b9c7\";a:2:{s:4:\"ENNH\";i:1;s:3:\"ENT\";i:1343282115;}}Zend_Form_Captcha_8253175824bb0bd191d9e0130f7f22ff|a:1:{s:4:\"word\";s:6:\"cuc5x9\";}kmComputer|a:1:{s:14:\"carritoCompras\";a:1:{i:1;a:14:{s:10:\"IdProducto\";s:1:\"1\";s:11:\"IdCategoria\";s:2:\"32\";s:6:\"Codigo\";s:0:\"\";s:6:\"Nombre\";s:33:\"coca cola descartable medio litro\";s:6:\"Imagen\";s:39:\"coca-cola-descartable-medio-litro-1.jpg\";s:11:\"Descripcion\";s:5:\"nuevo\";s:11:\"PrecioVenta\";s:6:\"123.00\";s:10:\"FlagOferta\";s:1:\"1\";s:12:\"PrecioOferta\";s:1:\"0\";s:12:\"PrecioCompra\";s:7:\"1233.00\";s:4:\"Slug\";s:35:\"coca-cola-descartable-medio-litro-1\";s:8:\"Cantidad\";s:3:\"115\";s:8:\"StockMin\";N;s:8:\"cantidad\";s:1:\"1\";}}}Zend_Form_Captcha_30ae8896833d9b6058ac71820ff5b9c7|a:1:{s:4:\"word\";s:6:\"vyu296\";}'),('k70hf8bh1vvhhqa1c3eteku4l0','','',1343500306,1440,'__ZF|a:3:{s:50:\"Zend_Form_Captcha_a3176afbce24773241efcd1d649809e4\";a:2:{s:4:\"ENNH\";i:1;s:3:\"ENT\";i:1343500493;}s:50:\"Zend_Form_Captcha_56c36fd531380881fc63d1c5bfd19348\";a:2:{s:4:\"ENNH\";i:1;s:3:\"ENT\";i:1343500501;}s:50:\"Zend_Form_Captcha_fe000e8dd19330b56c54ee8bf775c25b\";a:2:{s:4:\"ENNH\";i:1;s:3:\"ENT\";i:1343500605;}}Zend_Form_Captcha_a3176afbce24773241efcd1d649809e4|a:1:{s:4:\"word\";s:6:\"n9b4uu\";}Zend_Form_Captcha_56c36fd531380881fc63d1c5bfd19348|a:1:{s:4:\"word\";s:6:\"xyc39i\";}Zend_Form_Captcha_fe000e8dd19330b56c54ee8bf775c25b|a:1:{s:4:\"word\";s:6:\"d3v9b7\";}'),('okn3ug5ila7du622225uli8114','','',1343281328,1440,'__ZF|a:6:{s:50:\"Zend_Form_Captcha_2b4d432c652a6210061e93b62d8d17e9\";a:2:{s:4:\"ENNH\";i:1;s:3:\"ENT\";i:1343281449;}s:50:\"Zend_Form_Captcha_f85e4d7ae7fe893a22f90cf125d60848\";a:2:{s:4:\"ENNH\";i:1;s:3:\"ENT\";i:1343281527;}s:50:\"Zend_Form_Captcha_b84bb59ded0911267de11e9935d56f73\";a:2:{s:4:\"ENNH\";i:1;s:3:\"ENT\";i:1343281581;}s:50:\"Zend_Form_Captcha_6f9b8c4cee6eac92c4cf024dacab0c2d\";a:2:{s:4:\"ENNH\";i:1;s:3:\"ENT\";i:1343281622;}s:50:\"Zend_Form_Captcha_7aaa9d057195c6e9e28b827fa46396ab\";a:2:{s:4:\"ENNH\";i:1;s:3:\"ENT\";i:1343281624;}s:50:\"Zend_Form_Captcha_c12fd492bae35f7c5a2c7fdb37bfbfee\";a:2:{s:4:\"ENNH\";i:1;s:3:\"ENT\";i:1343281628;}}Zend_Form_Captcha_2b4d432c652a6210061e93b62d8d17e9|a:1:{s:4:\"word\";s:6:\"s6j8cy\";}Zend_Form_Captcha_f85e4d7ae7fe893a22f90cf125d60848|a:1:{s:4:\"word\";s:6:\"zuv234\";}Zend_Form_Captcha_b84bb59ded0911267de11e9935d56f73|a:1:{s:4:\"word\";s:6:\"uo4ed8\";}Zend_Form_Captcha_6f9b8c4cee6eac92c4cf024dacab0c2d|a:1:{s:4:\"word\";s:6:\"v5g5u4\";}Zend_Form_Captcha_7aaa9d057195c6e9e28b827fa46396ab|a:1:{s:4:\"word\";s:6:\"pubi58\";}Zend_Form_Captcha_c12fd492bae35f7c5a2c7fdb37bfbfee|a:1:{s:4:\"word\";s:6:\"regy7y\";}');
+insert  into `core_session`(`Id`,`save_path`,`name`,`Modified`,`LifeTime`,`Data`) values ('592h80n6ejemfbbfjeec31pdg3','','',1343759511,1440,''),('85mt8jrv8rh3i2e6bjpqupnf60','','',1347096702,1440,'kmComputer|a:1:{s:14:\"carritoCompras\";a:2:{i:1;a:14:{s:10:\"IdProducto\";s:1:\"3\";s:11:\"IdCategoria\";s:2:\"33\";s:6:\"Codigo\";s:0:\"\";s:6:\"Nombre\";s:21:\"Cristal 355 mL 12pack\";s:6:\"Imagen\";s:27:\"cristal-355-ml-12pack-3.jpg\";s:11:\"Descripcion\";s:21:\"Cristal 355 mL 12pack\";s:11:\"PrecioVenta\";s:4:\"3.45\";s:10:\"FlagOferta\";s:1:\"1\";s:12:\"PrecioOferta\";s:2:\"23\";s:12:\"PrecioCompra\";s:4:\"1.34\";s:4:\"Slug\";s:23:\"cristal-355-ml-12pack-3\";s:8:\"Cantidad\";s:2:\"-5\";s:8:\"StockMin\";N;s:8:\"cantidad\";i:9;}i:2;a:14:{s:10:\"IdProducto\";s:1:\"2\";s:11:\"IdCategoria\";s:2:\"32\";s:6:\"Codigo\";s:0:\"\";s:6:\"Nombre\";s:18:\"pepsi medio litroo\";s:6:\"Imagen\";s:24:\"pepsi-medio-litroo-2.jpg\";s:11:\"Descripcion\";s:17:\"pepsi medio litro\";s:11:\"PrecioVenta\";s:6:\"123.00\";s:10:\"FlagOferta\";s:1:\"0\";s:12:\"PrecioOferta\";s:1:\"0\";s:12:\"PrecioCompra\";s:6:\"123.00\";s:4:\"Slug\";s:20:\"pepsi-medio-litroo-2\";s:8:\"Cantidad\";s:2:\"-8\";s:8:\"StockMin\";N;s:8:\"cantidad\";i:2;}}}'),('dpash5m53s0vm2b961e9c779l1','','',1344641565,1440,''),('g3mrlaekegp1ghrka34bgb14i5','','',1343532496,1440,'kmComputer|a:1:{s:14:\"carritoCompras\";a:1:{i:1;a:14:{s:10:\"IdProducto\";s:1:\"1\";s:11:\"IdCategoria\";s:2:\"32\";s:6:\"Codigo\";s:0:\"\";s:6:\"Nombre\";s:33:\"coca cola descartable medio litro\";s:6:\"Imagen\";s:39:\"coca-cola-descartable-medio-litro-1.jpg\";s:11:\"Descripcion\";s:5:\"nuevo\";s:11:\"PrecioVenta\";s:6:\"123.00\";s:10:\"FlagOferta\";s:1:\"1\";s:12:\"PrecioOferta\";s:1:\"0\";s:12:\"PrecioCompra\";s:7:\"1233.00\";s:4:\"Slug\";s:35:\"coca-cola-descartable-medio-litro-1\";s:8:\"Cantidad\";s:3:\"115\";s:8:\"StockMin\";N;s:8:\"cantidad\";s:1:\"1\";}}}'),('iaa46vu9ut6cnjqcb5fh0idln5','','',1344584789,1440,''),('ike2vi88f0l7b9kei81gel5pc2','','',1343862985,1440,''),('m6802cr369ggcphc5v5lmklvl2','','',1344760930,1440,''),('ncha6raav8afjjttrd0n19lom1','','',1347091540,1440,'kmComputer|a:1:{s:14:\"carritoCompras\";a:1:{i:1;a:14:{s:10:\"IdProducto\";s:1:\"2\";s:11:\"IdCategoria\";s:2:\"32\";s:6:\"Codigo\";s:0:\"\";s:6:\"Nombre\";s:18:\"pepsi medio litroo\";s:6:\"Imagen\";s:24:\"pepsi-medio-litroo-2.jpg\";s:11:\"Descripcion\";s:17:\"pepsi medio litro\";s:11:\"PrecioVenta\";s:6:\"123.00\";s:10:\"FlagOferta\";s:1:\"0\";s:12:\"PrecioOferta\";s:1:\"0\";s:12:\"PrecioCompra\";s:6:\"123.00\";s:4:\"Slug\";s:20:\"pepsi-medio-litroo-2\";s:8:\"Cantidad\";s:2:\"-8\";s:8:\"StockMin\";N;s:8:\"cantidad\";s:1:\"1\";}}}'),('ngoc1bctub858af3laet6d7662','','',1347091604,1440,''),('srj9ofaorpniegi4ardo1gs0j2','','',1346559027,1440,'');
 
 UNLOCK TABLES;
 
@@ -182,11 +186,13 @@ CREATE TABLE `ofertareciente` (
   `FechaRegistro` datetime DEFAULT NULL,
   `Posicion` int(11) DEFAULT NULL,
   PRIMARY KEY (`IdOfertaReciente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `ofertareciente` */
 
 LOCK TABLES `ofertareciente` WRITE;
+
+insert  into `ofertareciente`(`IdOfertaReciente`,`IdProducto`,`FechaRegistro`,`Posicion`) values (1,1,NULL,NULL),(2,2,NULL,NULL),(3,3,NULL,NULL),(4,5,NULL,NULL);
 
 UNLOCK TABLES;
 
@@ -240,11 +246,13 @@ CREATE TABLE `productodestacado` (
   `FechaRegistro` datetime DEFAULT NULL,
   `Posicion` int(11) DEFAULT NULL,
   PRIMARY KEY (`IdProductoDestacado`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 /*Data for the table `productodestacado` */
 
 LOCK TABLES `productodestacado` WRITE;
+
+insert  into `productodestacado`(`IdProductoDestacado`,`IdProducto`,`FechaRegistro`,`Posicion`) values (1,1,NULL,1),(2,2,NULL,2),(3,3,NULL,3),(9,4,NULL,NULL),(10,5,NULL,NULL),(11,6,NULL,NULL),(12,7,NULL,NULL),(13,3,NULL,NULL);
 
 UNLOCK TABLES;
 
@@ -263,7 +271,7 @@ CREATE TABLE `relacionproductos` (
 
 LOCK TABLES `relacionproductos` WRITE;
 
-insert  into `relacionproductos`(`IdRelacionProducto`,`IdProducto`,`IdProductoRelacionado`) values (7,3,4),(8,3,5),(9,3,6),(10,3,7),(11,7,3),(12,7,4),(13,7,5),(14,7,6);
+insert  into `relacionproductos`(`IdRelacionProducto`,`IdProducto`,`IdProductoRelacionado`) values (7,1,4),(8,1,5),(9,1,6),(10,1,7),(11,7,3),(12,7,4),(13,7,5),(14,7,6);
 
 UNLOCK TABLES;
 
@@ -345,14 +353,15 @@ CREATE TABLE `usuario` (
   `IdCliente` int(11) DEFAULT NULL,
   `Dni` int(8) DEFAULT NULL,
   `Direccion` text COLLATE utf8_unicode_ci,
+  `Genero` char(2) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`IdUsuario`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `usuario` */
 
 LOCK TABLES `usuario` WRITE;
 
-insert  into `usuario`(`IdUsuario`,`NombreUsuario`,`ApellidosUsuario`,`IdTipousuario`,`Estado`,`Login`,`Password`,`Telefono`,`Correo`,`FlagSuperUsuario`,`IdCliente`,`Dni`,`Direccion`) values (1,'nazart','huaman',1,1,'nazarjb@hotmail.com','1231$$123$$4297f44b13955235245b2497399d7a93','22312223','nazarjb@hotmail.com',1,NULL,44513555,NULL);
+insert  into `usuario`(`IdUsuario`,`NombreUsuario`,`ApellidosUsuario`,`IdTipousuario`,`Estado`,`Login`,`Password`,`Telefono`,`Correo`,`FlagSuperUsuario`,`IdCliente`,`Dni`,`Direccion`,`Genero`) values (1,'nazart','huaman',1,1,'nazarjb@hotmail.com','1231$$123$$4297f44b13955235245b2497399d7a93','22312223','nazarjb@hotmail.com',1,NULL,44513555,NULL,NULL),(25,'asdasdsad','asdasdasdd',1,1,'weqweqwe@hotmail.com','831$$659$$4297f44b13955235245b2497399d7a93','asdasdasd','weqweqwe@hotmail.com',0,NULL,NULL,NULL,'F');
 
 UNLOCK TABLES;
 
