@@ -26,7 +26,7 @@ class Application_Entity_Producto {
     }
 
     function listarPorductosDestacados() {
-        
+        return $this->_modelProducto->listarProductosDestacados();
     }
 
     function buscarProductos($slugBusqueda = '') {
@@ -35,7 +35,10 @@ class Application_Entity_Producto {
     }
 
     function listarOfertasRecientes() {
-        
+        return $this->_modelProducto->listarOfertaReciente();
+    }
+    function listarOfertasRecientesAleatorio() {
+        return $this->_modelProducto->listarOfertaRecienteRandon();
     }
     function listarProducto($idProducto='', $estado='',$slug='') {
         $result = $this->_modelProducto->listarDetalleProductoActivoPorSlug($slug);

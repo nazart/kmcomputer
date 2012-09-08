@@ -16,15 +16,17 @@ class Default_CarritoComprasController extends CST_Controller_ActionDefault {
     public function init() {
         parent::init();
         /* Initialize action controller here */
+        Zend_Layout::getMvcInstance()->setLayout('layout-simple');
     }
 
     public function indexAction() {
         $this->view->listaCarrito = $this->_session->carritoCompras;
-        $this->view->breadCrumbs = '<a href="/">Home</a>  &raquo; <a href="/carrito-compras">Carrito de compras</a>';
+        
+        $this->view->breadCrumbs = '<a href="/">Inicio</a>  &raquo; <a href="/carrito-compras">Carrito de compras</a>';
     }
 
     public function medioPagoAction() {
-        $this->view->breadCrumbs = '<a href="/">Home</a>  &raquo; <a href="/carrito-compras">Carrito de compras</a> &raquo; <a href="/carrito-compras/medio-pago">Medio de pago</a>';
+        $this->view->breadCrumbs = '<a href="/">Inicio</a>  &raquo; <a href="/carrito-compras">Carrito de compras</a> &raquo; <a href="/carrito-compras/medio-pago">Medio de pago</a>';
     }
 
     public function registrarProductoAction() {

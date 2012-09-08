@@ -17,12 +17,16 @@ class Application_Model_Producto {
     private $_modelDetalleSlug;
     private $_modelCategoria;
     private $_modelRelacionProductos;
+    private $_modelOfertaReciente;
+    private $_modelProductosDestacados;
     function __construct() {
         $this->_modelProducto = new Application_Model_TableBase_Producto();
         $this->_modelDetalleSlug = new Application_Model_TableBase_DetalleSlug();
         $this->_modelSlug = new Application_Model_TableBase_Slug();
         $this->_modelCategoria = new Application_Model_TableBase_Categoria();
         $this->_modelRelacionProductos = new Application_Model_TableBase_RelacionProductos();
+        $this->_modelOfertaReciente = new Application_Model_TableBase_OfertaReciente();
+        $this->_modelProductosDestacados = new Application_Model_TableBase_ProductoDestacados();
     }
 
     function listarProductos() {
@@ -136,6 +140,83 @@ class Application_Model_Producto {
                 ->where('pr.fla=?',1)
                 ->query()
                 ->fetchAll();
+    }
+    function listarOfertaReciente(){
+        return $this->_modelProducto
+                ->getAdapter()
+                ->select()
+                ->from(array('or'=>$this->_modelOfertaReciente->getName()),array(
+            'pr.IdProducto',
+            'pr.IdCategoria',
+            'pr.Codigo',
+            'pr.Nombre',
+            'pr.Imagen',
+            'pr.Descripcion',
+            'pr.PrecioVenta',
+            'pr.FlagOferta',
+            'pr.PrecioOferta',
+            'pr.PrecioCompra',
+            'pr.Slug',
+            'pr.Cantidad',
+            'pr.StockMin'))
+                ->join(array('pr'=>$this->_modelProducto->getName()),
+                        'or.IdProducto = pr.IdProducto')
+                ->where('pr.fla=?',1)
+                ->query()
+                ->fetchAll();
+                
+    }
+    function listarOfertaRecienteRandon(){
+        return $this->_modelProducto
+                ->getAdapter()
+                ->select()
+                ->from(array('or'=>$this->_modelOfertaReciente->getName()),array(
+            'pr.IdProducto',
+            'pr.IdCategoria',
+            'pr.Codigo',
+            'pr.Nombre',
+            'pr.Imagen',
+            'pr.Descripcion',
+            'pr.PrecioVenta',
+            'pr.FlagOferta',
+            'pr.PrecioOferta',
+            'pr.PrecioCompra',
+            'pr.Slug',
+            'pr.Cantidad',
+            'pr.StockMin'))
+                ->join(array('pr'=>$this->_modelProducto->getName()),
+                        'or.IdProducto = pr.IdProducto')
+                ->where('pr.fla=?',1)
+                ->order('RAND()')
+                ->limit(4)
+                ->query()
+                ->fetchAll();
+                
+    }
+    function listarProductosDestacados(){
+        return $this->_modelProducto
+                ->getAdapter()
+                ->select()
+                ->from(array('pd'=>$this->_modelProductosDestacados->getName()),array(
+            'pr.IdProducto',
+            'pr.IdCategoria',
+            'pr.Codigo',
+            'pr.Nombre',
+            'pr.Imagen',
+            'pr.Descripcion',
+            'pr.PrecioVenta',
+            'pr.FlagOferta',
+            'pr.PrecioOferta',
+            'pr.PrecioCompra',
+            'pr.Slug',
+            'pr.Cantidad',
+            'pr.StockMin'))
+                ->join(array('pr'=>$this->_modelProducto->getName()),
+                        'pd.IdProducto = pr.IdProducto')
+                ->where('pr.fla=?',1)
+                ->query()
+                ->fetchAll();
+                
     }
 
 }

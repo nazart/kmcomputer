@@ -1,12 +1,252 @@
-<div class="grid_5" >Columna Izquierda
-    <?php
-    $pagerData = array(
-        'getPathInfo' => $this->getPathInfo,
-        'listaCategoriasNavigator' => $this->listaCategoriasNavigator
-    );
-    echo $this->partial('/partial/menucategorias.phtml', $pagerData)
-    ?>
+<!--<div class="grid_5" >Columna Izquierda
+<?php
+$pagerData = array(
+    'getPathInfo' => $this->getPathInfo,
+    'listaCategoriasNavigator' => $this->listaCategoriasNavigator
+);
+echo $this->partial('/partial/menucategorias.phtml', $pagerData)
+?>
+</div>-->
+
+
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice({"productId":"1","priceFormat":{"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":1},"includeTax":"false","showIncludeTax":false,"showBothPrices":false,"productPrice":1500,"productOldPrice":1500,"priceInclTax":1500,"priceExclTax":1500,"skipCalculate":1,"defaultTax":8.25,"currentTax":0,"idSuffix":"_clone","oldPlusDisposition":0,"plusDisposition":0,"plusDispositionTax":0,"oldMinusDisposition":0,"minusDisposition":0,"tierPrices":[],"tierPricesInclTax":[]});
+</script>
+<div id="messages_product_view"></div>
+<div class="page-title"><h1>Product information</h1></div>
+<div class="product-view">
+    <div class="product-essential">
+        
+        <form action="/carrito-compras/registrar-producto/<?php echo $this->detalleProducto['IdProducto'] ?>" method="Post" id="product_addtocart_form" enctype="multipart/form-data">
+            <input type="hidden" id="hidden_idproducto_<?php echo $this->detalleProducto['IdProducto'] ?>" name="slugProducto" value="<?php echo $this->detalleProducto['Slug'] ?>" />
+            <div class="no-display">
+                <input type="hidden" name="product" value="1">
+                <input type="hidden" name="related_product" id="related-products-field" value="">
+            </div>
+
+            <div class="product-shop">
+                <div class="product-name">
+                    <h1><?php echo $this->detalleProducto['Nombre']; ?></h1>
+                </div>
+                <div class="container">
+
+
+
+                    <div class="price-box">
+                        <span class="regular-price" id="product-price-1">
+                            <span class="price">$1,500.00</span>                                    </span>
+
+                    </div>
+
+                    <p class="availability in-stock">Disponibilidad: <span>En stock</span></p>
+
+                </div>            
+
+                <div class="short-description">
+                    <h2>Descripción rápida</h2>
+                    <div class="std">
+                        <p><?php echo $this->detalleProducto['Descripcion']; ?></p> 
+                    </div>
+                </div>
+
+
+                <div class="product-options" id="product-options-wrapper">
+
+
+
+
+                    <div class="price-box">
+                        <span class="regular-price" id="product-price-1_clone">
+                            <span class="price">$1,500.00</span>                                    </span>
+
+                    </div>
+
+                    <div class="add-to-cart">
+                        <label for="qty">Cant:</label>
+                        <select class="input-text qty" id="text_cant_<?php echo $this->detalleProducto['IdProducto'] ?>" 
+                        name="cantidad" >
+                            <?php for ($i = 1; $i <= 20; $i++) { ?>
+                        <option value="<?php echo $i; ?>">    
+                            <?php echo $i; ?>
+                        </option>
+                    <?php } ?>
+                </select>
+<!--                        <input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty">-->
+                        <button type="button" title="Add to Cart" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span>Add to Cart</span></span></button>
+                    </div>
+
+
+                                                   
+                </div>
+                <script type="text/javascript">decorateGeneric($$('#product-options-wrapper dl'), ['last']);</script>
+
+
+            </div>
+
+            <div class="product-img-box">
+                <p class="product-image product-image-zoom">
+                    <a href="http://livedemo00.template-help.com/magento_39583/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/f/i/file_1.jpg" data-gal="prettyPhoto[gallery]">   <img id="image" src="http://livedemo00.template-help.com/magento_39583/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/f/i/file_1.jpg" alt="HP EX487 MediaSmart Home Server" title="HP EX487 MediaSmart Home Server" style="width: 261px; left: 0px; top: 0px; "><span class="wrapper_pic_zoom"></span></a>
+                </p>
+                <p class="zoom-notice" id="track_hint">Double click on above image to view full picture</p>
+                
+                <script type="text/javascript">
+                    //<![CDATA[
+                    Event.observe(window, 'load', function() {
+                        product_zoom = new Product.Zoom('image', 'track', 'handle', 'zoom_in', 'zoom_out', 'track_hint');
+                    });
+                    //]]>
+                </script>
+                <div class="more-views">
+                    <h2>More Views</h2>
+                    <ul>
+                        <li>
+                            <a href="http://livedemo00.template-help.com/magento_39583/media/catalog/product/cache/5/thumbnail/500x/9df78eab33525d08d6e5fb8d27136e95/f/i/file_1.jpg" data-gal="prettyPhoto[gallery]" title="">
+                                <img src="http://livedemo00.template-help.com/magento_39583/media/catalog/product/cache/5/thumbnail/66x/9df78eab33525d08d6e5fb8d27136e95/f/i/file_1.jpg" width="66" height="66" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="http://livedemo00.template-help.com/magento_39583/media/catalog/product/cache/5/thumbnail/500x/9df78eab33525d08d6e5fb8d27136e95/f/i/file.jpg" data-gal="prettyPhoto[gallery]" title="">
+                                <img src="http://livedemo00.template-help.com/magento_39583/media/catalog/product/cache/5/thumbnail/66x/9df78eab33525d08d6e5fb8d27136e95/f/i/file.jpg" width="66" height="66" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="http://livedemo00.template-help.com/magento_39583/media/catalog/product/cache/5/thumbnail/500x/9df78eab33525d08d6e5fb8d27136e95/f/i/file_2.jpg" data-gal="prettyPhoto[gallery]" title="">
+                                <img src="http://livedemo00.template-help.com/magento_39583/media/catalog/product/cache/5/thumbnail/66x/9df78eab33525d08d6e5fb8d27136e95/f/i/file_2.jpg" width="66" height="66" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="clearer"></div>
+        </form>
+        <script type="text/javascript">
+            //<![CDATA[
+            var productAddToCartForm = new VarienForm('product_addtocart_form');
+            productAddToCartForm.submit = function(button, url) {
+                if (this.validator.validate()) {
+                    var form = this.form;
+                    var oldUrl = form.action;
+
+                    if (url) {
+                        form.action = url;
+                    }
+                    var e = null;
+                    try {
+                        this.form.submit();
+                    } catch (e) {
+                    }
+                    this.form.action = oldUrl;
+                    if (e) {
+                        throw e;
+                    }
+
+                    if (button && button != 'undefined') {
+                        button.disabled = true;
+                    }
+                }
+            }.bind(productAddToCartForm);
+
+            productAddToCartForm.submitLight = function(button, url){
+                if(this.validator) {
+                    var nv = Validation.methods;
+                    delete Validation.methods['required-entry'];
+                    delete Validation.methods['validate-one-required'];
+                    delete Validation.methods['validate-one-required-by-name'];
+                    if (this.validator.validate()) {
+                        if (url) {
+                            this.form.action = url;
+                        }
+                        this.form.submit();
+                    }
+                    Object.extend(Validation.methods, nv);
+                }
+            }.bind(productAddToCartForm);
+            //]]>
+        </script>
+    </div>
+
+    <div class="product-collateral">
+        <div class="box-collateral box-description">
+            <h2>Details</h2>
+            <div class="std">
+                <p>We are living in the epoch of <strong>great technical progress</strong> and we are sure that <em>new technologies</em> are our future. You know that computers are being applied in all spheres of society. It is a tremendous achievement of mankind. It is <strong>totally safe</strong> for environment and for the people, it runs with electricity.</p><p>The most <em>important</em> thing is that the computer technology has great perspectives for <strong>further development</strong> and it could be called a panacea for humanity. It seems that computer is such a revolutionary invention that we could not even realize the true extent of its significance. Some people are even <em>afraid</em> of such rapid and striking computer expansion; they state that mankind is in danger because of it. Their main argument is the problem of artificial intelligence. But we hope that all these <strong>problems will disappear</strong> soon.</p><p>So, it is natural that this sphere is one of the <strong>most popular</strong> ones and it is <em>really hard</em> to offer computer hardware because of <strong>great number</strong> of competitors. We are providing a great choice of <em>different</em> commodities. We are producing <strong>reliable and durable</strong> goods.</p>     </div>
+        </div>
+        <div class="box-collateral box-up-sell">
+            <h2>Usted también puede estar interesado en el siguiente producto (s)</h2>
+            <?php if(!empty($this->productosRelacionados)): ?>
+            <table class="products-grid" id="upsell-product-table">
+                <tbody>
+                    <?php
+                    $count=1;
+                    foreach($this->productosRelacionados as $index): ?>
+                    
+                    <?php if($count == 1): ?>
+                    <tr class="first last odd">
+                    <?php endif; ?>    
+                        <td>
+                            <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="<?php echo $index['Nombre'] ?>" class="product-image">
+                                <img src="http://livedemo00.template-help.com/magento_39583/media/catalog/product/cache/5/small_image/180x/9df78eab33525d08d6e5fb8d27136e95/f/i/file_3.jpg" width="180" height="180" alt="<?php echo $index['Nombre'] ?>"></a>
+                            <h3 class="product-name"><a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="<?php echo $index['Nombre'] ?>"><?php echo $index['Nombre'] ?></a></h3>
+                            <div class="price-box map-info">
+                                <?php if ($index['FlagOferta'] == 1) { ?>
+                                <span class="old-price" id="product-price-2-upsell"><span class="price"><?php echo $index['PrecioOferta'] ?></span></span>
+                                <?php } ?>
+                            </div>
+                            <div class="price-box">
+                                <span class="regular-price" id="product-price-4-upsell">
+                                    <span class="price"><?php echo $index['PrecioVenta'] ?></span>                                    </span>
+                            </div>
+                        </td>
+                        
+                        
+                        
+                    <?php if($count == 3): $count=0; ?>
+                    </tr>
+                    <?php endif; ?>       
+                    
+                    <?php $count++; 
+                    endforeach; ?>
+                </tbody>
+            </table>
+            <?php endif; ?>
+            <script type="text/javascript">decorateTable('upsell-product-table')</script>
+        </div>
+    </div>
 </div>
+<div id="map-popup" class="map-popup" style="display:none;">
+    <a href="#" class="map-popup-close" id="map-popup-close">x</a>
+    <div class="map-popup-arrow"></div>
+    <div class="map-popup-heading"><h2 id="map-popup-heading"></h2></div>
+    <div class="map-popup-content" id="map-popup-content">
+        <div class="map-popup-checkout">
+            <form action="" method="POST" id="product_addtocart_form_from_popup">
+                <input type="hidden" name="product" class="product_id" value="" id="map-popup-product-id">
+                <div class="additional-addtocart-box">
+                </div>
+                <button type="button" title="Add to Cart" class="button btn-cart" id="map-popup-button"><span><span>Add to Cart</span></span></button>
+            </form>
+        </div>
+        <div class="map-popup-msrp" id="map-popup-msrp-box"><strong>Price:</strong> <span style="text-decoration:line-through;" id="map-popup-msrp"></span></div>
+        <div class="map-popup-price" id="map-popup-price-box"><strong>Actual Price:</strong> <span id="map-popup-price"></span></div>
+        <script type="text/javascript">
+            //<![CDATA[
+            document.observe("dom:loaded", Catalog.Map.bindProductForm);
+            //]]>
+        </script>
+    </div>
+    <div class="map-popup-text" id="map-popup-text">Our price is lower than the manufacturer's "minimum advertised price."  As a result, we cannot show you the price in catalog or the product page. <br><br> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.</div>
+    <div class="map-popup-text" id="map-popup-text-what-this">Our price is lower than the manufacturer's "minimum advertised price."  As a result, we cannot show you the price in catalog or the product page. <br><br> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.</div>
+</div>
+
+<script type="text/javascript">
+    var lifetime = 3600;
+    var expireAt = Mage.Cookies.expires;
+    if (lifetime > 0) {
+        expireAt = new Date();
+        expireAt.setTime(expireAt.getTime() + lifetime * 1000);
+    }
+    Mage.Cookies.set('external_no_cache', 1, expireAt);
+</script>
+
+
 <div class="grid_19" >
     <form id="form_pres_<?php echo $this->detalleProducto['IdProducto'] ?>" action="/carrito-compras/registrar-producto" method="Post">
         <input type="hidden" id="hidden_idproducto_<?php echo $this->detalleProducto['IdProducto'] ?>" name="slugProducto" value="<?php echo $this->detalleProducto['Slug'] ?>" />
@@ -60,10 +300,10 @@
         <div>
         </div>
         Columna Derecha
-        
+
         <?PHP
         /* lista de productos relacionados */
-        //print_r($this->productosRelacionados);
+        print_r($this->productosRelacionados);
         ?>
     </form>
 </div>

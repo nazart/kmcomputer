@@ -28,7 +28,7 @@ class Default_BuscarController extends CST_Controller_ActionDefault {
         $result = $productos->buscarProductos(str_replace('-', "|", $slug));
         $paginator = Zend_Paginator::factory($result);
         $paginator->setCurrentPageNumber($this->_getParam('page'));
-        $paginator->setItemCountPerPage(2);
+        $paginator->setItemCountPerPage(6);
         $this->view->productos = $paginator;
         $this->view->slug = $slug;
         $this->view->slugSearch = str_replace('-', " ", $slug);

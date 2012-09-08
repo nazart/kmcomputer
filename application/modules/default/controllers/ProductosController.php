@@ -19,6 +19,7 @@ class Default_ProductosController extends CST_Controller_ActionDefault {
 
     public function indexAction() {
         $this->view->productos = $this->listarProductos();
+        $this->view->classBody=' catalog-category-view categorypath-servers-html category-servers';
     }
 
     public function detalleProductoAction() {
@@ -48,7 +49,7 @@ class Default_ProductosController extends CST_Controller_ActionDefault {
         }
         $paginator = Zend_Paginator::factory($result);
         $paginator->setCurrentPageNumber($this->_getParam('page'));
-        $paginator->setItemCountPerPage(2);
+        $paginator->setItemCountPerPage(6);
         return $paginator;
     }
 

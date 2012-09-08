@@ -468,6 +468,8 @@ tr.summary-details-excluded { font-style:italic; }
 .navigation li.first { padding-left:0 !important; }
 .navigation li.last { background:none !important; padding-right:0 !important; }
 
+.navigation li ul { display: none }
+
 .link-cart { font-weight:normal; color:#333333; }
 .link-wishlist { font-weight:normal; font-size:11px; color:#333333;}
 .link-reorder { font-weight:bold; }
@@ -1107,7 +1109,7 @@ tr.summary-details-excluded { font-style:italic; }
 .product-view .product-img-box .zoom #handle { position:absolute; left:0; top:4px; width:35px; height:8px; background:url(../images/magnifier_handle.gif) 0 0 no-repeat;  }
 .product-view .product-img-box .zoom .btn-zoom-out { position:absolute; left:2px; top:0; }
 .product-view .product-img-box .zoom .btn-zoom-in { position:absolute; right:2px; top:0; }
-.product-view .product-img-box .more-views{padding-top:55px;}
+.product-view .product-img-box .more-views{padding-top:5px;}
 .product-view .product-img-box .more-views h2{ padding-bottom:0px;}
 .product-view .product-img-box .more-views ul { margin:-4px -24px 0 0; }
 .product-view .product-img-box .more-views li { float:left; border:1px solid #dddddd; margin:0 24px 8px 4px ; }
@@ -2023,39 +2025,39 @@ position:absolute; left:0; top:-190px; z-index:101;	-webkit-transition: all 0.3s
 		Facebook style Theme
 	----------------------------------- */
 	
-	div.facebook .pp_top .pp_left { background: url(../images/prettyPhoto/facebook/sprite.png) -88px -53px no-repeat; } /* Top left corner */
-	div.facebook .pp_top .pp_middle { background: url(../images/prettyPhoto/facebook/contentPatternTop.png) top left repeat-x; } /* Top pattern/color */
-	div.facebook .pp_top .pp_right { background: url(../images/prettyPhoto/facebook/sprite.png) -110px -53px no-repeat; } /* Top right corner */
+	div.facebook .pp_top .pp_left { background: url(../images/detaillProducto/sprite.png) -88px -53px no-repeat; } /* Top left corner */
+	div.facebook .pp_top .pp_middle { background: url(../images/detaillProducto/contentPatternTop.png) top left repeat-x; } /* Top pattern/color */
+	div.facebook .pp_top .pp_right { background: url(../images/detaillProducto/sprite.png) -110px -53px no-repeat; } /* Top right corner */
 	
 	div.facebook .pp_content .ppt { color: #000; }
-	div.facebook .pp_content_container .pp_left { background: url(../images/prettyPhoto/facebook/contentPatternLeft.png) top left repeat-y; } /* Content background */
+	div.facebook .pp_content_container .pp_left { background: url(../images/detaillProducto/contentPatternLeft.png) top left repeat-y; } /* Content background */
 	div.facebook .pp_content_container .pp_right { background: url(../images/prettyPhoto/facebook/contentPatternRight.png) top right repeat-y; } /* Content background */
 	div.facebook .pp_content { background: #fff; } /* Content background */
-	div.facebook .pp_expand { background: url(../images/prettyPhoto/facebook/sprite.png) -31px -26px no-repeat; cursor: pointer; } /* Expand button */
-	div.facebook .pp_expand:hover { background: url(../images/prettyPhoto/facebook/sprite.png) -31px -47px no-repeat; cursor: pointer; } /* Expand button hover */
-	div.facebook .pp_contract { background: url(../images/prettyPhoto/facebook/sprite.png) 0 -26px no-repeat; cursor: pointer; } /* Contract button */
-	div.facebook .pp_contract:hover { background: url(../images/prettyPhoto/facebook/sprite.png) 0 -47px no-repeat; cursor: pointer; } /* Contract button hover */
-	div.facebook .pp_close { width: 22px; height: 22px; background: url(../images/prettyPhoto/facebook/sprite.png) -1px -1px no-repeat; cursor: pointer; } /* Close button */
+	div.facebook .pp_expand { background: url(../images/detaillProducto/sprite.png) -31px -26px no-repeat; cursor: pointer; } /* Expand button */
+	div.facebook .pp_expand:hover { background: url(../images/detaillProducto/sprite.png) -31px -47px no-repeat; cursor: pointer; } /* Expand button hover */
+	div.facebook .pp_contract { background: url(../images/detaillProducto/sprite.png) 0 -26px no-repeat; cursor: pointer; } /* Contract button */
+	div.facebook .pp_contract:hover { background: url(../images/detaillProducto/sprite.png) 0 -47px no-repeat; cursor: pointer; } /* Contract button hover */
+	div.facebook .pp_close { width: 22px; height: 22px; background: url(../images/detaillProducto/sprite.png) -1px -1px no-repeat; cursor: pointer; } /* Close button */
 	div.facebook .pp_details { position: relative; }
 	div.facebook .pp_description { margin: 0 37px 0 0; }
 	div.facebook #pp_full_res .pp_inline { color: #000; } 
 	div.facebook .pp_loaderIcon { background: url(../images/prettyPhoto/facebook/loader.gif) center center no-repeat; } /* Loader icon */
 	
-	div.facebook .pp_arrow_previous { background: url(../images/prettyPhoto/facebook/sprite.png) 0 -71px no-repeat; height: 22px; margin-top: 0; width: 22px; } /* The previous arrow in the bottom nav */
+	div.facebook .pp_arrow_previous { background: url(../images/detaillProducto/sprite.png) 0 -71px no-repeat; height: 22px; margin-top: 0; width: 22px; } /* The previous arrow in the bottom nav */
 		div.facebook .pp_arrow_previous.disabled { background-position: 0 -96px; cursor: default; }
-	div.facebook .pp_arrow_next { background: url(../images/prettyPhoto/facebook/sprite.png) -32px -71px no-repeat; height: 22px; margin-top: 0; width: 22px; } /* The next arrow in the bottom nav */
+	div.facebook .pp_arrow_next { background: url(../images/detaillProducto/sprite.png) -32px -71px no-repeat; height: 22px; margin-top: 0; width: 22px; } /* The next arrow in the bottom nav */
 		div.facebook .pp_arrow_next.disabled { background-position: -32px -96px; cursor: default; }
 	div.facebook .pp_nav { margin-top: 0; }
 	div.facebook .pp_nav p { font-size: 15px; padding: 0 3px 0 4px; }
-	div.facebook .pp_nav .pp_play { background: url(../images/prettyPhoto/facebook/sprite.png) -1px -123px no-repeat; height: 22px; width: 22px; }
-	div.facebook .pp_nav .pp_pause { background: url(../images/prettyPhoto/facebook/sprite.png) -32px -123px no-repeat; height: 22px; width: 22px; }
+	div.facebook .pp_nav .pp_play { background: url(../images/detaillProducto/sprite.png) -1px -123px no-repeat; height: 22px; width: 22px; }
+	div.facebook .pp_nav .pp_pause { background: url(../images/detaillProducto/sprite.png) -32px -123px no-repeat; height: 22px; width: 22px; }
 	
 	div.facebook .pp_next:hover { background: url(../images/prettyPhoto/facebook/btnNext.png) center right no-repeat; cursor: pointer; } /* Next button */
 	div.facebook .pp_previous:hover { background: url(../images/prettyPhoto/facebook/btnPrevious.png) center left no-repeat; cursor: pointer; } /* Previous button */
 	
-	div.facebook .pp_bottom .pp_left { background: url(../images/prettyPhoto/facebook/sprite.png) -88px -80px no-repeat; } /* Bottom left corner */
+	div.facebook .pp_bottom .pp_left { background: url(../images/detaillProducto/sprite.png) -88px -80px no-repeat; } /* Bottom left corner */
 	div.facebook .pp_bottom .pp_middle { background: url(../images/prettyPhoto/facebook/contentPatternBottom.png) top left repeat-x; } /* Bottom pattern/color */
-	div.facebook .pp_bottom .pp_right { background: url(../images/prettyPhoto/facebook/sprite.png) -110px -80px no-repeat; } /* Bottom right corner */
+	div.facebook .pp_bottom .pp_right { background: url(../images/detaillProducto/sprite.png) -110px -80px no-repeat; } /* Bottom right corner */
 
 
 /* ------------------------------------------------------------------------

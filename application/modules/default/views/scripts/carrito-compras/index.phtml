@@ -1,83 +1,132 @@
-<div class="grid_24" >
-    <?php $precioTotal = 0;?>
-    <div id="titleItemProduct">
-        
-        <?php 
-        $countTotal = count($this->listaCarrito);
-        if($countTotal>1){ ?>
-        Tienes <?php echo $countTotal; ?> productos en tu carrito
-        <?php } else{ ?>
-        Tienes <?php echo $countTotal; ?> producto en tu carrito
-        <?php }  ?>
-    </div>
-    <?php if(isset($this->listaCarrito) && !empty($this->listaCarrito)) { ?>
-    <ul id="ListProduct">
-        <li>
-            <div class="ItemCarritoImagen">
-                Imagen
-            </div>
-            <div class="ItemCarritoNombre">
-                Nombre
-            </div>
-            <div class="ItemCarritoCantidad">
-                Cantidad
-            </div>
-            <div class="ItemCarritoSumRest">
-                &nbsp;
-            </div>
-            <div class="precioTotalItem">
-                Precio
-            </div>
-            <hr></hr>
-            <div class="clear"></div>
-        </li>
-        
-        <?php foreach ($this->listaCarrito as $index => $valor) {
-            ?>
-            <li id="ItemCarrito_<?php echo $index ?>">
-                <form id="form_pres_<?php echo $valor['IdProducto'] ?>" action="/carrito-compras/registrar-producto" method="Post">
-                    <input type="hidden" id="hidden_idproducto_<?php echo $valor['IdProducto'] ?>" name="slugProducto" value="<?php echo $valor['Slug'] ?>" />
-                    <div class="ItemCarritoImagen">
-                        <img src="<?php echo CST_Server_ServerDinamic::getUrl() ?>/img/imagen-producto/<?php echo $valor['Imagen'] ?>" />
-                    </div>
-                    <div class="ItemCarritoNombre">
-                        <div><h6><?php echo $valor['Nombre'] ?></h6></div>
-                        <div><?php echo $valor['Descripcion'] ?></div>
-                        <div class="descPrecioUnitario">Precio Unitario: <span class="precioUnitario"><?php echo $valor['PrecioVenta'] ?></span></div>
-                    </div>
-                    <div class="ItemCarritoCantidad">
-                        <input type="text"  value="<?php echo $valor['cantidad'] ?>" name="cantidadTotal"/>
-                    </div>
-                    <div class="ItemCarritoSumRest">
-                        <a id="AumentarCarrito" href="/carrito-compras/aumentar-producto/indice/<?php echo $index ?>"><span class="ui-icon ui-icon-plus"></span></a>
-                        <a id="DisminuirCarrito" href="/carrito-compras/disminuir-producto/indice/<?php echo $index ?>"><span class="ui-icon ui-icon-minus"></span></a>
-                    </div>
-                    <div class="precioTotalItem"><?php echo $precioItem = $valor['PrecioVenta']*$valor['cantidad'] ?></div>
-                    <div class="optionEliminarItem">
-                        <a id="eliminarCarrito_<?php echo $index ?>" href="/carrito-compras/eliminar-producto/indice/<?php echo $index ?>" >
-                            <span class="ui-icon ui-icon-closethick" style="float: left"></span>
-                            <span>Eliminar</span>
-                        </a>
-                    </div>
-                </form>
-                <div class="clear"></div>
-                <hr></hr>
-            </li>
-            <?php
-            $precioTotal= $precioItem + $precioTotal;
-        }
+<div class="page-title title-buttons">
+    <h1>Shopping Cart</h1>
+</div>
+
+<div id="titleItemProduct">
+
+    <?php
+    $countTotal = count($this->listaCarrito);
+    if ($countTotal > 1) {
         ?>
-            <li class="footerListCarrito">
-                <div id="foot3">
-                    <a href="/carrito-compras/medio-pago">Continuar Compra</a>
-                </div>
-                <div id="foot2">
-                    Total: <spam class="precioTotal"><?php echo $precioTotal; ?></spam>
-                </div>
-                <div id="foot1">
-                    <a href="/productos">Agregar mas Productos a mi carrito</a>
-                </div>
-            </li>
-    </ul>
+        Tienes <?php echo $countTotal; ?> productos en tu carrito
+    <?php } else { ?>
+        Tienes <?php echo $countTotal; ?> producto en tu carrito
     <?php } ?>
 </div>
+
+<table id="shopping-cart-table" class="data-table cart-table">
+    <colgroup><col width="1">
+        <col>
+        <col width="1">
+        <col width="1">
+        <col width="1">
+        <col width="1">
+        <col width="1">
+
+    </colgroup><thead>
+        <tr class="first last">
+            <th rowspan="1">&nbsp;</th>
+            <th rowspan="1"><span class="nobr">Nombre de Producto</span></th>
+            <th rowspan="1"></th>
+            <th class="a-center" colspan="1"><span class="nobr">Precio unitario</span></th>
+            <th rowspan="1" class="a-center">Cantidad</th>
+            <th class="a-center" colspan="1">Subtotal</th>
+            <th rowspan="1" class="a-center">&nbsp;</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr class="first last">
+            <td colspan="50" class="a-right last">
+                <button type="button" title="Continue Shopping" class="button btn-continue f-left" onclick="setLocation('/productos')"><span><span>Agregar mas Productos a mi Compra</span></span></button>
+
+            </td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <?php foreach ($this->listaCarrito as $index => $valor) { ?>
+            <tr class="first last odd">
+                <td><a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $valor['Slug'] ?>" title="<?php echo $valor['Nombre'] ?>" class="product-image">
+                        <img <img src="<?php echo CST_Server_ServerDinamic::getUrl() ?>/img/imagen-producto/<?php echo $valor['Imagen'] ?>" width="75" height="75" alt="<?php echo $valor['Nombre'] ?>"/>
+                    </a>
+                </td>
+                <td>
+                    <h2 class="product-name">
+                        <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $valor['Slug'] ?>"><?php echo $valor['Nombre'] ?></a>
+                    </h2>
+                    <div><?php echo $valor['Descripcion'] ?></div>
+                </td>
+                <td class="a-center">
+                    <a title="Aumentar Uno" id="AumentarCarrito" href="/carrito-compras/aumentar-producto/indice/<?php echo $index ?>"><img alt="Aunmentar Uno" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/slider_btn_zoom_in.gif" /></span></a>
+                    <a title="Disminuir Uno" id="DisminuirCarrito" href="/carrito-compras/disminuir-producto/indice/<?php echo $index ?>"><img alt="Disminuir Uno" src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/images/slider_btn_zoom_out.gif" /></span></a>
+                </td>
+                <td class="a-right">
+                    <span class="cart-price">
+    <?php
+    if ($valor['FlagOferta'] == 1) {
+        $precioReal = $valor['PrecioOferta'];
+        ?>   
+                            <span class="price">S/. <?php echo $valor['PrecioOferta'] ?></span>
+                        <?php } else { ?>
+                            <span class="price">S/. <?php echo $valor['PrecioVenta'] ?></span>
+                            <?php
+                            $precioReal = $valor['PrecioVenta'];
+                        }
+                        ?>
+
+
+                    </span>
+                </td>
+                <td class="a-center">
+                    <form id="form_pres_<?php echo $valor['IdProducto'] ?>" action="/carrito-compras/registrar-producto" method="Post">
+                        <input type="hidden" id="hidden_idproducto_<?php echo $valor['IdProducto'] ?>" name="slugProducto" value="<?php echo $valor['Slug'] ?>" />
+                        <input type="text"  value="<?php echo $valor['cantidad'] ?>" class="input-text qty" name="cantidadTotal"/>
+                    </form>
+
+                </td>
+                <td class="a-right">
+                    <span class="cart-price">
+
+                        <span class="price">S/. <?php echo $precioReal * $valor['cantidad'] ?></span>                            
+                    </span>
+                </td>
+                <td class="a-center last"><a href="/carrito-compras/eliminar-producto/indice/<?php echo $index ?>" title="Eliminar" class="btn-remove btn-remove2">Eliminar</a></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
+<div class="cart-collaterals">
+    <div class="totals">
+        <table id="shopping-cart-totals-table">
+            <colgroup><col>
+                <col width="1">
+            </colgroup><tfoot>
+                <tr>
+                    <td style="" class="a-right" colspan="1">
+                        <strong>Grand Total</strong>
+                    </td>
+                    <td style="" class="a-right">
+                        <strong><span class="price">$9,901.77</span></strong>
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td style="" class="a-right" colspan="1">
+                        Subtotal    </td>
+                    <td style="" class="a-right">
+                        <span class="price">$9,901.77</span>    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ul class="checkout-types">
+            <li>    <button type="button" title="Proceed to Checkout" class="button btn-proceed-checkout btn-checkout" onclick="window.location='http://livedemo00.template-help.com/magento_39583/checkout/onepage/';"><span><span>Proceed to Checkout</span></span></button>
+            </li>
+            <li><a href="http://livedemo00.template-help.com/magento_39583/checkout/multishipping/" title="Checkout with Multiple Addresses">Checkout with Multiple Addresses</a>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+
+

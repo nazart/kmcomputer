@@ -19,7 +19,7 @@ class CST_Controller_ActionDefault extends CST_Controller_Action {
         parent::init();
         $this->_identity = Zend_Auth::getInstance()->getIdentity();
         $this->view->identity = $this->_identity;
-
+        $productos = new Application_Entity_Producto();
         if (!isset($this->_identity) && empty($this->_identity)) {
             $formLogin = new Application_Form_FormularioLogin();
             $formLogin->removeDecorators();
@@ -45,11 +45,11 @@ class CST_Controller_ActionDefault extends CST_Controller_Action {
         );
         //if (!$listaCategorias)
         //    $listaCategorias = array();
-        //$configNavigationArray['productos']['pages'] = $listaCategorias;
+        $configNavigationArray['productos']['pages'] = $listaCategorias;
         $this->view->listaCategoriasNavigator = $listaCategorias;
         $navigation = new Zend_Navigation($configNavigationArray);
         $this->view->navigation($navigation);
-        
+        $this->view->ofertasRecienteRandon = $productos->listarOfertasRecientesAleatorio();
         $uri = $this->getRequest()->getPathInfo();
         $position = strpos($uri, '/page');
         if ($position > 0)

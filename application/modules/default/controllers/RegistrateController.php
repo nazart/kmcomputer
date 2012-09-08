@@ -14,6 +14,7 @@ class Default_RegistrateController extends CST_Controller_ActionDefault {
 
     public function init() {
         parent::init();
+        Zend_Layout::getMvcInstance()->setLayout('layout-simple');
     }
 
     public function indexAction() {

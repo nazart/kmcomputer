@@ -101,10 +101,10 @@
                     </div>
                     <div class="row1">
                         <div class="container">
-                            <form id="search_mini_form" action="/buscar" method="get">
+                            <form id="search_mini_form" action="http://livedemo00.template-help.com/magento_39583/catalogsearch/result/" method="get">
                                 <div class="form-search">
                                     <label for="search">Search:</label>
-                                    <input autocomplete="off" id="search" name="search" value="Buscar en toda la tienda aquí ..." class="input-text" maxlength="128" type="text"/>
+                                    <input autocomplete="off" id="search" name="q" value="Buscar en toda la tienda aquí ..." class="input-text" maxlength="128" type="text"/>
                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span></button>
                                     <div style="display: none;" id="search_autocomplete" class="search-autocomplete"></div>
                                     <script type="text/javascript">
@@ -150,126 +150,31 @@
                         </div>
                     </div>
                 </noscript>
-                <div class="main-container col3-layout">
-                    <div class="breadcrumbs">
-                    <?php if($this->breadcrumbs==''){
-                        echo '<div class="breadcrumb">Estas en: <a href="'.$this->baseUrl().'/"> Inicio </a> &raquo; ' . $this->navigation()
+                <div class="main-container col1-layout">
+                    
+                    <?php if($this->breadCrumbs ==''){
+                        echo '<div class="breadcrumbs">Estas en: <a href="'.$this->baseUrl().'/"> Inicio </a> &raquo; ' . $this->navigation()
                                 ->breadcrumbs()
                                 ->setMinDepth(0)
                                 ->setLinkLast(true)
                                 ->setSeparator(" &raquo; " . PHP_EOL) . '</div><p>';
                     }else{
-                        echo '<div class="breadcrumb">Estas en: <a href="'.$this->baseUrl().'/"> Inicio </a> &raquo; ' .
-                                $this->breadcrumbs . '</div><p>';
-                    } ?>
-                        </div>
-                 
+                        echo '<div class="breadcrumbs">Estas en:  ' .
+                                $this->breadCrumbs . '</div><p>';
+                    }
+                    
+                    ?>
+                        
+                        
                     <div class="main">
                         <div class="col-wrapper">
                             <div class="col-main">
+                                <div class="cart">
                                 <?php echo $this->layout()->content ?>
-                            </div>
-                            <div class="col-left sidebar"><div class="nav-container">
-                                    <div class="category-box-title">Categorias</div>
-                                    <div class="navbar2">
-    <ul id="nav">
-        <?php
-        $string = '';
-        foreach ($this->listaCategoriasNavigator as $valueIndex=>$index) {
-            $class ='';
-            $class.='level0 nav-'.($valueIndex+1).' level-top';
-//            if ($this->getPathInfo == $index['uri']) {
-//                //$class.= 'level0 nav-1 level-top first';
-//            } else {
-//                //$class.= '<li class="level0 nav-1 level-top first">';
-//            }
-            if($valueIndex==0){
-                $class.=' first';
-            }
-            if (isset($index['pages']) && !empty($index['pages'])) {
-                $class.=' parent items';
-                $string.= '<li class="'.$class.'">';
-                $string.= '<a href="' . $index['uri'] . '" ><span>' . $index['label'] . '</span></a>';
-                $string.= '<ul class="level0">';
-                foreach ($index['pages'] as $valueIndex2=>$index2) {
-//                    if ($this->getPathInfo == $index2['uri']) {
-//                        $string.= '<li class="active">';
-//                    } else {
-//                        $string.= '<li>';
-//                    }
-                    $class2 ='';
-                    $class2.=' level1 nav-'.($valueIndex+1).'-'.($valueIndex2+1).' ';
-                    if ($valueIndex2==0) {
-                        $class2 =' first ';
-                    } 
-                    $string.= '<li class="'.$class2.'">';
-                    $string.= '<a href="' . $index2['uri'] . '" ><span>' . $index2['label'] . '</span></a>';
-                    $string.= '</li>';
-                }
-                $string.= '</ul>';
-            }else{
-                $string.= '<li class="'.$class.'">';
-                $string.= '<a href="' . $index['uri'] . '" ><span>' . $index['label'] . '</span></a>';
-            }
-            $string.= '</li>';
-        }
-        echo $string;
-        ?>
-    </ul>
-</div>
-                                    
-                                    
-                                    
-
-                                </div>
-
-
-
-                                <div class="block block-banner">
-                                    <div class="block-content">
-                                        <a href="http://facebook.com/" title="Keep your eyes open for our special Back to School items and save A LOT!">
-                                            <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/facebook-banner.jpg" alt="Keep your eyes open for our special Back to School items and save A LOT!">
-                                        </a>
                                     </div>
-                                </div>
                             </div>
-                        </div>
-                        <div class="col-right sidebar">
-                            <div class="block block-cart">
-                                <div class="block-title">
-                                    <strong><span>Mi Carrito</span></strong>
-                                </div>
-                                <div class="block-content">
-                                    <p class="empty">You have no items in your shopping cart.</p>
-                                </div>
-                            </div>
-                            <div class="block specials">
-                                <div class="block-title">
-                                    <strong><span>Ofertas</span></strong>
-                                </div>
-                                <div class="block-content">
-                                    <ul>
-                                        <?php foreach ($this->ofertasRecienteRandon as $index): ?>
-                                        <li>
-                                            <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="<?php echo $index['Nombre'] ?>" class="product-image"><img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/imagen-producto/<?php echo $index['Imagen'] ?>?<?php echo rand(0, 1000); ?>" width="115" height="80" alt="<?php echo $index['Nombre'] ?>" /></a>
-                                            <div class="product-info">
-                                                <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="<?php echo $index['Nombre'] ?>"  class="product-name"><?php echo $index['Nombre'] ?></a>
-                                                <span class="price">S/. <?php echo $index['PrecioVenta'] ?></span>
-                                                <?php if ($index['FlagOferta'] == 1) { ?>
-                                                <span class="old-price">S/. <?php echo $index['PrecioOferta'] ?></span>
-                                                <?php } ?>
-                                                <div class="clear" ></div>
-                                                
-                                                <button type="button" class="button" onclick="setLocation('/productos/detalle-producto/<?php echo $index['Slug'] ?>')"><span><span>Detalle</span></span></button>
-                                            </div>
-                                        </li>
-                                        <?php endforeach; ?>
-                                        
-                                        
-                                        
-                                    </ul>
-                                </div>
-                            </div></div>
+                            
+                        
                     </div>
                 </div>
                 <div class="footer-container">
