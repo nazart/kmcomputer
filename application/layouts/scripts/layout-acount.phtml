@@ -86,19 +86,18 @@
 
                             </div>
                             <div class="clear"></div>
-                            
+
                             <div class="block-cart-header">
                                 <h3>Mi carrito</h3>
                                 <div class="block-content">
                                     <?php
                                     $cantItem = count($this->carrito);
-                                if(is_array($this->carrito) && $cantItem>0){ ?>
-                                    <p class="empty"><a href="/carrito-compras"><strong><?php echo $cantItem; ?></strong> (artículos)</a></p>
-                                    <?php } else{
+                                    if (is_array($this->carrito) && $cantItem > 0) {
                                         ?>
-                                    <p class="empty"><a href="/carrito-compras"><strong>0</strong> (artículos)</a></p>
-                                        <?php
-                                    }?>
+                                        <p class="empty"><a href="/carrito-compras"><strong><?php echo $cantItem; ?></strong> (artículos)</a></p>
+                                    <?php } else { ?>
+                                        <p class="empty"><a href="/carrito-compras"><strong>0</strong> (artículos)</a></p>
+                                        <?php } ?>
                                 </div>
                             </div>
                             <p class="welcome-msg">Bienvenidos a nuestra tienda en línea!</p>			
@@ -158,64 +157,24 @@
                     <div class="main">
                         <div class="col-wrapper">
                             <div class="col-main">
-<?php echo $this->layout()->content ?>
+                                <?php echo $this->layout()->content ?>
                             </div>
                             <div class="col-left sidebar"><div class="nav-container">
-                                    <div class="category-box-title">Categorias</div>
+                                    <div class="category-box-title">Mi cuenta</div>
                                     <div class="navbar2">
                                         <ul id="nav">
-                                            <?php
-                                            $string = '';
-                                            foreach ($this->listaCategoriasNavigator as $valueIndex => $index) {
-                                                $class = '';
-                                                $class.='level0 nav-' . ($valueIndex + 1) . ' level-top';
-//            if ($this->getPathInfo == $index['uri']) {
-//                //$class.= 'level0 nav-1 level-top first';
-//            } else {
-//                //$class.= '<li class="level0 nav-1 level-top first">';
-//            }
-                                                if ($valueIndex == 0) {
-                                                    $class.=' first';
-                                                }
-                                                if (isset($index['pages']) && !empty($index['pages'])) {
-                                                    $class.=' parent items';
-                                                    $string.= '<li class="' . $class . '">';
-                                                    $string.= '<a href="' . $index['uri'] . '" ><span>' . $index['label'] . '</span></a>';
-                                                    $string.= '<ul class="level0">';
-                                                    foreach ($index['pages'] as $valueIndex2 => $index2) {
-//                    if ($this->getPathInfo == $index2['uri']) {
-//                        $string.= '<li class="active">';
-//                    } else {
-//                        $string.= '<li>';
-//                    }
-                                                        $class2 = '';
-                                                        $class2.=' level1 nav-' . ($valueIndex + 1) . '-' . ($valueIndex2 + 1) . ' ';
-                                                        if ($valueIndex2 == 0) {
-                                                            $class2 = ' first ';
-                                                        }
-                                                        $string.= '<li class="' . $class2 . '">';
-                                                        $string.= '<a href="' . $index2['uri'] . '" ><span>' . $index2['label'] . '</span></a>';
-                                                        $string.= '</li>';
-                                                    }
-                                                    $string.= '</ul>';
-                                                } else {
-                                                    $string.= '<li class="' . $class . '">';
-                                                    $string.= '<a href="' . $index['uri'] . '" ><span>' . $index['label'] . '</span></a>';
-                                                }
-                                                $string.= '</li>';
-                                            }
-                                            echo $string;
-                                            ?>
+                                            <li class="level0 nav-1 level-top first hover over">
+                                                <a href="/mi-cuenta/datos-personales" class="over"><span>Datos Personales</span></a>
+                                            </li>
+                                            <li class="level0 nav-1 level-top first hover over">
+                                                <a href="/mi-cuenta/cambio-contraseña" class="over"><span>Cambio Contraseña</span></a>
+                                            </li>   
+                                            <li class="level0 nav-1 level-top first hover over">
+                                                <a href="/login/salir" class="over"><span>Salir</span></a>
+                                            </li>
                                         </ul>
                                     </div>
-
-
-
-
                                 </div>
-
-
-
                                 <div class="block block-banner">
                                     <div class="block-content">
                                         <a href="http://facebook.com/" title="Keep your eyes open for our special Back to School items and save A LOT!">
@@ -230,82 +189,55 @@
                                 <div class="block-title">
                                     <strong><span>Mi Carrito</span></strong>
                                 </div>
-                                <?php
-                                if(is_array($this->carrito) && $cantItem>0){ ?>
-                                <div class="block-content">
-                                    <div class="summary">
-                                        <p class="amount">Hay <a href="/carrito-compras"><?php echo $cantItem ?> artículos</a> en su carrito.</p>
-                                        <p class="subtotal">
-                                            <span class="label">Cart Subtotal:</span> <span class="price">$8,900.59</span>                                                </p>
+                                <?php if (is_array($this->carrito) && $cantItem > 0) { ?>
+                                    <div class="block-content">
+                                        <div class="summary">
+                                            <p class="amount">Hay <a href="/carrito-compras"><?php echo $cantItem ?> artículos</a> en su carrito.</p>
+                                            <p class="subtotal">
+                                                <span class="label">Cart Subtotal:</span> <span class="price">$8,900.59</span>                                                </p>
+                                        </div>
+                                        <div class="actions">
+                                            <button type="button" title="Checkout" class="button" onclick="setLocation('http://livedemo00.template-help.com/magento_39583/checkout/onepage/')"><span><span>Checkout</span></span></button>
+                                        </div>
+                                        <p class="block-subtitle">Recently added item(s)</p>
+                                        <ol id="cart-sidebar" class="mini-products-list">
+    <?php foreach ($this->carrito as $index => $valor): ?>
+                                                <li class="item">
+                                                    <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $valor['Slug'] ?>" 
+                                                       title="<?php echo $valor['Nombre'] ?>" 
+                                                       class="product-image">
+                                                        <img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/imagen-producto/<?php echo $valor['Imagen'] ?>?<?php echo rand(0, 1000); ?>" 
+                                                             width="50" 
+                                                             height="50" 
+                                                             alt="<?php echo $valor['Nombre'] ?>">
+                                                    </a>
+                                                    <div class="product-details">
+                                                        <a href="/carrito-compras/eliminar-producto/indice/<?php echo $index ?>" title="Eliminar este Producto" onclick="return confirm('Está seguro que desea eliminar este elemento del carrito de compra?');" class="btn-remove">Remove This Item</a>
+                                                        <p class="product-name"><a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $valor['Slug'] ?>"><?php echo $valor['Nombre'] ?></a></p>
+                                                        <strong><?php echo $valor['cantidad'] ?></strong> x
+                                                        <span class="price">
+        <?php
+        if ($valor['FlagOferta'] == 1) {
+            echo $valor['PrecioOferta'];
+        } else {
+            echo $valor['PrecioVenta'];
+        }
+        ?>
+                                                        </span>                    
+                                                    </div>
+                                                </li>
+                                            <?php endforeach; ?>
+
+                                        </ol>
+                                        <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
                                     </div>
-                                    <div class="actions">
-                                        <button type="button" title="Checkout" class="button" onclick="setLocation('http://livedemo00.template-help.com/magento_39583/checkout/onepage/')"><span><span>Checkout</span></span></button>
-                                    </div>
-                                    <p class="block-subtitle">Recently added item(s)</p>
-                                    <ol id="cart-sidebar" class="mini-products-list">
-                                        <?php foreach($this->carrito as $index=>$valor): ?>
-                                        <li class="item">
-                                            <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $valor['Slug'] ?>" 
-                                               title="<?php echo $valor['Nombre'] ?>" 
-                                               class="product-image">
-                                                <img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/imagen-producto/<?php echo $valor['Imagen'] ?>?<?php echo rand(0, 1000); ?>" 
-                                                     width="50" 
-                                                     height="50" 
-                                                     alt="<?php echo $valor['Nombre'] ?>">
-                                            </a>
-                                            <div class="product-details">
-                                                <a href="/carrito-compras/eliminar-producto/indice/<?php echo $index ?>" title="Eliminar este Producto" onclick="return confirm('Está seguro que desea eliminar este elemento del carrito de compra?');" class="btn-remove">Remove This Item</a>
-                                                <p class="product-name"><a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $valor['Slug'] ?>"><?php echo $valor['Nombre'] ?></a></p>
-                                                <strong><?php echo $valor['cantidad'] ?></strong> x
-                                                <span class="price">
-                                                    <?php if ($valor['FlagOferta'] == 1) { 
-                                                        echo $valor['PrecioOferta'];
-                                                        } else { 
-                                                            echo $valor['PrecioVenta'];
-                                                        } ?>
-                                                </span>                    
-                                            </div>
-                                        </li>
-                                        <?php endforeach; ?>
-                                        
-                                    </ol>
-                                    <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
-                                </div>
                                 <?php } else { ?>
-                                <div class="block-content">
-                                    <p class="empty">No tiene artículos en su carrito de compras.</p>
-                                </div>
+                                    <div class="block-content">
+                                        <p class="empty">No tiene artículos en su carrito de compras.</p>
+                                    </div>
                                 <?php } ?>
                             </div>
-                            <div class="block specials">
-                                <div class="block-title">
-                                    <strong><span>Ofertas</span></strong>
-                                </div>
-                                <div class="block-content">
-                                    <ul>
-<?php foreach ($this->ofertasRecienteRandon as $index): ?>
-                                            <li>
-                                                <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="<?php echo $index['Nombre'] ?>" class="product-image"><img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/imagen-producto/<?php echo $index['Imagen'] ?>?<?php echo rand(0, 1000); ?>" width="115" height="80" alt="<?php echo $index['Nombre'] ?>" /></a>
-                                                <div class="product-info">
-                                                    <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="<?php echo $index['Nombre'] ?>"  class="product-name"><?php echo $index['Nombre'] ?></a>
-
-                                                    <?php if ($index['FlagOferta'] == 1) { ?>
-                                                        <span class="price">S/. <?php echo $index['PrecioOferta'] ?></span>
-                                                        <span class="old-price">S/. <?php echo $index['PrecioVenta'] ?></span>
-                                                    <?php } else { ?>
-                                                        <span class="price">S/. <?php echo $index['PrecioVenta'] ?></span>
-    <?php } ?>
-                                                    <div class="clear" ></div>
-                                                    <button type="button" class="button" onclick="setLocation('/productos/detalle-producto/<?php echo $index['Slug'] ?>')"><span><span>Detalle</span></span></button>
-                                                </div>
-                                            </li>
-<?php endforeach; ?>
-
-
-
-                                    </ul>
-                                </div>
-                            </div></div>
+                        </div>
                     </div>
                 </div>
                 <div class="footer-container">

@@ -27,27 +27,36 @@ class CST_Controller_ActionDefault extends CST_Controller_Action {
             $formLogin = new Application_Form_FormularioLogin();
             $formLogin->removeDecorators();
             $formLogin->customDecoratorFile("/form-custom/_formLoginHeader.phtml");
-            $this->view->formLoginHeader = $formLogin;
-        } else {
-            $string = '<div>Nombre : </div>';
-            $string .= '<div>' . $this->_identity->NombreUsuario . '</div>';
-            $string .= '<div>Correo : </div>';
-            $string .= '<div>' . $this->_identity->Correo . '</div>';
-            $string .= '<div><a href="/login/salir">Salir</a></div>';
-            $this->view->formLoginHeader = $string;
-        }
-
-
-        $categoria = new Application_Entity_Transaccion();
-        $listaCategorias = $categoria->listarArbolCategorias();
+            $this->view->formLoginHeader = $formLogin.'
+                <div class="clear"></div>
+                <div style="float:right; padding-right:32px">
+                <a href="/recuperar-contrasena">Olvido Contraseña</a>
+                </div>';
         $configNavigationArray = array(
             'home' => array('label' => 'Inicio', 'uri' => '/', 'orden' => '1','class'=>'first'),
             'productos' => array('label' => 'Productos', 'uri' => '/productos', 'orden' => '2'),
             'registrate' => array('label' => 'Registrate', 'uri' => '/registrate', 'orden' => '3'),
             'contactenos' => array('label' => 'Contactenos', 'uri' => '/contactenos', 'orden' => '4'),
         );
-        //if (!$listaCategorias)
-        //    $listaCategorias = array();
+            
+        } else {
+            $string = '<div>' . $this->_identity->NombreUsuario .' | '.$this->_identity->Correo. ' | <a href="/login/salir">Salir</a> </div>
+                <div>&nbsp;</div>';
+            $this->view->formLoginHeader = $string;
+        $configNavigationArray = array(
+            'home' => array('label' => 'Inicio', 'uri' => '/', 'orden' => '1','class'=>'first'),
+            'productos' => array('label' => 'Productos', 'uri' => '/productos', 'orden' => '2'),
+            'micuenta' => array('label' => 'Mi cuenta', 'uri' => '/mi-cuenta', 'orden' => '3'),
+            'contactenos' => array('label' => 'Contactenos', 'uri' => '/contactenos', 'orden' => '4'),
+        );
+            
+        }
+
+
+        
+        $categoria = new Application_Entity_Transaccion();
+        $listaCategorias = $categoria->listarArbolCategorias();
+        
         $configNavigationArray['productos']['pages'] = $listaCategorias;
         $this->view->listaCategoriasNavigator = $listaCategorias;
         $navigation = new Zend_Navigation($configNavigationArray);

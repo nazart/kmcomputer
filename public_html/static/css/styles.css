@@ -507,7 +507,7 @@ tr.summary-details-excluded { font-style:italic; }
 .header .col-1, .header .col-2{ float:right; width:120px; padding-left:20px; margin:21px 0 0 20px; border-left:solid 1px #39393a; height:157px;}
 .header .col-3{ float:right; text-align:right; margin:17px 0 0;}
 
-.header-container .welcome-msg { font-weight:normal; color:#939393; text-align:right; padding:28px 13px 5px 11px; margin:0; font-size:12px; float:right;}
+.header-container .welcome-msg { font-weight:normal; color:#939393; text-align:right; padding:15px 13px 5px 11px; margin:0; font-size:12px; float:right;}
 
 .header .row1 .links { margin:0; padding:0; float:left;}
 .header .row1 .links li { line-height:21px; float:left; background:url(../images/link-bg.gif) right top no-repeat; padding:0 34px 0 10px !important;}
@@ -531,11 +531,14 @@ tr.summary-details-excluded { font-style:italic; }
 .header .form-language { float:right; margin:7px 17px 0 0; color:#000;}
 .header .form-language select{ width:136px; font-size:11px; background:#d9d9d9; border:solid 1px #9e9e9e; color:#262626; padding:0;}
 .header-container .top-container { clear:both; text-align:right; }
-.header .block-currency{ border:none; float:right; margin:5px 0 0 0; padding:0; background:none;}
+/*.header .block-currency{ border:none; float:right; margin:5px 0 0 0; padding:0; background:none;}*/
+.header .block-currency{ border:none; float:right; margin: 0px 0 0 0; padding:0; background:none;}
 .header .block-currency .block-title{ padding:2px 11px 0 0; float:left; border:none; background:none; font-family:Arial, Helvetica, sans-serif;}
 .header .block-currency .block-title strong{ font-weight:normal; color:#2c2c2c; text-transform:none;}
 .header .block-currency .block-content{ padding:0; float:left;}
-.header .block-currency select{ width:136px; font-size:11px; background:#d9d9d9; border:solid 1px #9e9e9e; color:#262626; padding:0;}
+/*.header .block-currency select{ width:136px; font-size:11px; background:#d9d9d9; border:solid 1px #9e9e9e; color:#262626; padding:0;}*/
+.header .block-currency dd{ float: left; margin-left: 5px; }
+.header .block-currency dt{ float: left; margin-left: 5px; }
 
 .header .row{ background:url(../images/row-bg.gif) no-repeat 0 0;}
 
@@ -557,7 +560,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 /* ------------------------- header-cart --- */
 .header-container .top-container { clear:both; text-align:right; }
-.block-cart-header { margin:0; position:relative; z-index:9999; float:right; padding:30px 44px 7px 10px; color:#fff; font-family:Verdana, Geneva, sans-serif;}
+.block-cart-header { margin:0; position:relative; z-index:9999; float:right; padding:15px 44px 7px 10px; color:#fff; font-family:Verdana, Geneva, sans-serif;}
 .block-cart-header .block-content{ float:left; line-height:normal;}
 .block-cart-header .btn-edit {margin-right: 5px;}
 .block-cart-header .btn-remove, .block-cart-header .btn-edit {float: right;}
