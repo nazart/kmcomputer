@@ -59,8 +59,12 @@ $count = 1;
                         <span class="regular-price" id="product-price-1">
                             <span class="price">$ <?php echo $index['PrecioVenta'] ?></span>                                    </span>
                     </div>
-
-                    <button type="button" title="Add to Cart" class="button btn-cart" onclick="setLocation('http://livedemo00.template-help.com/magento_39583/servers/hp-ex487-mediasmart-home-server.html?options=cart')"><span><span>Add to Cart</span></span></button>
+                    <form name="form_list_<?php echo $index['IdProducto'] ?>" action="/carrito-compras/registrar-producto/<?php echo $index['IdProducto'] ?>" method="Post">
+                        <button type="button" title="Add to Cart" class="button btn-cart" onclick="form_list_<?php echo $index['IdProducto']; ?>.submit(this)"><span><span>Add to Cart</span></span></button>
+                        <input type="hidden" name="cantidad" value="1" />
+                        <input type="hidden" id="hidden_idproducto_<?php echo $index['IdProducto'] ?>" name="slugProducto" value="<?php echo $index['Slug'] ?>" />
+                    </form>
+                    
                 </div>
                 <div class="actions">
                     <ul class="add-to-links">

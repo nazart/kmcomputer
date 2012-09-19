@@ -13,7 +13,7 @@ echo $this->partial('/partial/menucategorias.phtml', $pagerData)
     var optionsPrice = new Product.OptionsPrice({"productId":"1","priceFormat":{"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":1},"includeTax":"false","showIncludeTax":false,"showBothPrices":false,"productPrice":1500,"productOldPrice":1500,"priceInclTax":1500,"priceExclTax":1500,"skipCalculate":1,"defaultTax":8.25,"currentTax":0,"idSuffix":"_clone","oldPlusDisposition":0,"plusDisposition":0,"plusDispositionTax":0,"oldMinusDisposition":0,"minusDisposition":0,"tierPrices":[],"tierPricesInclTax":[]});
 </script>
 <div id="messages_product_view"></div>
-<div class="page-title"><h1>Product information</h1></div>
+<div class="page-title"><h1>Información sobre el producto</h1></div>
 <div class="product-view">
     <div class="product-essential">
         
@@ -34,7 +34,15 @@ echo $this->partial('/partial/menucategorias.phtml', $pagerData)
 
                     <div class="price-box">
                         <span class="regular-price" id="product-price-1">
-                            <span class="price">$1,500.00</span>                                    </span>
+                            Precio: <span class="price"> S/.
+                            <?php if ($this->detalleProducto['FlagOferta'] == 1) { 
+                                                        echo $this->detalleProducto['PrecioOferta'];
+                                                        } else { 
+                                                            echo $this->detalleProducto['PrecioVenta'];
+                                                        } ?>    
+                            </span>
+                            
+                        </span>
 
                     </div>
 
@@ -57,7 +65,12 @@ echo $this->partial('/partial/menucategorias.phtml', $pagerData)
 
                     <div class="price-box">
                         <span class="regular-price" id="product-price-1_clone">
-                            <span class="price">$1,500.00</span>                                    </span>
+                            <span class="price">S/.
+                            <?php if ($this->detalleProducto['FlagOferta'] == 1) { 
+                                                        echo $this->detalleProducto['PrecioOferta'];
+                                                        } else { 
+                                                            echo $this->detalleProducto['PrecioVenta'];
+                                                        } ?>  </span>                                    </span>
 
                     </div>
 
@@ -167,7 +180,8 @@ echo $this->partial('/partial/menucategorias.phtml', $pagerData)
         <div class="box-collateral box-description">
             <h2>Details</h2>
             <div class="std">
-                <p>We are living in the epoch of <strong>great technical progress</strong> and we are sure that <em>new technologies</em> are our future. You know that computers are being applied in all spheres of society. It is a tremendous achievement of mankind. It is <strong>totally safe</strong> for environment and for the people, it runs with electricity.</p><p>The most <em>important</em> thing is that the computer technology has great perspectives for <strong>further development</strong> and it could be called a panacea for humanity. It seems that computer is such a revolutionary invention that we could not even realize the true extent of its significance. Some people are even <em>afraid</em> of such rapid and striking computer expansion; they state that mankind is in danger because of it. Their main argument is the problem of artificial intelligence. But we hope that all these <strong>problems will disappear</strong> soon.</p><p>So, it is natural that this sphere is one of the <strong>most popular</strong> ones and it is <em>really hard</em> to offer computer hardware because of <strong>great number</strong> of competitors. We are providing a great choice of <em>different</em> commodities. We are producing <strong>reliable and durable</strong> goods.</p>     </div>
+                <?php echo $this->detalleProducto['Detalle']; ?>
+            </div>
         </div>
         <div class="box-collateral box-up-sell">
             <h2>Usted también puede estar interesado en el siguiente producto (s)</h2>
@@ -246,64 +260,3 @@ echo $this->partial('/partial/menucategorias.phtml', $pagerData)
     Mage.Cookies.set('external_no_cache', 1, expireAt);
 </script>
 
-
-<div class="grid_19" >
-    <form id="form_pres_<?php echo $this->detalleProducto['IdProducto'] ?>" action="/carrito-compras/registrar-producto" method="Post">
-        <input type="hidden" id="hidden_idproducto_<?php echo $this->detalleProducto['IdProducto'] ?>" name="slugProducto" value="<?php echo $this->detalleProducto['Slug'] ?>" />
-        <div class ="detailImageProduct">
-            <div id="ImagenPrinc">
-            </div>
-            <div id="listImagen">
-                <div id="imagen">
-                </div>
-            </div>
-        </div>
-        <div class="detailDescProduct">
-            <div id="titleProduct">
-                <h4><?php echo $this->detalleProducto['Nombre']; ?></h4>
-            </div>
-            <div id="descriptionDetail">
-                <?php echo $this->detalleProducto['Descripcion']; ?>
-            </div>
-            <div  id="precioDetail">
-                Precio Oferta :<span><?php echo $this->detalleProducto['PrecioOferta']; ?></span>
-                Precio:<span><?php echo $this->detalleProducto['PrecioVenta']; ?></span>
-            </div>
-            <div class="cantProduct">
-                <select id="text_cant_<?php echo $this->detalleProducto['IdProducto'] ?>" 
-                        name="cantidad" >
-                            <?php for ($i = 1; $i <= 20; $i++) { ?>
-                        <option value="<?php echo $i; ?>">    
-                            <?php echo $i; ?>
-                        </option>
-                    <?php } ?>
-                </select>
-            </div>
-            <div class="button" >
-                <a href="/carrito-compras" id="ajax_id_product_<?php echo $this->detalleProducto['IdProducto'] ?>" rel="ajax_id_product_<?php echo $this->detalleProducto['IdProducto'] ?>"  title="Añadir al carrito">
-                    Añadir al carrito
-                </a>
-            </div>
-            <div class="ListSocialMedia">
-                <div>
-                    facebook
-                </div>
-                <div>
-                    twiter
-                </div>
-                <div>
-                    email
-                </div>
-            </div>
-
-        </div>
-        <div>
-        </div>
-        Columna Derecha
-
-        <?PHP
-        /* lista de productos relacionados */
-        print_r($this->productosRelacionados);
-        ?>
-    </form>
-</div>

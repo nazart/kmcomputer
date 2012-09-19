@@ -6,7 +6,7 @@
         <?php echo $this->headStyle() ?>
         <?php echo $this->headLink() ?>
         <?php echo $this->headScript() ?>
-        
+
         <link rel="icon" href="http://livedemo00.template-help.com/magento_39583/skin/frontend/default/theme354/favicon.ico" type="image/x-icon"/>
         <link rel="shortcut icon" href="http://livedemo00.template-help.com/magento_39583/skin/frontend/default/theme354/favicon.ico" type="image/x-icon"/>
         <link href="<?php echo CST_Server_ServerStatic::getUrl(); ?>/css/css_003.css" rel="stylesheet" type="text/css"/>
@@ -68,7 +68,6 @@
                 </div> 
         <![endif]--> 
 
-        
     </head>
     <body class=" <?php echo $this->classBody; ?>">
         <div class="header-container">
@@ -77,7 +76,7 @@
                     <div class="container2 row">
                         <h1 class="logo">
                             <strong>Gadget online</strong>
-                            <a href="http://livedemo00.template-help.com/magento_39583/" title="Gadget online" class="logo">
+                            <a href="/" title="Gadget online" class="logo">
                                 <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/logo.gif" alt="Gadget online"/>
                             </a>
                         </h1>
@@ -86,13 +85,21 @@
                                 <div class="block-title">
                                     <strong><span>&nbsp;</span></strong>
                                 </div>
-                                
+
                             </div>
                             <div class="clear"></div>
                             <div class="block-cart-header">
                                 <h3>Mi carrito</h3>
                                 <div class="block-content">
-                                    <p class="empty"><a href="http://livedemo00.template-help.com/magento_39583/checkout/cart/"><strong>0</strong> (items)</a></p>
+                                    <?php
+                                    $cantItem = count($this->carrito);
+                                if(is_array($this->carrito) && $cantItem>0){ ?>
+                                    <p class="empty"><a href="/carrito-compras"><strong><?php echo $cantItem; ?></strong> (artículos)</a></p>
+                                    <?php } else{
+                                        ?>
+                                    <p class="empty"><a href="/carrito-compras"><strong>0</strong> (artículos)</a></p>
+                                        <?php
+                                    }?>
                                 </div>
                             </div>
                             <p class="welcome-msg">Bienvenidos a nuestra tienda en línea!</p>			
@@ -115,25 +122,8 @@
                                     </script>
                                 </div>
                             </form>
-                            <?php echo 
-                            $this->navigation()->menu()->render();?>
-<!--                            <ul class="links">
-                                <li class="first">
-                                    <a href="http://livedemo00.template-help.com/magento_39583/customer/account/" title="My Account">My Account</a>
-                                </li>
-                                <li>
-                                    <a href="http://livedemo00.template-help.com/magento_39583/wishlist/" title="My Wishlist">My Wishlist</a>
-                                </li>
-                                <li>
-                                    <a href="http://livedemo00.template-help.com/magento_39583/checkout/cart/" title="My Cart" class="top-link-cart">My Cart</a>
-                                </li>
-                                <li>
-                                    <a href="http://livedemo00.template-help.com/magento_39583/checkout/" title="Checkout" class="top-link-checkout">Checkout</a>
-                                </li>
-                                <li class=" last">
-                                    <a href="http://livedemo00.template-help.com/magento_39583/customer/account/login/" title="Log In">Log In</a>
-                                </li>
-                            </ul>-->
+                            <?php echo
+                            $this->navigation()->menu()->render(); ?>
                         </div>
                     </div>
                 </div>
@@ -152,74 +142,76 @@
                 </noscript>
                 <div class="main-container col3-layout">
                     <div class="breadcrumbs">
-                    <?php if($this->breadcrumbs==''){
-                        echo '<div class="breadcrumb">Estas en: <a href="'.$this->baseUrl().'/"> Inicio </a> &raquo; ' . $this->navigation()
-                                ->breadcrumbs()
-                                ->setMinDepth(0)
-                                ->setLinkLast(true)
-                                ->setSeparator(" &raquo; " . PHP_EOL) . '</div><p>';
-                    }else{
-                        echo '<div class="breadcrumb">Estas en: <a href="'.$this->baseUrl().'/"> Inicio </a> &raquo; ' .
-                                $this->breadcrumbs . '</div><p>';
-                    } ?>
-                        </div>
-                 
+                        <?php
+                        if ($this->breadcrumbs == '') {
+                            echo '<div class="breadcrumb">Estas en: <a href="' . $this->baseUrl() . '/"> Inicio </a> &raquo; ' . $this->navigation()
+                                    ->breadcrumbs()
+                                    ->setMinDepth(0)
+                                    ->setLinkLast(true)
+                                    ->setSeparator(" &raquo; " . PHP_EOL) . '</div><p>';
+                        } else {
+                            echo '<div class="breadcrumb">Estas en: <a href="' . $this->baseUrl() . '/"> Inicio </a> &raquo; ' .
+                            $this->breadcrumbs . '</div><p>';
+                        }
+                        ?>
+                    </div>
+
                     <div class="main">
                         <div class="col-wrapper">
                             <div class="col-main">
-                                <?php echo $this->layout()->content ?>
+<?php echo $this->layout()->content ?>
                             </div>
                             <div class="col-left sidebar"><div class="nav-container">
                                     <div class="category-box-title">Categorias</div>
                                     <div class="navbar2">
-    <ul id="nav">
-        <?php
-        $string = '';
-        foreach ($this->listaCategoriasNavigator as $valueIndex=>$index) {
-            $class ='';
-            $class.='level0 nav-'.($valueIndex+1).' level-top';
+                                        <ul id="nav">
+                                            <?php
+                                            $string = '';
+                                            foreach ($this->listaCategoriasNavigator as $valueIndex => $index) {
+                                                $class = '';
+                                                $class.='level0 nav-' . ($valueIndex + 1) . ' level-top';
 //            if ($this->getPathInfo == $index['uri']) {
 //                //$class.= 'level0 nav-1 level-top first';
 //            } else {
 //                //$class.= '<li class="level0 nav-1 level-top first">';
 //            }
-            if($valueIndex==0){
-                $class.=' first';
-            }
-            if (isset($index['pages']) && !empty($index['pages'])) {
-                $class.=' parent items';
-                $string.= '<li class="'.$class.'">';
-                $string.= '<a href="' . $index['uri'] . '" ><span>' . $index['label'] . '</span></a>';
-                $string.= '<ul class="level0">';
-                foreach ($index['pages'] as $valueIndex2=>$index2) {
+                                                if ($valueIndex == 0) {
+                                                    $class.=' first';
+                                                }
+                                                if (isset($index['pages']) && !empty($index['pages'])) {
+                                                    $class.=' parent items';
+                                                    $string.= '<li class="' . $class . '">';
+                                                    $string.= '<a href="' . $index['uri'] . '" ><span>' . $index['label'] . '</span></a>';
+                                                    $string.= '<ul class="level0">';
+                                                    foreach ($index['pages'] as $valueIndex2 => $index2) {
 //                    if ($this->getPathInfo == $index2['uri']) {
 //                        $string.= '<li class="active">';
 //                    } else {
 //                        $string.= '<li>';
 //                    }
-                    $class2 ='';
-                    $class2.=' level1 nav-'.($valueIndex+1).'-'.($valueIndex2+1).' ';
-                    if ($valueIndex2==0) {
-                        $class2 =' first ';
-                    } 
-                    $string.= '<li class="'.$class2.'">';
-                    $string.= '<a href="' . $index2['uri'] . '" ><span>' . $index2['label'] . '</span></a>';
-                    $string.= '</li>';
-                }
-                $string.= '</ul>';
-            }else{
-                $string.= '<li class="'.$class.'">';
-                $string.= '<a href="' . $index['uri'] . '" ><span>' . $index['label'] . '</span></a>';
-            }
-            $string.= '</li>';
-        }
-        echo $string;
-        ?>
-    </ul>
-</div>
-                                    
-                                    
-                                    
+                                                        $class2 = '';
+                                                        $class2.=' level1 nav-' . ($valueIndex + 1) . '-' . ($valueIndex2 + 1) . ' ';
+                                                        if ($valueIndex2 == 0) {
+                                                            $class2 = ' first ';
+                                                        }
+                                                        $string.= '<li class="' . $class2 . '">';
+                                                        $string.= '<a href="' . $index2['uri'] . '" ><span>' . $index2['label'] . '</span></a>';
+                                                        $string.= '</li>';
+                                                    }
+                                                    $string.= '</ul>';
+                                                } else {
+                                                    $string.= '<li class="' . $class . '">';
+                                                    $string.= '<a href="' . $index['uri'] . '" ><span>' . $index['label'] . '</span></a>';
+                                                }
+                                                $string.= '</li>';
+                                            }
+                                            echo $string;
+                                            ?>
+                                        </ul>
+                                    </div>
+
+
+
 
                                 </div>
 
@@ -239,9 +231,52 @@
                                 <div class="block-title">
                                     <strong><span>Mi Carrito</span></strong>
                                 </div>
+                                <?php
+                                if(is_array($this->carrito) && $cantItem>0){ ?>
                                 <div class="block-content">
-                                    <p class="empty">You have no items in your shopping cart.</p>
+                                    <div class="summary">
+                                        <p class="amount">Hay <a href="/carrito-compras"><?php echo $cantItem ?> artículos</a> en su carrito.</p>
+                                        <p class="subtotal">
+                                            <span class="label">Cart Subtotal:</span> <span class="price">$8,900.59</span>                                                </p>
+                                    </div>
+                                    <div class="actions">
+                                        <button type="button" title="Checkout" class="button" onclick="setLocation('http://livedemo00.template-help.com/magento_39583/checkout/onepage/')"><span><span>Checkout</span></span></button>
+                                    </div>
+                                    <p class="block-subtitle">Recently added item(s)</p>
+                                    <ol id="cart-sidebar" class="mini-products-list">
+                                        <?php foreach($this->carrito as $index=>$valor): ?>
+                                        <li class="item">
+                                            <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $valor['Slug'] ?>" 
+                                               title="<?php echo $valor['Nombre'] ?>" 
+                                               class="product-image">
+                                                <img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/imagen-producto/<?php echo $valor['Imagen'] ?>?<?php echo rand(0, 1000); ?>" 
+                                                     width="50" 
+                                                     height="50" 
+                                                     alt="<?php echo $valor['Nombre'] ?>">
+                                            </a>
+                                            <div class="product-details">
+                                                <a href="/carrito-compras/eliminar-producto/indice/<?php echo $index ?>" title="Eliminar este Producto" onclick="return confirm('Está seguro que desea eliminar este elemento del carrito de compra?');" class="btn-remove">Remove This Item</a>
+                                                <p class="product-name"><a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $valor['Slug'] ?>"><?php echo $valor['Nombre'] ?></a></p>
+                                                <strong><?php echo $valor['cantidad'] ?></strong> x
+                                                <span class="price">
+                                                    <?php if ($valor['FlagOferta'] == 1) { 
+                                                        echo $valor['PrecioOferta'];
+                                                        } else { 
+                                                            echo $valor['PrecioVenta'];
+                                                        } ?>
+                                                </span>                    
+                                            </div>
+                                        </li>
+                                        <?php endforeach; ?>
+                                        
+                                    </ol>
+                                    <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
                                 </div>
+                                <?php } else { ?>
+                                <div class="block-content">
+                                    <p class="empty">No tiene artículos en su carrito de compras.</p>
+                                </div>
+                                <?php } ?>
                             </div>
                             <div class="block specials">
                                 <div class="block-title">
@@ -249,24 +284,26 @@
                                 </div>
                                 <div class="block-content">
                                     <ul>
-                                        <?php foreach ($this->ofertasRecienteRandon as $index): ?>
-                                        <li>
-                                            <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="<?php echo $index['Nombre'] ?>" class="product-image"><img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/imagen-producto/<?php echo $index['Imagen'] ?>?<?php echo rand(0, 1000); ?>" width="115" height="80" alt="<?php echo $index['Nombre'] ?>" /></a>
-                                            <div class="product-info">
-                                                <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="<?php echo $index['Nombre'] ?>"  class="product-name"><?php echo $index['Nombre'] ?></a>
-                                                <span class="price">S/. <?php echo $index['PrecioVenta'] ?></span>
-                                                <?php if ($index['FlagOferta'] == 1) { ?>
-                                                <span class="old-price">S/. <?php echo $index['PrecioOferta'] ?></span>
-                                                <?php } ?>
-                                                <div class="clear" ></div>
-                                                
-                                                <button type="button" class="button" onclick="setLocation('/productos/detalle-producto/<?php echo $index['Slug'] ?>')"><span><span>Detalle</span></span></button>
-                                            </div>
-                                        </li>
-                                        <?php endforeach; ?>
-                                        
-                                        
-                                        
+<?php foreach ($this->ofertasRecienteRandon as $index): ?>
+                                            <li>
+                                                <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="<?php echo $index['Nombre'] ?>" class="product-image"><img src="<?php echo CST_Server_ServerDinamic::getUrl(); ?>/imagen-producto/<?php echo $index['Imagen'] ?>?<?php echo rand(0, 1000); ?>" width="115" height="80" alt="<?php echo $index['Nombre'] ?>" /></a>
+                                                <div class="product-info">
+                                                    <a href="<?php echo $this->baseUrl(); ?>/productos/detalle-producto/<?php echo $index['Slug'] ?>" title="<?php echo $index['Nombre'] ?>"  class="product-name"><?php echo $index['Nombre'] ?></a>
+
+                                                    <?php if ($index['FlagOferta'] == 1) { ?>
+                                                        <span class="price">S/. <?php echo $index['PrecioOferta'] ?></span>
+                                                        <span class="old-price">S/. <?php echo $index['PrecioVenta'] ?></span>
+                                                    <?php } else { ?>
+                                                        <span class="price">S/. <?php echo $index['PrecioVenta'] ?></span>
+    <?php } ?>
+                                                    <div class="clear" ></div>
+                                                    <button type="button" class="button" onclick="setLocation('/productos/detalle-producto/<?php echo $index['Slug'] ?>')"><span><span>Detalle</span></span></button>
+                                                </div>
+                                            </li>
+<?php endforeach; ?>
+
+
+
                                     </ul>
                                 </div>
                             </div></div>

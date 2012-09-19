@@ -92,7 +92,15 @@
                             <div class="block-cart-header">
                                 <h3>Mi carrito</h3>
                                 <div class="block-content">
-                                    <p class="empty"><a href="http://livedemo00.template-help.com/magento_39583/checkout/cart/"><strong>0</strong> (items)</a></p>
+                                    <?php
+                                    $cantItem = count($this->carrito);
+                                if(is_array($this->carrito) && $cantItem>0){ ?>
+                                    <p class="empty"><a href="/carrito-compras"><strong><?php echo $cantItem; ?></strong> (artículos)</a></p>
+                                    <?php } else{
+                                        ?>
+                                    <p class="empty"><a href="/carrito-compras"><strong>0</strong> (artículos)</a></p>
+                                        <?php
+                                    }?>
                                 </div>
                             </div>
                             <p class="welcome-msg">Bienvenidos a nuestra tienda en línea!</p>			

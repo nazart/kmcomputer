@@ -19,6 +19,9 @@ class CST_Controller_ActionDefault extends CST_Controller_Action {
         parent::init();
         $this->_identity = Zend_Auth::getInstance()->getIdentity();
         $this->view->identity = $this->_identity;
+        if(isset($this->_session->carritoCompras))
+        $this->view->carrito = $this->_session->carritoCompras;
+        
         $productos = new Application_Entity_Producto();
         if (!isset($this->_identity) && empty($this->_identity)) {
             $formLogin = new Application_Form_FormularioLogin();

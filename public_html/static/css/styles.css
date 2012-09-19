@@ -984,6 +984,7 @@ tr.summary-details-excluded { font-style:italic; }
 
 .price-box {}
 .price-box .price { font-weight:bold; }
+.price-box .old-price { text-decoration:line-through; color:#161616; padding-left:8px; }
 
 /* Regular price */
 .regular-price {}

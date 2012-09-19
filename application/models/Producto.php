@@ -102,6 +102,7 @@ class Application_Model_Producto {
             'pr.Nombre',
             'pr.Imagen',
             'pr.Descripcion',
+            'pr.Detalle',
             'pr.PrecioVenta',
             'pr.FlagOferta',
             'pr.PrecioOferta',
@@ -188,7 +189,7 @@ class Application_Model_Producto {
                         'or.IdProducto = pr.IdProducto')
                 ->where('pr.fla=?',1)
                 ->order('RAND()')
-                ->limit(4)
+                ->limit(3)
                 ->query()
                 ->fetchAll();
                 

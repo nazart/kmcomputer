@@ -21,7 +21,7 @@ class Default_CarritoComprasController extends CST_Controller_ActionDefault {
 
     public function indexAction() {
         $this->view->listaCarrito = $this->_session->carritoCompras;
-        
+
         $this->view->breadCrumbs = '<a href="/">Inicio</a>  &raquo; <a href="/carrito-compras">Carrito de compras</a>';
     }
 
@@ -36,7 +36,7 @@ class Default_CarritoComprasController extends CST_Controller_ActionDefault {
                 $this->_session->carritoCompras = array();
             }
             $keys = array_keys($this->_session->carritoCompras);
-            $indice = $keys[count($keys)-1]+1;
+            $indice = $keys[count($keys) - 1] + 1;
             $indiceEncontrado = '';
             if (!empty($this->_session->carritoCompras)) {
                 foreach ($this->_session->carritoCompras as $index => $value) {
@@ -63,7 +63,11 @@ class Default_CarritoComprasController extends CST_Controller_ActionDefault {
 
     function eliminarProductoAction() {
         unset($this->_session->carritoCompras[$this->_getParam('indice')]);
-        $this->_redirect('carrito-compras');
+        if ($_SERVER['HTTP_REFERER'] != '') {
+            $this->_redirect($_SERVER['HTTP_REFERER']);
+        } else {
+            $this->_redirect('carrito-compras');
+        }
     }
 
     function aumentarProductoAction() {

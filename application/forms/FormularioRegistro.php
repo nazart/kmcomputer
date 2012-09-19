@@ -40,7 +40,7 @@ class Application_Form_FormularioRegistro extends CST_Form {
                         'timeout' => 300,
                         'font' => APPLICATION_PATH . "/../var/fonts/FreeMonoBold.ttf",
                         'imgurl' => '/imagenCaptcha',
-                        'imgDir' => APPLICATION_PATH . '/../public/imagenCaptcha/',
+                        'imgDir' => APPLICATION_PATH . '/../public_html/imagenCaptcha/',
                         )));
         $this->addElement($captcha);
         $this->addElement(new Zend_Form_Element_Submit('enviar',
