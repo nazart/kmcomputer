@@ -17,6 +17,7 @@ class Default_CarritoComprasController extends CST_Controller_ActionDefault {
         parent::init();
         /* Initialize action controller here */
         Zend_Layout::getMvcInstance()->setLayout('layout-simple');
+        
     }
 
     public function indexAction() {
@@ -58,7 +59,7 @@ class Default_CarritoComprasController extends CST_Controller_ActionDefault {
             }
         }
 
-        $this->_redirect('carrito-compras');
+        $this->_redirect('/carrito-compras');
     }
 
     function eliminarProductoAction() {
@@ -83,6 +84,41 @@ class Default_CarritoComprasController extends CST_Controller_ActionDefault {
             $this->_redirect('carrito-compras/eliminar-producto/indice/' . $indice);
         }
         $this->_redirect('carrito-compras');
+    }
+
+    function paypalAction() {
+        if(empty($this->_identity)){
+            $this->_session->urlRedirec = 'carrito-compras/';
+            $this->_redirect('/registrate');
+        }
+        $listener = new CST_IpnListener();
+        $fc = Zend_Controller_Front::getInstance();
+        $paypalConf = $fc->getParam('bootstrap')->getOption('paypal');
+        $listener->use_sandbox = $paypalConf['useSandbox'];
+        $this->view->hostPaypal = $listener->getPaypalHost();
+        $this->view->accountPaypal = $paypalConf['account'];
+        $this->_helper->layout()->disableLayout();
+        $precio = 0;
+        foreach ($this->_session->carritoCompras as $index) {
+            $arrayProducto[] = $index['IdProducto'];
+            if ($index['FlagOferta'] == 1) {
+                $precioReal = $index['PrecioOferta'];
+            } else {
+                $precioReal = $index['PrecioVenta'];
+            }
+            $precio = $precio + $precioReal * $index['cantidad'];
+        }
+        $entityTransaccion = new Application_Entity_Transaccion();
+        $data['_idUsuario'] = $this->_identity->IdUsuario;
+        $data['_precioTransaccion'] = $precio;
+        $this->view->price = $precio;
+        $entityTransaccion->setProperties($data);
+        $this->view->transaccion = $entityTransaccion->createTransaccion();
+        $entityTransaccion->addMultipleDetalleTransaccion($arrayProducto);
+    }
+    function confirmacionPagoAction(){
+        $transaccion = new Application_Entity_Transaccion();
+        $transaccion->identifiTransaccion($this->_getParam('tr'));
     }
 
 }

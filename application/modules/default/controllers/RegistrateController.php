@@ -34,10 +34,14 @@ class Default_RegistrateController extends CST_Controller_ActionDefault {
                     $data['_estado'] = 1;
                     $entityUsuario->setProperties($data);
                     if ($entityUsuario->crearUsuario()) {
-                        if($this->autentificateUser($params['Correo'], $params['Password'])){
-                             $this->_redirect('/');
+                        if ($this->autentificateUser($params['Correo'], $params['Password'])) {
+                            if (isset($this->_session->urlRedirec) && $this->_session->urlRedirec != '') {
+                                $this->_redirect($this->_session->urlRedirec);
+                            } else {
+                                $this->_redirect('/');
+                            }
                         }
-                    }else{
+                    } else {
                         echo 'problemas de registro';
                     }
                 } catch (Exception $exc) {

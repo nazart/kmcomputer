@@ -54,7 +54,7 @@ class CST_Controller_ActionDefault extends CST_Controller_Action {
 
 
         
-        $categoria = new Application_Entity_Transaccion();
+        $categoria = new Application_Entity_Categoria();
         $listaCategorias = $categoria->listarArbolCategorias();
         
         $configNavigationArray['productos']['pages'] = $listaCategorias;

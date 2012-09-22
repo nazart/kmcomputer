@@ -32,6 +32,12 @@ class Application_Model_Producto {
     function listarProductos() {
         return $this->_modelProducto->select()->query()->fetchAll();
     }
+    
+    function getProducto($idProducto){
+        return $this->_modelProducto->select()
+                ->where('IdProducto =?', $idProducto)
+                ->query()->fetch();
+    }
 
     function buscarProductos($arraySlug='') {
         $result = $this->_modelProducto->getAdapter()

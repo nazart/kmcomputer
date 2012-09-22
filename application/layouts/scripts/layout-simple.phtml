@@ -77,18 +77,17 @@
                     <div class="container2 row">
                         <h1 class="logo">
                             <strong>Gadget online</strong>
-                            <a href="http://livedemo00.template-help.com/magento_39583/" title="Gadget online" class="logo">
+                            <a href="/" title="Gadget online" class="logo">
                                 <img src="<?php echo CST_Server_ServerStatic::getUrl(); ?>/logo.gif" alt="Gadget online"/>
                             </a>
                         </h1>
                         <div class="f-right">
                             <div class="block block-currency currency">
-                                <div class="block-title">
-                                    <strong><span>&nbsp;</span></strong>
-                                </div>
-                                
+                                <?php echo $this->formLoginHeader; ?>
+
                             </div>
                             <div class="clear"></div>
+                            
                             <div class="block-cart-header">
                                 <h3>Mi carrito</h3>
                                 <div class="block-content">
@@ -109,10 +108,10 @@
                     </div>
                     <div class="row1">
                         <div class="container">
-                            <form id="search_mini_form" action="http://livedemo00.template-help.com/magento_39583/catalogsearch/result/" method="get">
+                            <form id="search_mini_form" action="/buscar" method="get">
                                 <div class="form-search">
                                     <label for="search">Search:</label>
-                                    <input autocomplete="off" id="search" name="q" value="Buscar en toda la tienda aquí ..." class="input-text" maxlength="128" type="text"/>
+                                    <input autocomplete="off" id="search" name="search" value="Buscar en toda la tienda aquí ..." class="input-text" maxlength="128" type="text"/>
                                     <button type="submit" title="Search" class="button"><span><span>Search</span></span></button>
                                     <div style="display: none;" id="search_autocomplete" class="search-autocomplete"></div>
                                     <script type="text/javascript">
@@ -123,25 +122,8 @@
                                     </script>
                                 </div>
                             </form>
-                            <?php echo 
-                            $this->navigation()->menu()->render();?>
-<!--                            <ul class="links">
-                                <li class="first">
-                                    <a href="http://livedemo00.template-help.com/magento_39583/customer/account/" title="My Account">My Account</a>
-                                </li>
-                                <li>
-                                    <a href="http://livedemo00.template-help.com/magento_39583/wishlist/" title="My Wishlist">My Wishlist</a>
-                                </li>
-                                <li>
-                                    <a href="http://livedemo00.template-help.com/magento_39583/checkout/cart/" title="My Cart" class="top-link-cart">My Cart</a>
-                                </li>
-                                <li>
-                                    <a href="http://livedemo00.template-help.com/magento_39583/checkout/" title="Checkout" class="top-link-checkout">Checkout</a>
-                                </li>
-                                <li class=" last">
-                                    <a href="http://livedemo00.template-help.com/magento_39583/customer/account/login/" title="Log In">Log In</a>
-                                </li>
-                            </ul>-->
+                            <?php echo
+                            $this->navigation()->menu()->render(); ?>
                         </div>
                     </div>
                 </div>
